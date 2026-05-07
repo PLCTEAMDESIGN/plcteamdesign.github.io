@@ -35,7 +35,7 @@
         header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 4rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
         .logo-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
         
-        /* Hauptlogo ohne CSS-Filter für 100% ungestörte Transparenz */
+        /* Hauptlogo mit exakt 8px weißem Rahmen direkt an der geschwungenen PNG-Kontur */
         .logo-img { 
             width: 100%; 
             max-width: 1100px; 
@@ -45,7 +45,12 @@
             padding: 0; 
             box-sizing: border-box; 
             background: transparent; /* Verhindert weiße Kästen - bleibt 100% transparent */
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
+            
+            /* Spezial-Filter legt die 8px weiße Konturlinie exakt um die transparenten Formen: */
+            filter: drop-shadow(8px 0px 0px #ffffff) 
+                    drop-shadow(-8px 0px 0px #ffffff) 
+                    drop-shadow(0px 8px 0px #ffffff) 
+                    drop-shadow(0px -8px 0px #ffffff);
         }
         
         /* Großer, lesbarer Slogan unter dem Logo */
@@ -143,6 +148,7 @@
 
     <header>
         <div class="logo-container">
+            <!-- LOGO MIT TRANSPARENTEM HINTERGRUND UND KONTUR-FILTER -->
             <img src="logo.png" alt="PLC TEAM DESIGN Hauptlogo" class="logo-img">
             <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
         </div>
