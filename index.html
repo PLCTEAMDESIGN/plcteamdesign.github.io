@@ -21,30 +21,29 @@
 
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #2d2d2d; background-color: var(--light-bg); scroll-behavior: smooth; }
         
-        /* Bereinigte Profi-Navigation: Shop-Logo strikt GANZ LINKS */
+        /* Navigation */
         .top-nav { background-color: var(--deep-background); border-bottom: 2px solid var(--gold-accent); padding: 0.6rem 1.5rem; position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: flex-start; align-items: center; gap: 1.5rem; }
         .nav-link { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
         .nav-link:hover { color: var(--gold-accent); }
         
-        /* Shop-Element ganz links platziert */
         .nav-shop-container { display: flex; align-items: center; gap: 0.5rem; border: 1px solid #ff9f1c; padding: 0.3rem 0.8rem; border-radius: 4px; background-color: rgba(255, 159, 28, 0.05); transition: all 0.2s; margin-right: auto; }
         .nav-shop-logo { height: 24px; width: auto; border-radius: 2px; }
         .nav-shop-link { color: #ff9f1c !important; text-decoration: none; font-weight: 700; }
         .nav-shop-container:hover { background-color: #ff9f1c; }
         .nav-shop-container:hover .nav-shop-link { color: var(--deep-background) !important; }
 
-        /* Zentrierter Header (Umschließt das Logo sauber nach Zeichnung 1 & 2) */
+        /* HEADER: Logo auf exakt 1100px maximale Breite vergrößert */
         header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 3.5rem 1rem 3rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
-        .logo-container { max-width: 700px; margin: 0 auto; padding: 0 1rem; }
-        .logo-img { width: 100%; max-width: 580px; height: auto; display: block; margin: 0 auto 1.5rem auto; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25)); }
-        header p { margin: 0 auto; font-size: 1.25rem; color: #f2e6ff; font-weight: 300; max-width: 750px; line-height: 1.4; }
+        .logo-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
+        .logo-img { width: 100%; max-width: 1100px; height: auto; display: block; margin: 0 auto 1.5rem auto; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25)); }
+        header p { margin: 0 auto; font-size: 1.25rem; color: #f2e6ff; font-weight: 300; max-width: 850px; line-height: 1.4; }
         
         .container { max-width: 1100px; margin: 2rem auto; padding: 0 1.5rem; box-sizing: border-box; }
         .status-area { text-align: left; margin-bottom: 2.5rem; }
         .status-badge { display: inline-block; background-color: #27ae60; color: white; padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: bold; font-size: 0.95rem; box-shadow: 0 4px 6px rgba(39,174,96,0.2); }
         
-        /* Leistungen Grid linksbündig (Punkt 3) */
+        /* Leistungen Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
         .card { background: white; padding: 1.8rem; border-radius: 12px; box-shadow: var(--card-shadow); border-top: 5px solid var(--primary-purple); text-align: left; transition: transform 0.3s; }
         .card:hover { transform: translateY(-5px); }
@@ -56,7 +55,7 @@
         .btn-shop { display: inline-block; background: #ff9f1c; color: var(--deep-background); padding: 1rem 2.5rem; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 6px 15px rgba(255, 159, 28, 0.25); transition: all 0.2s; border: 2px solid transparent; }
         .btn-shop:hover { background: transparent; color: var(--primary-purple); border-color: var(--primary-purple); transform: translateY(-2px); }
         
-        /* Projekte Bereich */
+        /* Projekte */
         .projects-section { margin-top: 5rem; text-align: left; }
         .projects-section h2 { color: var(--dark-purple); font-size: 2rem; margin-bottom: 2.5rem; position: relative; padding-bottom: 0.5rem; }
         .projects-section h2::after { content: ''; width: 60px; height: 3px; background-color: var(--gold-accent); position: absolute; bottom: 0; left: 0; }
@@ -75,7 +74,7 @@
         .contact-section h3 { margin-top: 0; font-size: 1.6rem; color: #ffffff; }
         .contact-section a { color: #ff9f1c; text-decoration: underline; font-weight: bold; }
         
-        /* Footer linksbündig mit echten ---- Linien */
+        /* Footer */
         footer { background: var(--deep-background); color: #c2b4d6; padding: 4rem 1.5rem; margin-top: 6rem; border-top: 4px solid var(--gold-accent); }
         .footer-container { max-width: 900px; margin: 0 auto; text-align: left; }
         
@@ -95,7 +94,6 @@
         
         .footer-copyright { margin-top: 4rem; text-align: left; font-size: 0.85rem; color: #7c6894; }
 
-        /* Spezifische Handy-Optimierung für das zentrierte Logo */
         @media (max-width: 600px) {
             header { padding: 2.5rem 1rem 2rem 1rem; }
             .logo-img { max-width: 100%; }
@@ -107,7 +105,6 @@
 </head>
 <body>
 
-    <!-- Navigationsband: Shop-Logo & Link sitzen jetzt exakt ganz links -->
     <nav class="top-nav">
         <div class="nav-container">
             <div class="nav-shop-container">
@@ -120,7 +117,6 @@
         </div>
     </nav>
 
-    <!-- HEADER: Hauptlogo zentriert, sauber umschlossen und mit goldener Linie abgeschlossen -->
     <header>
         <div class="logo-container">
             <img src="logo.png" alt="PLC TEAM DESIGN Hauptlogo" class="logo-img">
@@ -133,7 +129,6 @@
             <div class="status-badge">Status: Aktuell erreichbar</div>
         </div>
         
-        <!-- Linksbündiges Service-Grid nach Wunschzeichnung -->
         <div class="grid">
             <div class="card">
                 <h3>Individuelles Design</h3>
