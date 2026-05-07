@@ -10,9 +10,9 @@
     
     <style>
         body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #333; background-color: #f8f5fa; }
-        header { background: linear-gradient(135deg, #5b108e, #8a19d6); color: white; padding: 3rem 1rem; text-align: center; border-bottom: 4px solid #d4af37; }
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
-        header p { margin: 1rem 0 0 0; font-size: 1.2rem; color: #f2e6ff; }
+        header { background: linear-gradient(135deg, #5b108e, #8a19d6); color: white; padding: 2.5rem 1rem; text-align: center; border-bottom: 4px solid #d4af37; }
+        .logo-img { max-width: 300px; height: auto; display: block; margin: 0 auto 1rem auto; }
+        header p { margin: 0; font-size: 1.2rem; color: #f2e6ff; }
         .container { max-width: 1000px; margin: 2rem auto; padding: 0 1rem; }
         .status-badge { display: inline-block; background-color: #27ae60; color: white; padding: 0.3rem 1rem; border-radius: 20px; font-weight: bold; margin-bottom: 2rem; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
@@ -21,15 +21,14 @@
         .price-tag { display: inline-block; background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 0.9rem; }
         .small-law { font-size: 0.8rem; color: #7f8c8d; display: block; margin-top: 0.5rem; line-height: 1.3; }
         
-        /* PROJEKT SEKTION MIT BILDERN */
+        /* PROJEKT SEKTION OHNE ERKLÄRUNGSTEXT */
         .projects-section { margin-top: 4rem; text-align: left; }
         .projects-section h2 { color: #5b108e; border-bottom: 2px solid #8a19d6; padding-bottom: 0.5rem; text-align: center; }
-        .project-box { background: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.04); border-left: 5px solid #8a19d6; display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
-        .project-info { flex: 2; min-width: 250px; }
-        .project-box h4 { margin: 0 0 0.5rem 0; color: #8a19d6; font-size: 1.2rem; }
-        .project-box p { margin: 0; color: #555; }
-        .project-img-container { flex: 1; min-width: 150px; max-width: 250px; text-align: center; }
-        .project-img { width: 100%; height: auto; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); border: 1px solid #ddd; background-color: #fafafa; }
+        .project-box { background: white; padding: 1rem 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.04); border-left: 5px solid #8a19d6; display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; }
+        .project-info { flex: 1; }
+        .project-box h4 { margin: 0; color: #8a19d6; font-size: 1.2rem; }
+        .project-img-container { width: 120px; height: 120px; text-align: center; flex-shrink: 0; }
+        .project-img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.15); border: 1px solid #ddd; background-color: #fafafa; }
         
         .contact-section { background: #5b108e; color: white; padding: 2rem; border-radius: 8px; margin-top: 3rem; text-align: center; border: 1px solid #d4af37; }
         .contact-section a { color: #f2e6ff; text-decoration: none; font-weight: bold; }
@@ -46,7 +45,8 @@
 <body>
 
     <header>
-        <h1>PLC TEAM DESIGN</h1>
+        <!-- LOGO ALS PNG INTEGRATION -->
+        <img src="logo.png" alt="PLC Team Design Logo" class="logo-img">
         <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
     </header>
 
@@ -79,7 +79,7 @@
 
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="btn-shop">🛍️ Meinen Spreadshop besuchen</a>
 
-        <!-- HIER SIND IHRE PROJEKTE MIT BILDERN -->
+        <!-- PROJEKTE OHNE TEXT -->
         <div class="projects-section">
             <h2>PROJEKTE:</h2>
 
@@ -87,10 +87,9 @@
             <div class="project-box">
                 <div class="project-info">
                     <h4>Projekt 1: Technisches 3D-Bauteil</h4>
-                    <p>Beschreibung Ihres ersten Objekts. Hier können Sie Details zu Materialien, dem Einsatzzweck oder der CAD-Konstruktion eintragen.</p>
                 </div>
                 <div class="project-img-container">
-                    <img src="projekt1.jpg" alt="Projekt 1" class="project-img" onerror="this.src='placeholder.com...'">
+                    <img src="projekt1.jpg" alt="Projekt 1" class="project-img">
                 </div>
             </div>
 
@@ -98,10 +97,9 @@
             <div class="project-box">
                 <div class="project-info">
                     <h4>Projekt 2: Prototypen-Entwicklung</h4>
-                    <p>Beschreibung Ihres zweiten Projekts. Erklären Sie Ihren Kunden hier kurz, wie Sie von der Idee zum fertigen 3D-Modell gelangt sind.</p>
                 </div>
                 <div class="project-img-container">
-                    <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.src='placeholder.com...'">
+                    <img src="projekt2.jpg" alt="Projekt 2" class="project-img">
                 </div>
             </div>
 
