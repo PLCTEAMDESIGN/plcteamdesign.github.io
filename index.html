@@ -31,30 +31,24 @@
         .nav-shop-link { color: #ff9f1c !important; font-weight: 800; font-size: 1.2rem; margin-left: auto; border: 2px solid #ff9f1c; padding: 0.5rem 1.2rem; border-radius: 4px; transition: all 0.2s; }
         .nav-shop-link:hover { background-color: #ff9f1c; color: #ffffff !important; }
 
-        /* HEADER: Lila Hintergrund bleibt vollständig erhalten */
-        header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 4rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
+        /* HEADER: Rein weißer Hintergrund schützt die PNG-Transparenz perfekt */
+        header { background: #ffffff; color: var(--text-dark); padding: 4rem 1rem 3rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
         .logo-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
         
-        /* Hauptlogo mit exakt 8px weißem Rahmen direkt an der geschwungenen PNG-Kontur */
+        /* Hauptlogo mit umlaufendem weißen Schutzabstand */
         .logo-img { 
             width: 100%; 
             max-width: 1100px; 
             height: auto; 
             display: block; 
             margin: 0 auto 2rem auto; 
-            padding: 0; 
+            padding: 8px; /* Der exakte 8-Pixel-Rand um das Logo */
             box-sizing: border-box; 
-            background: transparent; /* Verhindert weiße Kästen - bleibt 100% transparent */
-            
-            /* Spezial-Filter legt die 8px weiße Konturlinie exakt um die transparenten Formen: */
-            filter: drop-shadow(8px 0px 0px #ffffff) 
-                    drop-shadow(-8px 0px 0px #ffffff) 
-                    drop-shadow(0px 8px 0px #ffffff) 
-                    drop-shadow(0px -8px 0px #ffffff);
+            background: #ffffff; /* Weißer Rahmen schmilzt unsichtbar in den weißen Hintergrund */
         }
         
-        /* Großer, lesbarer Slogan unter dem Logo */
-        header p { margin: 0 auto; font-size: 1.6rem; color: #ffffff; font-weight: 600; max-width: 900px; line-height: 1.5; text-shadow: 1px 1px 4px rgba(0,0,0,0.4); }
+        /* Großer, lesbarer Slogan unter dem Logo in Firmen-Lila */
+        header p { margin: 0 auto; font-size: 1.6rem; color: var(--dark-purple); font-weight: 600; max-width: 900px; line-height: 1.5; }
         
         .container { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; box-sizing: border-box; }
         
@@ -148,7 +142,7 @@
 
     <header>
         <div class="logo-container">
-            <!-- LOGO MIT TRANSPARENTEM HINTERGRUND UND KONTUR-FILTER -->
+            <!-- LOGO LIEGT JETZT REIN TRANSPARENT AUF WEISS -->
             <img src="logo.png" alt="PLC TEAM DESIGN Hauptlogo" class="logo-img">
             <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
         </div>
@@ -285,7 +279,7 @@
                 <div class="accordion-content">
                     <div class="legal-text">
                         <p><strong>1. Allgemeine Hinweise und Pflichtinformationen</strong><br>
-                        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO).</p>
+                        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. We behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO).</p>
                         <p><strong>2. Datenerfassung auf unserer Website</strong><br>
                         Die Datenverarbeitung erfolgt technisch über den Infrastruktur-Anbieter GitHub Inc. (USA). Server-Log-Dateien sind für den sicheren Betrieb der Webseite technisch absolut notwendig.</p>
                         <p><strong>3. Ihre Rechte</strong><br>
