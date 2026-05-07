@@ -31,21 +31,32 @@
         .nav-shop-link { color: #ff9f1c !important; font-weight: 800; font-size: 1.2rem; margin-left: auto; border: 2px solid #ff9f1c; padding: 0.5rem 1.2rem; border-radius: 4px; transition: all 0.2s; }
         .nav-shop-link:hover { background-color: #ff9f1c; color: #ffffff !important; }
 
-        /* Header mit 8px Transparenz-Schutz für das Logo */
-        header { background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); color: white; padding: 4rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
+        /* HEADER: Rein weißer Hintergrund schützt die PNG-Transparenz perfekt */
+        header { background: #ffffff; color: var(--text-dark); padding: 4rem 1rem 3rem 1rem; text-align: center; border-bottom: 5px solid var(--gold-accent); }
         .logo-container { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
-        .logo-img { width: 100%; max-width: 1100px; height: auto; display: block; margin: 0 auto 2rem auto; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25)); padding: 8px; box-sizing: border-box; }
         
-        /* Vergrößerter Text unter dem Hauptlogo */
-        header p { margin: 0 auto; font-size: 1.6rem; color: #ffffff; font-weight: 600; max-width: 900px; line-height: 1.5; text-shadow: 1px 1px 4px rgba(0,0,0,0.4); }
+        /* Hauptlogo mit umlaufendem weißen Schutzabstand */
+        .logo-img { 
+            width: 100%; 
+            max-width: 1100px; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto 2rem auto; 
+            padding: 8px; /* Der exakte 8-Pixel-Rand um das Logo */
+            box-sizing: border-box; 
+            background: #ffffff; /* Weißer Rahmen schmilzt unsichtbar in den weißen Hintergrund */
+        }
+        
+        /* Großer, lesbarer Slogan unter dem Logo in Firmen-Lila */
+        header p { margin: 0 auto; font-size: 1.6rem; color: var(--dark-purple); font-weight: 600; max-width: 900px; line-height: 1.5; }
         
         .container { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; box-sizing: border-box; }
         
-        /* Massiv vergrößerter roter Sektionsbereich für Handys */
+        /* Sektionsbereich Design Dienstleistungen */
         .section-title { font-size: 3rem; font-weight: 800; color: var(--text-dark); margin-bottom: 0.5rem; text-align: left; line-height: 1.2; }
         .section-subtitle { font-size: 1.4rem; color: #555555; margin-bottom: 3.5rem; text-align: left; font-weight: 500; }
 
-        /* Horizontaler Karten-Bereich */
+        /* Horizontaler Karten-Bereich im Körber-Stil */
         .horizontal-scroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
         
         .koerber-card { background: #f9f9f9; border-radius: 4px; overflow: hidden; box-shadow: var(--card-shadow); transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: center; min-height: 400px; position: relative; border-top: 4px solid transparent; }
@@ -131,7 +142,7 @@
 
     <header>
         <div class="logo-container">
-            <!-- HAUPTLOGO MIT 8PT BACKGROUND SCHUTZABSTAND -->
+            <!-- LOGO LIEGT JETZT REIN TRANSPARENT AUF WEISS -->
             <img src="logo.png" alt="PLC TEAM DESIGN Hauptlogo" class="logo-img">
             <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
         </div>
@@ -268,7 +279,7 @@
                 <div class="accordion-content">
                     <div class="legal-text">
                         <p><strong>1. Allgemeine Hinweise und Pflichtinformationen</strong><br>
-                        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO).</p>
+                        Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. We behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften (DSGVO).</p>
                         <p><strong>2. Datenerfassung auf unserer Website</strong><br>
                         Die Datenverarbeitung erfolgt technisch über den Infrastruktur-Anbieter GitHub Inc. (USA). Server-Log-Dateien sind für den sicheren Betrieb der Webseite technisch absolut notwendig.</p>
                         <p><strong>3. Ihre Rechte</strong><br>
