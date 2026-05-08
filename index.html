@@ -30,12 +30,12 @@
             overflow-x: hidden; 
         } 
         
-        /* LINKER RANDBEREICH: Auf reines Weiß geformt wie im Screenshot gewünscht */
+        /* LINKER RANDBEREICH: Reines Weiß im Hintergrund */
         .sidebar-nav { 
             width: 250px; 
             height: 100vh; 
-            background-color: #ffffff; /* Gesamte Fläche des roten Kringels auf Weiß geändert */
-            border-right: 6px solid var(--gold-accent); 
+            background-color: #ffffff !important; 
+            border-right: 6px solid var(--gold-accent) !important; 
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
             position: fixed; 
             top: 0; 
@@ -47,29 +47,29 @@
             z-index: 1000; 
         } 
         
-        /* WEISSER KASTEN FÜR LOGO + TEXT MIT GOLDENEM RAND */
+        /* WEISSER KASTEN FÜR LOGO + TEXT MIT ERZWUNGENEM GOLDENEM RAND */
         .logo-box {
-            background: #ffffff; 
+            background: #ffffff !important; 
             padding: 0.8rem 0.4rem;
             margin-bottom: 1.5rem;
-            border: 2px solid var(--gold-accent); /* Edler Goldrand */
-            border-radius: 4px;
+            border: 3px solid var(--gold-accent) !important; /* Dickerer Goldrand */
+            border-radius: 4px !important;
             display: flex;
             flex-direction: column; 
             align-items: center; 
             justify-content: center;
             box-sizing: border-box;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
         
-        /* Hover-Effekt für den Shop-Kasten */
+        /* Hover-Verfärbung in das originale Banner-Lila */
         .logo-box:hover {
-            background-color: var(--primary-purple);
-            border-color: var(--gold-accent);
+            background-color: var(--primary-purple) !important;
         }
         .logo-box:hover .shop-plus,
         .logo-box:hover .shop-text {
-            color: #ffffff;
+            color: #ffffff !important;
         }
 
         .sidebar-logo {
@@ -100,28 +100,27 @@
             transition: color 0.3s ease;
         }
 
-        /* WEISSE SCHALTFLÄCHEN MIT GOLDENEM RAND & LILA HOVER-EFFEKT */
+        /* SCHALTFLÄCHEN MIT GARANTIERTEM GOLDENEM RAND */
         .sidebar-nav a.nav-btn {
-            display: block;
-            background: #ffffff; 
-            color: var(--text-dark);
-            text-align: center; 
-            padding: 0.7rem;
-            margin-bottom: 1rem;
-            text-decoration: none;
-            font-weight: bold;
-            border: 2px solid var(--gold-accent); /* Auf edlen Goldrand geändert */
-            border-radius: 4px;
-            font-size: 0.9rem;
-            box-sizing: border-box;
-            transition: all 0.3s ease; /* Ermöglicht weichen Farbübergang */
+            display: block !important;
+            background: #ffffff !important; 
+            color: var(--text-dark) !important;
+            text-align: center !important; 
+            padding: 0.7rem !important;
+            margin-bottom: 1rem !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            border: 3px solid var(--gold-accent) !important; /* Aktiviert den Goldrand dauerhaft */
+            border-radius: 4px !important;
+            font-size: 0.9rem !important;
+            box-sizing: border-box !important;
+            transition: all 0.3s ease !important; 
         }
         
-        /* Verfärbung in das originale Lila bei Berührung */
+        /* HOVER-EFFEKT: Verfärbt die Buttons bei Berührung in Banner-Lila */
         .sidebar-nav a.nav-btn:hover {
-            background-color: var(--primary-purple);
-            color: #ffffff; /* Text wechselt zu Weiß für beste Lesbarkeit */
-            border-color: var(--gold-accent);
+            background-color: var(--primary-purple) !important; /* Genau das Lila wie oben */
+            color: #ffffff !important; /* Text wechselt zu Weiß */
         }
 
         .main-content { 
@@ -203,7 +202,6 @@
             transition: all 0.3s ease; 
         } 
         
-        /* Bei Berührung verfärbt sich auch die Karte harmonisch in lila */
         .koerber-card:hover { 
             transform: translateY(-5px); 
             background-color: var(--primary-purple); 
@@ -211,7 +209,7 @@
         } 
         .koerber-card:hover h3, 
         .koerber-card:hover p {
-            color: #ffffff; /* Textinhalte wechseln zu weiß im lila Zustand */
+            color: #ffffff; 
         }
         
         .koerber-card h3 { 
@@ -402,10 +400,10 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (REIN WEISS MIT GOLD-RAND BUTTONS) --> 
+    <!-- SEITENLEISTE (REIN WEISS MIT FIXIERTEM GOLD-RAND) --> 
     <div class="sidebar-nav">
         <!-- Weißer Kasten für Logo und Shop-Text mit Goldrand -->
-        <div class="logo-box">
+        <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
