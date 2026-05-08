@@ -46,18 +46,15 @@
         }
         /* GESPERRTER BEREICH ENDE */
 
-        /* 2. HEADER & BANNER MIT 3PX-RAND UND TRANSPARENZ */
+        /* 2. GESPERRTER BEREICH: HEADER & BANNER */
         header { 
-            background: var(--dark-purple); 
+            background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); 
             color: white; padding: 4rem 1rem; text-align: center; 
             border-bottom: 5px solid var(--gold-accent); 
         }
         .logo-img { 
             width: 100%; max-width: 800px; height: auto; 
             display: block; margin: 0 auto 2rem auto; background: transparent;
-            /* Blendet den weißen Kasten des Bildes per Software aus */
-            mix-blend-mode: multiply;
-            /* Erzeugt den gewünschten 3-Pixel-Rand direkt an der Kontur */
             filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff);
         }
         /* GESPERRTER BEREICH ENDE */
@@ -166,6 +163,12 @@
         .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
         .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
         
+        @media (max-width: 768px) {
+            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; }
+            .project-featured { height: auto; overflow: visible; }
+            .project-featured-img-wrapper { width: 200px; height: 200px; }
+        }
+
         /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER MIT IMPRESSUM */
         .contact-section { 
             background: var(--dark-purple); 
@@ -187,6 +190,7 @@
         }
         .footer-container { max-width: 900px; margin: 0 auto; }
         
+        /* Klappmenü für Rechtstexte */
         .accordion-item { border-bottom: 1px solid #3c1963; }
         .accordion-trigger { 
             width: 100%; background: none; border: none; text-align: left; 
@@ -206,10 +210,14 @@
 
     <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
+        
+        <!-- GESICHERTE BEREICHE ALS CUSTOM ELEMENTS -->
         <custom-sidebar-shop></custom-sidebar-shop>
+        
         <custom-sidebar-link href="#leistungen" title="Leistungen"></custom-sidebar-link>
         <custom-sidebar-link href="#projekte" title="Projekte"></custom-sidebar-link>
         <custom-sidebar-link href="#kontakt" title="Contact"></custom-sidebar-link>
+        
     </div>
 
     <!-- HAUPTBEREICH -->
@@ -221,6 +229,7 @@
         </header>
 
         <div class="container">
+            
             <!-- Leistungen -->
             <div id="leistungen">
                 <h2 class="section-title">✨ Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da! 💫</h2>
@@ -253,23 +262,46 @@
             <!-- Projekte -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Projekte</h2>
+                <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
+
+                <!-- PROJEKT 1: DER "EYECATCHER" MIT PORTAL-EFFEKT -->
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
                         <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img" onerror="this.style.display='none'">
                     </div>
                     <div style="margin-top: 1.5rem; font-weight: 700; color: var(--text-dark); text-align: center;">Nr. 1: Technisches 3D-Bauteil</div>
                 </div>
+
                 <div class="project-grid">
-                    <div class="project-card"><div class="project-img-wrapper"><img src="projekt2.jpg" alt="Projekt 2" class="project-img"></div><div class="project-title">Projekt 2</div></div>
-                    <div class="project-card"><div class="project-img-wrapper"><img src="projekt3.jpg" alt="Projekt 3" class="project-img"></div><div class="project-title">Projekt 3</div></div>
-                    <div class="project-card"><div class="project-img-wrapper"><img src="projekt4.jpg" alt="Projekt 4" class="project-img"></div><div class="project-title">Projekt 4</div></div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-title">Projekt 2: Prototypen-Entwicklung</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-title">Projekt 3: 3D-Konstruktion</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-title">Projekt 4: Modellierung & Design</div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
-                <p>E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
+                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
             </div>
         </div>
+
+        <!-- REPARIERTER FOOTER MIT KLAPPMENÜ FÜR RECHTSTEXTE -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
@@ -296,21 +328,40 @@
         </footer>
     </div>
 
-    <!-- PROGRAMMIER-LOGIK -->
+    <!-- PROGRAMMIER-LOGIK FÜR DIE GEKAPSELTEN ELEMENTE -->
     <script>
+        // Klappmenü-Funktion für das Impressum
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+
         class SidebarShop extends HTMLElement {
             constructor() {
                 super();
                 const shadow = this.attachShadow({mode: 'closed'});
                 shadow.innerHTML = `
                     <style>
-                        .sidebar-shop { margin-bottom: 2.5rem; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 10px 0.5px; border-radius: 4px; border: 4px solid #d4af37; text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease; font-family: 'Segoe UI', Tahoma, sans-serif; overflow: hidden; }
+                        .sidebar-shop {
+                            margin-bottom: 2.5rem; background-color: #ffffff;
+                            display: flex; flex-direction: column; align-items: center;
+                            padding: 10px 0.5px; border-radius: 4px; border: 4px solid #d4af37;
+                            text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                            overflow: hidden;
+                        }
                         .sidebar-shop img { width: 100%; height: auto; display: block; margin-bottom: 8px; mix-blend-mode: multiply; }
-                        .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #111111; font-weight: 700; font-size: 1rem; text-align: center; }
-                        .shop-plus { font-size: 1rem; line-height: 1; }
+                        .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #111111; font-weight: 700; font-size: 1rem; line-height: 1.2; text-align: center; }
+                        .shop-plus { font-size: 1rem; line-height: 1; margin: 0.1rem 0; }
                         .sidebar-shop:hover { background-color: #f5f0fa; }
                     </style>
-                    <a href="myspreadshop.de" target="_blank" class="sidebar-shop"><img src="shop-logo.png" alt="Shop"><div class="shop-text-container"><span class="shop-plus">+</span><span>Shop</span></div></a>
+                    <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
+                        <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
+                        <div class="shop-text-container">
+                            <span class="shop-plus">+</span>
+                            <span>Shop</span>
+                        </div>
+                    </a>
                 `;
             }
         }
@@ -324,7 +375,14 @@
                 const title = this.getAttribute('title');
                 shadow.innerHTML = `
                     <style>
-                        .sidebar-link { color: #111111; text-decoration: none; font-weight: 700; font-size: 1rem; padding: 0.8rem 1rem; background-color: #ffffff; margin-bottom: 1rem; text-align: left; border-radius: 4px; border: 4px solid #d4af37; box-sizing: border-box; display: block; transition: background-color 0.3s ease; font-family: 'Segoe UI', Tahoma, sans-serif; }
+                        .sidebar-link {
+                            color: #111111; text-decoration: none; font-weight: 700; font-size: 1rem;
+                            padding: 0.8rem 1rem; background-color: #ffffff; margin-bottom: 1rem;
+                            text-align: left; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                            border: 4px solid #d4af37; box-sizing: border-box; display: block;
+                            transition: background-color 0.3s ease;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        }
                         .sidebar-link:hover { background-color: #f5f0fa; }
                     </style>
                     <a href="${href}" class="sidebar-link">${title}</a>
