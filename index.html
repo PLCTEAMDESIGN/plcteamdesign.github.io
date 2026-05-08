@@ -2,860 +2,734 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>PLC TEAM DESIGN | Bad Oeynhausen - 3D-Design & technische Konstruktion</title>
-
-    <!-- GOOGLE-VERIFIZIERUNG -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>PLC TEAM DESIGN | Bad Oeynhausen – 3D-Konstruktion & Engineering</title>
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" />
-
-    <!-- SEO Optimierung -->
-    <meta name="description" content="PLC Team Design - Professionelles 3D-Design, technische Konstruktion und Grafikdesign in Bad Oeynhausen.">
-    <meta name="keywords" content="3D-Design, Bad Oeynhausen, technische Konstruktion, FEM-Analyse, Grafikdesign, Webdesign, China, LinkedIn, Kleingewerbe">
-    <meta name="author" content="Pedro Lereno Cordeiro, PLC Team Design">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph für Social Media & LinkedIn -->
-    <meta property="og:title" content="PLC TEAM DESIGN | 3D-Design & Konstruktion">
-    <meta property="og:description" content="Professionelles 3D-Design und technische Konstruktion in Bad Oeynhausen. Ihr Partner für präzise technische Lösungen.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://plcteamdesign.github.io/">
-    <meta property="og:locale" content="de_DE">
+    <meta name="description" content="PLC Team Design – Präzisions-3D-Design, technische Konstruktion und Grafikdesign in Bad Oeynhausen. Spezialisiert auf 3D-Modellierung, FEM-Analyse und Prototyping.">
     <style>
-        *, *::before, *::after {
-            box-sizing: border-box;
+        /* ------------------------------------------------------------
+           1. RESET & GLOBALE VARIABLEN (Gold 3px / lila Harmonisierung)
+        ------------------------------------------------------------ */
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         :root {
-            --primary-purple: #741fa2;
-            --dark-purple: #4a0072;
-            --deep-background: #1e0034;
-            --gold-accent: #d4af37;
-            --gold-light: #f4d03f;
-            --gold-dark: #b8960c;
+            --primary-purple: #741fa2;      /* Hauptlila oben/unten angeglichen */
+            --dark-purple: #4a0072;         /* für Verläufe, aber optisch anpassen */
+            --deep-background: #1e0034;     /* Footer dunkel */
+            --gold-accent: #d4af37;         /* 24kt Gold – 3px borders */
             --light-bg: #fdfbfe;
-            --text-dark: #111111;
-            --text-soft: #444444;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --hover-soft: #f5f0fa;
-            --border-light: #e8e8e8;
-            --white: #ffffff;
-            --black: #000000;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-            -ms-text-size-adjust: 100%;
-            font-size: 16px;
+            --text-dark: #121212;
+            --card-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+            --hover-soft: #f3edf9;
+            --font-main: 'Inter', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Microsoft YaHei', 'PingFang SC', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
+            font-family: var(--font-main);
+            font-weight: 480;
+            line-height: 1.55;
             background-color: var(--light-bg);
+            color: var(--text-dark);
             display: flex;
             overflow-x: hidden;
-            min-height: 100vh;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            scroll-behavior: smooth;
+            letter-spacing: -0.01em;
         }
 
-        /* ============ SEITENLEISTE ============ */
+        /* ----- bessere Lesbarkeit: Schrift etwas stärker, keine Dünnheit ----- */
+        h1, h2, h3, h4, .nav-btn, .shop-text, .section-title, .contact-box h3 {
+            font-weight: 650;
+            letter-spacing: -0.01em;
+        }
+
+        p, .legal-text, .accordion-content, .koerber-card p {
+            font-weight: 470;
+            line-height: 1.55;
+            color: #222;
+        }
+
+        /* 2. SEITENLEISTE (fix, goldene Ränder 3px) */
         .sidebar-nav {
-            width: 250px;
-            min-width: 250px;
+            width: 260px;
             height: 100vh;
-            background-color: var(--white);
-            border-right: 2px solid var(--gold-accent);
-            box-shadow: 2px 0 15px rgba(0, 0, 0, 0.05);
+            background-color: #ffffff;
+            border-right: 3px solid var(--gold-accent);
+            box-shadow: 6px 0 22px rgba(0, 0, 0, 0.03);
             position: fixed;
             top: 0;
             left: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem;
             z-index: 1000;
-            overflow-y: auto;
-            overflow-x: hidden;
+            gap: 1rem;
         }
 
+        /* Logo / Shop-Kasten – gold 3px */
         .logo-box {
-            background: var(--white);
-            padding: 2px;
-            margin-bottom: 1.5rem;
-            border: 2px solid var(--gold-accent);
-            border-radius: 4px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-between;
-            width: 218px;
-            height: 130px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .logo-box:hover {
-            background-color: var(--primary-purple);
-            border-color: var(--gold-light);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        .sidebar-logo {
-            width: 100%;
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-            object-fit: contain;
-        }
-
-        .logo-box:hover .sidebar-logo {
-            filter: brightness(0) invert(1);
-        }
-
-        .shop-text-wrapper {
+            background: #ffffff;
+            padding: 0;
+            margin-bottom: 0.8rem;
+            border: 3px solid var(--gold-accent);
+            border-radius: 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 40px;
-            width: 100%;
-            margin-bottom: 0.2rem;
+            width: 218px;
+            height: 130px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
         }
-
-        .shop-plus, .shop-text {
+        .logo-box:hover {
+            background-color: var(--primary-purple);
+            transform: scale(1.01);
+            border-color: var(--primary-purple);
+        }
+        .sidebar-logo {
+            width: 80%;
+            max-width: 100px;
+            height: auto;
+            display: block;
+            margin: 0 auto 6px;
+            object-fit: contain;
+        }
+        .shop-text-wrapper {
+            text-align: center;
+            margin-top: 4px;
+        }
+        .shop-plus {
+            font-size: 1.25rem;
+            font-weight: 800;
             color: var(--text-dark);
-            transition: color 0.3s ease;
+            transition: color 0.2s;
         }
-
+        .shop-text {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s;
+        }
         .logo-box:hover .shop-plus,
         .logo-box:hover .shop-text {
-            color: var(--white);
+            color: white;
         }
 
+        /* Navigation Buttons – gold 3px, konsistent */
         .sidebar-nav a.nav-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 218px;
             height: 52px;
-            background: var(--white);
+            background: #ffffff;
             color: var(--text-dark);
             text-decoration: none;
-            font-weight: 600;
-            border: 2px solid var(--gold-accent);
-            border-radius: 4px;
+            font-weight: 670;
+            border: 3px solid var(--gold-accent);
+            border-radius: 40px;
             font-size: 1.05rem;
-            margin-bottom: 1rem;
-            padding: 0;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
             text-align: center;
+            margin-bottom: 0.25rem;
         }
-
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple);
-            color: var(--white);
-            border-color: var(--gold-light);
-            transform: translateX(3px);
-            box-shadow: 0 4px 15px rgba(116, 31, 162, 0.3);
+            color: white;
+            border-color: var(--primary-purple);
+            transform: translateX(4px);
         }
 
-        /* ============ HAUPTINHALT ============ */
+        /* HAUPTINHALT */
         .main-content {
-            margin-left: 250px;
+            margin-left: 260px;
             flex: 1;
             min-width: 0;
-            width: calc(100% - 250px);
         }
 
         .container {
-            max-width: 1100px;
-            margin: 4rem auto;
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 0 2rem;
         }
 
-        /* ============ HEADER ============ */
+        /* Header mit lila Verlauf – unterer goldener Rand 3px */
         header {
-            background: linear-gradient(135deg, var(--dark-purple) 0%, var(--primary-purple) 100%);
+            background: linear-gradient(125deg, var(--primary-purple), #2c0047);
             color: white;
-            padding: 3rem 1rem;
+            padding: 3.5rem 1rem;
             text-align: center;
             border-bottom: 3px solid var(--gold-accent);
         }
-
         .logo-img {
-            width: 100%;
-            max-width: 800px;
+            max-width: 780px;
+            width: 90%;
             height: auto;
             display: block;
             margin: 0 auto;
+            filter: drop-shadow(2px 2px 0 rgba(255,255,240,0.9));
         }
 
-        /* ============ GOLDENE LINIEN ============ */
+        /* Titel ohne goldene / doppelte Linien – nur saubere Typografie */
         .section-title {
-            font-size: 2.3rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 750;
             color: var(--primary-purple);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.75rem;
             text-align: left;
             line-height: 1.2;
-            position: relative;
-            padding-bottom: 0.8rem;
+            background: none;
+            border: none;
+            letter-spacing: -0.5px;
         }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--gold-accent), var(--gold-light));
-            border-radius: 2px;
-        }
-
         .section-subtitle {
             font-size: 1.1rem;
-            color: var(--text-soft);
-            margin-bottom: 3.5rem;
+            color: #2c2c2c;
+            margin-bottom: 3rem;
             text-align: left;
-            font-weight: 500;
-            max-width: 900px;
-            line-height: 1.6;
+            font-weight: 470;
             border-left: 3px solid var(--gold-accent);
-            padding-left: 1.5rem;
+            padding-left: 1.2rem;
         }
 
-        /* ============ LEISTUNGS-KARTEN ============ */
+        /* Leistungs-Karten (keine überflüssigen gold linien) */
         .horizontal-scroll-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
             gap: 1.5rem;
             margin-bottom: 4rem;
-            text-align: left;
         }
-
         .koerber-card {
-            background: var(--white);
-            border-radius: 6px;
-            min-height: 280px;
-            border-top: 3px solid var(--gold-accent);
+            background: white;
+            border-radius: 20px;
+            border-top: 3px solid var(--primary-purple);
             padding: 1.5rem;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--card-shadow);
             transition: all 0.3s ease;
         }
-
         .koerber-card:hover {
-            transform: translateY(-5px);
             background-color: var(--primary-purple);
-            border-top-color: var(--gold-light);
-            box-shadow: 0 12px 30px rgba(116, 31, 162, 0.25);
+            transform: translateY(-6px);
+            border-top-color: var(--gold-accent);
         }
-
         .koerber-card:hover h3,
         .koerber-card:hover p {
-            color: var(--white);
+            color: white;
         }
-
         .koerber-card h3 {
-            font-size: 1.15rem;
-            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
             color: var(--dark-purple);
-            margin-top: 0;
-            margin-bottom: 1rem;
-            transition: color 0.3s ease;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--gold-accent);
         }
-
         .koerber-card p {
             font-size: 0.9rem;
-            color: var(--text-soft);
-            margin: 0;
-            line-height: 1.6;
-            transition: color 0.3s ease;
+            color: #3a3a3a;
         }
 
-        /* ============ PROJEKT-BEREICH ============ */
-        .projects-section {
-            margin-top: 5rem;
-            text-align: left;
-        }
-
-        /* Projekt 1 - Kontinuierliche Bewegung */
+        /* ********************  UNABHÄNGIGER BEREICH (SCROLLEND VON LINKS NACH RECHTS + 360° ROTATION)  ******************** */
         .project-featured {
             width: 100%;
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            position: relative;
+            background: rgba(116, 31, 162, 0.02);
+            border-radius: 32px;
+            margin: 2rem 0 2.5rem 0;
             overflow: hidden;
-            height: 300px;
-            display: block;
-            background: linear-gradient(to right, transparent 0%, rgba(212, 175, 55, 0.05) 50%, transparent 100%);
-            border-top: 1px solid var(--gold-accent);
-            border-bottom: 1px solid var(--gold-accent);
+            position: relative;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.1);
         }
 
-        .project-featured-img-wrapper {
+        /* Track für nahtloses Endlos-Scrolling (von links nach rechts: Track bewegt sich nach links, dadurch Objekt nach rechts) */
+        .infinite-track {
+            display: flex;
+            gap: 0;
+            width: auto;
+            will-change: transform;
+            animation: seamlessScrollRight 14s linear infinite;
+        }
+
+        /* Jedes einzelne animierte Element (Zahnrad) */
+        .featured-item {
+            flex: 0 0 250px;
+            height: 250px;
+            margin: 0 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,245,0.6);
+            border-radius: 40px;
+            backdrop-filter: blur(2px);
+            transition: filter 0.2s;
+        }
+
+        /* Das Bild selbst: 360° Rotation während der Bewegung */
+        .rotating-gear {
             width: 200px;
             height: 200px;
-            position: absolute;
-            top: 50px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: moveRightToLeft 8s linear infinite;
-        }
-
-        .project-featured-img {
-            width: 100%;
-            height: 100%;
             object-fit: contain;
-            animation: rotateCCW 12s linear infinite;
+            animation: spinFull 8s linear infinite;
+            filter: drop-shadow(0 8px 14px rgba(0,0,0,0.15));
         }
 
-        @keyframes rotateCCW {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-
-        @keyframes moveRightToLeft {
+        /* Schlüsselanimation: nahtlose Verschiebung von links nach rechts (optisch) */
+        @keyframes seamlessScrollRight {
             0% {
-                left: 100%;
                 transform: translateX(0);
             }
             100% {
-                left: 0%;
-                transform: translateX(-100%);
+                transform: translateX(-50%);
             }
         }
 
-        /* Projekt-Grid */
+        /* 360 Grad Rotation */
+        @keyframes spinFull {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Die Endlos-Struktur: 2 identische Kopien, damit nach dem Verlassen der rechten Kante die linke nahtlos erscheint */
+        .featured-item img {
+            display: block;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        /* Anpassung für mobile: Höhe etwas reduzieren, aber Animation bleibt erhalten */
+        @media (max-width: 768px) {
+            .project-featured {
+                height: 200px;
+            }
+            .featured-item {
+                flex: 0 0 180px;
+                height: 180px;
+            }
+            .rotating-gear {
+                width: 140px;
+                height: 140px;
+            }
+            .infinite-track {
+                animation-duration: 10s;
+            }
+        }
+
+        /* ********************  PROJEKTGRID (NUR BILDER, KEINE TEXTE – 2. BIS 8. PROJEKT)  ******************** */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 1.8rem;
             margin-top: 2rem;
         }
 
         .project-card {
-            background: var(--white);
-            border: 1px solid var(--border-light);
-            border-radius: 6px;
+            background: #ffffff;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
             cursor: pointer;
+            border: 1px solid #f0e9ff;
         }
-
         .project-card:hover {
-            transform: translateY(-3px);
-            background-color: var(--hover-soft);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            transform: scale(1.02);
+            box-shadow: 0 20px 30px rgba(116, 31, 162, 0.12);
             border-color: var(--gold-accent);
+            background: var(--hover-soft);
         }
-
         .project-img-wrapper {
             width: 100%;
             height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(145deg, #faf7ff, #ffffff);
             overflow: hidden;
-            background: #f9f9f9;
-            border-bottom: 1px solid var(--border-light);
+            padding: 0.75rem;
         }
-
         .project-img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            padding: 0.8rem;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
-
         .project-card:hover .project-img {
-            transform: scale(1.08);
+            transform: scale(1.04);
         }
+        /* KEINE TEXTE / TITEL MEHR → ganze .project-title wurde enfernt (nur Bilder) */
 
-        .project-title {
-            padding: 1rem;
-            margin: 0;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            text-align: center;
-            background: #fafafa;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover .project-title {
-            color: var(--primary-purple);
-            background: var(--hover-soft);
-            border-top: 1px solid var(--gold-accent);
-        }
-
-        /* ============ KONTAKT ============ */
+        /* Kontaktbereich sauber & lila Linie */
         #contact {
-            text-align: left;
-            padding: 3rem 0;
             margin-top: 4rem;
+            padding-top: 1rem;
         }
-
         .contact-box {
-            background: linear-gradient(135deg, #faf8fc, var(--white));
-            padding: 2.5rem;
-            border-radius: 6px;
-            border-left: 3px solid var(--gold-accent);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            background: linear-gradient(110deg, #faf7fd, #ffffff);
+            padding: 2.2rem;
+            border-radius: 28px;
+            border-left: 3px solid var(--primary-purple);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.04);
         }
-
         .contact-box h3 {
-            margin-top: 0;
-            color: var(--dark-purple);
-            font-size: 1.5rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 1px solid var(--gold-accent);
-            display: inline-block;
+            color: var(--primary-purple);
+            font-size: 1.65rem;
         }
-
         .contact-box a {
             color: var(--primary-purple);
-            text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
         }
-
         .contact-box a:hover {
             color: var(--dark-purple);
-            text-decoration: underline;
+            border-bottom: 1px solid var(--gold-accent);
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulseGreen 1.8s infinite;
+        }
+        @keyframes pulseGreen {
+            0% { opacity: 1; transform: scale(1);}
+            50% { opacity: 0.6; transform: scale(0.95);}
+            100% { opacity: 1; transform: scale(1);}
         }
 
-        /* ============ FOOTER ============ */
+        /* Footer: goldene 3px Oberkante, lila Hintergrund */
         footer {
             background: var(--deep-background);
-            color: #c2b4d6;
-            padding: 4rem 1.5rem;
+            color: #e0d6f0;
+            padding: 3rem 2rem;
             border-top: 3px solid var(--gold-accent);
-            text-align: left;
+            margin-top: 2rem;
         }
-
         .footer-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
-
         .accordion-item {
-            border-bottom: 1px solid #3c1963;
+            border-bottom: 1px solid #482a6b;
         }
-
         .accordion-trigger {
             width: 100%;
             background: none;
             border: none;
             text-align: left;
-            color: var(--white);
-            font-size: 1.1rem;
-            font-weight: 600;
-            padding: 1.2rem 0;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 650;
+            padding: 1rem 0;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            transition: color 0.3s ease;
+            transition: color 0.2s;
         }
-
         .accordion-trigger:hover {
             color: var(--gold-accent);
         }
-
-        .accordion-trigger .arrow {
-            transition: transform 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .accordion-item.active .accordion-trigger .arrow {
-            transform: rotate(180deg);
-        }
-
         .accordion-content {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out;
+            transition: max-height 0.35s ease-out;
         }
-
         .accordion-item.active .accordion-content {
-            max-height: 800px;
+            max-height: 600px;
         }
-
-        .accordion-content a,
-        .legal-text,
-        .legal-text a {
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .accordion-content a {
-            text-decoration: underline;
-            text-underline-offset: 3px;
-        }
-
-        .accordion-content a:hover {
-            color: var(--gold-accent);
-        }
-
         .legal-text {
-            padding: 0.5rem 0 1.5rem 0;
-            font-size: 0.95rem;
-            line-height: 1.7;
+            padding: 0.5rem 0 1.8rem;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            color: #cbbde2;
         }
-
-        .legal-text strong {
-            color: var(--gold-light);
+        .legal-text a {
+            color: #ffecb3;
+            text-decoration: underline;
         }
-
         .footer-copyright {
             text-align: center;
-            font-size: 0.85rem;
-            color: #7c6894;
+            font-size: 0.8rem;
             margin-top: 2rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid #3c1963;
+            color: #aa9ac2;
         }
 
-        /* ============ RESPONSIVE DESIGN ============ */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-
-        @media (max-width: 768px) {
+        /* responsive Anpassung sidebar + lila-homogen */
+        @media (max-width: 860px) {
             body {
                 flex-direction: column;
             }
             .sidebar-nav {
                 width: 100%;
-                min-width: 100%;
                 height: auto;
                 position: relative;
                 border-right: none;
-                border-bottom: 2px solid var(--gold-accent);
-                padding: 1rem;
+                border-bottom: 3px solid var(--gold-accent);
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: center;
-                gap: 0.8rem;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                gap: 0.7rem;
+                padding: 1rem;
             }
             .logo-box {
-                width: 160px;
+                width: 180px;
                 height: 100px;
-                margin-bottom: 0;
-                border-width: 1.5px;
             }
             .sidebar-nav a.nav-btn {
-                width: auto;
-                min-width: 100px;
-                height: 42px;
+                width: 150px;
+                height: 46px;
                 font-size: 0.9rem;
                 margin-bottom: 0;
-                padding: 0 1rem;
-                border-width: 1.5px;
             }
             .main-content {
                 margin-left: 0;
-                width: 100%;
             }
             .container {
+                padding: 0 1.25rem;
                 margin: 2rem auto;
-                padding: 0 1rem;
             }
             .section-title {
-                font-size: 1.7rem;
-            }
-            .section-subtitle {
-                font-size: 1rem;
-                margin-bottom: 2rem;
-            }
-            .horizontal-scroll-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .koerber-card {
-                min-height: auto;
-                padding: 1.2rem;
-            }
-            .project-featured {
-                height: 250px;
-                padding: 1rem 0;
-            }
-            .project-featured-img-wrapper {
-                width: 150px;
-                height: 150px;
-                top: 50px;
+                font-size: 1.8rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .sidebar-nav {
-                padding: 0.8rem;
-                gap: 0.5rem;
-            }
-            .logo-box {
-                width: 130px;
-                height: 85px;
-            }
-            .sidebar-nav a.nav-btn {
-                min-width: 80px;
-                height: 38px;
-                font-size: 0.85rem;
-                padding: 0 0.8rem;
-            }
-            .section-title {
-                font-size: 1.5rem;
-            }
-            .project-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-            }
-            .project-img-wrapper {
-                height: 140px;
-            }
-            .project-title {
-                font-size: 0.85rem;
-                padding: 0.7rem;
-            }
-            .contact-box {
-                padding: 1.5rem;
-            }
-            footer {
-                padding: 2rem 1rem;
-            }
+        /* weitere Verbesserungen: goldene Konsistenz bei Hover Effekten */
+        .project-card:hover {
+            border: 1px solid var(--gold-accent);
         }
-
-        /* ============ DRUCKOPTIMIERUNG ============ */
-        @media print {
-            .sidebar-nav {
-                display: none;
-            }
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-            }
-            body {
-                font-size: 12pt;
-                color: #000;
-            }
+        button, a, .logo-box, .nav-btn {
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <!-- ============ SEITENLEISTE ============ -->
-    <nav class="sidebar-nav" aria-label="Hauptnavigation">
-        <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank', 'noopener,noreferrer')" title="PLC Team Design Shop öffnen" role="button" tabindex="0" aria-label="Zum PLC Team Design Shop">
-            <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo" width="200" height="80" loading="eager">
-            <div class="shop-text-wrapper">
-                <div class="shop-plus">+</div>
-                <div class="shop-text">Shop</div>
-            </div>
+<nav class="sidebar-nav" aria-label="Hauptnavigation">
+    <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank')" title="PLC Team Design Shop">
+        <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
+        <div class="shop-text-wrapper">
+            <div class="shop-plus">+</div>
+            <div class="shop-text">Shop</div>
         </div>
-        <a href="#leistungen" class="nav-btn">Leistungen</a>
-        <a href="#projekte" class="nav-btn">Projekte</a>
-        <a href="#contact" class="nav-btn">Kontakt</a>
-    </nav>
+    </div>
+    <a href="#leistungen" class="nav-btn">Leistungen</a>
+    <a href="#projekte" class="nav-btn">Projekte</a>
+    <a href="#contact" class="nav-btn">Kontakt</a>
+</nav>
 
-    <!-- ============ HAUPTINHALT ============ -->
-    <main class="main-content">
+<main class="main-content">
+    <header>
+        <img src="logo.png" alt="PLC Team Design – 3D-Konstruktion & Entwicklung" class="logo-img">
+    </header>
 
-        <header>
-            <img src="logo.png" alt="PLC Team Design - 3D-Design und technische Konstruktion" class="logo-img" width="800" height="200" loading="eager">
-        </header>
+    <div class="container">
+        <section id="intro">
+            <h2 class="section-title">✨ „Design mit Leidenschaft & Herzblut für technische Produkte & 3D-Objekte“ 💫</h2>
+            <p class="section-subtitle">Von der ersten Skizze über Grafikdesign bis zur präzisen 3D-Konstruktion – als zuverlässiger Partner entwickeln wir technische Produkte mit höchstem Qualitätsanspruch, nachhaltig & lösungsorientiert.</p>
+        </section>
 
-        <div class="container">
-            <section id="intro">
-                <h2 class="section-title">✨ „Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da!“ 💫</h2>
-                <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
-            </section>
-
-            <section id="leistungen">
-                <h2 class="section-title">Unsere Leistungen</h2>
-                <div class="horizontal-scroll-grid">
-                    <div class="koerber-card">
-                        <h3>🎨 Wunschdesign</h3>
-                        <p>3D-Körper als Datenformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>🔧 Materialanpassung</h3>
-                        <p>Anpassungen von Holz, Glas, Stahl, Stein, Kunststoff, Pulver oder weiteren Materialien nach Ihren Anforderungen.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>🤝 Begleitung & Beratung</h3>
-                        <p>Unterstützung für regionale Produktionen mit Fokus auf ökologischen Fußabdruck und nachhaltige Lösungen.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>📊 Technische Analyse</h3>
-                        <p>Detaillierte FEM-Analyse mit Simulationsberechnungen für Bauteile, Baugruppen und Wiederherstellungen.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>💻 Webdesign</h3>
-                        <p>Professionelle Umsetzung Ihres Webauftritts mit modernsten Technologien – individuell und flexibel nach Absprache.</p>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projekte" class="projects-section">
-                <h2 class="section-title">Unsere Projekte</h2>
-
-                <div class="project-featured" aria-label="Animierte Projektvorschau">
-                    <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="3D-Konstruktion Zahnrad - Animierte Darstellung" class="project-featured-img" width="200" height="200" loading="eager">
-                    </div>
-                </div>
-
-                <div class="project-grid">
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt1.jpg" alt="Projekt 1 - 3D-Konstruktion Zahnrad" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">3D-Konstruktion Zahnrad</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt2.jpg" alt="Projekt 2 - Technische Zeichnung Gehäuse" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">Technische Zeichnung Gehäuse</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt3.jpg" alt="Projekt 3 - Prototyping & Design" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">Prototyping & Design</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt4.jpg" alt="Projekt 4 - FEM Strukturanalyse" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">FEM Strukturanalyse</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt5.jpg" alt="Projekt 5 - 3D-Modellierung Baugruppe" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">3D-Modellierung Baugruppe</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt6.jpg" alt="Projekt 6 - Oberflächendesign" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">Oberflächendesign</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt7.jpg" alt="Projekt 7 - Technische Illustration" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">Technische Illustration</h4>
-                    </div>
-                    <div class="project-card" tabindex="0">
-                        <div class="project-img-wrapper">
-                            <img src="projekt8.jpg" alt="Projekt 8 - Rapid Prototyping" class="project-img" width="220" height="220" loading="lazy">
-                        </div>
-                        <h4 class="project-title">Rapid Prototyping</h4>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <h2 class="section-title">Kontakt</h2>
-                <div class="contact-box">
-                    <h3>Wir helfen Ihnen gerne weiter!</h3>
-                    <p style="font-size: 1.1rem; margin: 1.2rem 0;">
-                        <strong>📧 E-Mail:</strong>
-                        <a href="mailto:plctede@gmail.com">plctede@gmail.com</a>
-                    </p>
-                    <p style="font-size: 1.1rem; margin: 1.2rem 0;">
-                        <strong>📱 Telefon:</strong>
-                        <a href="tel:+4957319829839">05731 9829839</a>
-                    </p>
-                    <p style="font-size: 1.1rem;">
-                        <strong>Status:</strong>
-                        <span style="color: #2ecc71; font-weight: bold;">● Aktuell erreichbar</span>
-                    </p>
-                </div>
-            </section>
-        </div>
-
-        <footer>
-            <div class="footer-container">
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion()" aria-expanded="false" aria-controls="impressum-content">
-                        <span>Impressum & Rechtliches</span>
-                        <span class="arrow" aria-hidden="true">▼</span>
-                    </button>
-                    <div id="impressum-content" class="accordion-content" role="region">
-                        <div class="legal-text">
-                            <strong>PLC Team Design</strong><br>
-                            <strong>Inhaber:</strong> Pedro Lereno Cordeiro<br>
-                            (Maschinenbau-Techniker)<br><br>
-                            <strong>Anschrift:</strong><br>
-                            Rastenburger Str. 11<br>
-                            32545 Bad Oeynhausen<br>
-                            Deutschland<br><br>
-                            <strong>Kontakt:</strong><br>
-                            Tel.: <a href="tel:+4957319829839">05731 9829839</a><br>
-                            E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a><br><br>
-                            <strong>Umsatzsteuer:</strong><br>
-                            Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer erhoben und ausgewiesen.<br><br>
-                            <strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-                            Pedro Lereno Cordeiro<br>
-                            Rastenburger Str. 11, 32545 Bad Oeynhausen<br><br>
-                            <strong>Haftungsausschluss:</strong><br>
-                            Trotz sorgfältiger inhaltlicher Kontrolle übernehme ich keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.<br><br>
-                            <strong>Urheberrecht:</strong><br>
-                            Alle Inhalte dieser Website unterliegen dem deutschen Urheberrecht.
-                        </div>
-                    </div>
-                </div>
-                <p class="footer-copyright">&copy; 2024 PLC TEAM DESIGN. Alle Rechte vorbehalten.</p>
+        <section id="leistungen">
+            <h2 class="section-title">Unsere Leistungen</h2>
+            <div class="horizontal-scroll-grid">
+                <div class="koerber-card"><h3>🎨 Wunschdesign</h3><p>3D-Körper für Fräsen, Drehen, Lasern, 3D-Druck – professionelle Datenformate.</p></div>
+                <div class="koerber-card"><h3>🔧 Materialanpassung</h3><p>Holz, Glas, Stahl, Stein, Kunststoff – individuelle Werkstoffoptimierung.</p></div>
+                <div class="koerber-card"><h3>🤝 Begleitung & Beratung</h3><p>Nachhaltige Produktionsbegleitung mit Fokus auf Ökobilanz.</p></div>
+                <div class="koerber-card"><h3>📊 Technische Analyse</h3><p>FEM-Analyse, Bauteilsimulation & Wiederherstellung.</p></div>
+                <div class="koerber-card"><h3>💻 Webdesign</h3><p>Moderne Webauftritte, maßgeschneidert & leistungsstark.</p></div>
             </div>
-        </footer>
+        </section>
 
-    </main>
+        <!-- UNABHÄNGIGER, SEAMLESSER BEREICH: VON LINKS NACH RECHTS + 360° ROTATION -->
+        <section id="projekte" class="projects-section">
+            <h2 class="section-title">Ausgezeichnete Projekte – 3D in Perfektion</h2>
+            <!-- Animation: Endlosschleife von links nach rechts, Zahnrad rotiert 360° -->
+            <div class="project-featured">
+                <div class="infinite-track">
+                    <!-- 2 vollständige Kopien für nahtlosen Loop -->
+                    <div class="featured-item"><img src="projekt1.jpg" alt="3D Zahnrad Animation" class="rotating-gear"></div>
+                    <div class="featured-item"><img src="projekt1.jpg" alt="3D Zahnrad Rotation nahtlos" class="rotating-gear"></div>
+                    <!-- zweite Kopie (für Infinite Loop) -->
+                    <div class="featured-item"><img src="projekt1.jpg" alt="3D Zahnrad endlos" class="rotating-gear"></div>
+                    <div class="featured-item"><img src="projekt1.jpg" alt="3D Zahnrad Dopplung" class="rotating-gear"></div>
+                </div>
+            </div>
 
-    <script>
+            <!-- PROJEKTE 2 BIS 8: NUR BILDER, KEINE TEXTE, UNABHÄNGIGE DATEIEN -->
+            <div class="project-grid">
+                <!-- Projekt 2: Technische Zeichnung Gehäuse -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt2.jpg" alt="Technische Zeichnung Gehäuse" class="project-img" loading="lazy">
+                    </div>
+                </div>
+                <!-- Projekt 3: Prototyping & Design -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt3.jpg" alt="Prototyping & Design" class="project-img" loading="lazy">
+                    </div>
+                </div>
+                <!-- Projekt 4: FEM Strukturanalyse -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt4.jpg" alt="FEM Strukturanalyse" class="project-img" loading="lazy">
+                    </div>
+                </div>
+                <!-- Projekt 5: 3D-Modellierung Baugruppe -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt5.jpg" alt="3D-Modellierung Baugruppe" class="project-img" loading="lazy">
+                    </div>
+                </div>
+                <!-- Projekt 6: Oberflächendesign -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt6.jpg" alt="Oberflächendesign" class="project-img" loading="lazy">
+                    </div>
+                </div>
+                <!-- Projekt 7: Technische Illustration -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt7.jpg" alt="Technische Illustration" class="project-img" loading="lazy">
+                    </div>
+                </div>
+                <!-- Projekt 8: Rapid Prototyping -->
+                <div class="project-card">
+                    <div class="project-img-wrapper">
+                        <img src="projekt8.jpg" alt="Rapid Prototyping" class="project-img" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KONTAKT -->
+        <section id="contact">
+            <h2 class="section-title">Kontakt & Partnerschaft</h2>
+            <div class="contact-box">
+                <h3>Wir helfen Ihnen gerne weiter!</h3>
+                <p style="font-size: 1.1rem; margin: 1rem 0;"><strong>📧 E-Mail:</strong> <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
+                <p style="font-size: 1.1rem; margin: 1rem 0;"><strong>📱 Telefon:</strong> <a href="tel:+4957319829839">05731 9829839</a></p>
+                <p style="font-size: 1.1rem; display: flex; align-items: center; gap: 6px;">
+                    <span class="status-indicator"></span>
+                    <strong>Status:</strong> <span style="color: #2ecc71; font-weight: bold;">Aktuell erreichbar</span>
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="accordion-item" id="footerAccordion">
+                <button class="accordion-trigger" id="accordionBtn" aria-expanded="false">
+                    Impressum / Kontakt & Rechtliches
+                    <span aria-hidden="true" class="arrow">▼</span>
+                </button>
+                <div class="accordion-content" id="impressumContent">
+                    <div class="legal-text">
+                        <strong>PLC Team Design</strong><br>
+                        Pedro Lereno Cordeiro (Maschinenbau-Techniker)<br>
+                        Rastenburger Str. 11, 32545 Bad Oeynhausen<br><br>
+                        <strong>Kontakt:</strong><br>
+                        Tel.: <a href="tel:+4957319829839">05731 9829839</a><br>
+                        E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a><br><br>
+                        <strong>Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV:</strong><br>
+                        Pedro Lereno Cordeiro, Rastenburger Str. 11, 32545 Bad Oeynhausen<br><br>
+                        <strong>Hinweis zur Umsatzsteuer:</strong> Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.<br>
+                        <strong>Haftungsausschluss:</strong> Trotz sorgfältiger Kontrolle keine Haftung für externe Links.
+                    </div>
+                </div>
+            </div>
+            <p class="footer-copyright">© 2026 PLC TEAM DESIGN – Engineering & 3D-Kompetenz. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</main>
+
+<script>
+    (function() {
+        // Accordion-Funktionalität (Footer)
+        const accordionItem = document.querySelector('.accordion-item');
+        const triggerBtn = document.getElementById('accordionBtn');
+        const contentDiv = document.getElementById('impressumContent');
+        const arrowSpan = document.querySelector('.accordion-trigger .arrow');
+        
         function toggleAccordion() {
-            const item = document.querySelector('.accordion-item');
-            const content = document.getElementById('impressum-content');
-            item.classList.toggle('active');
-            if (item.classList.contains('active')) {
-                content.style.maxHeight = content.scrollHeight + "px";
+            const isActive = accordionItem.classList.contains('active');
+            if (!isActive) {
+                accordionItem.classList.add('active');
+                contentDiv.style.maxHeight = contentDiv.scrollHeight + "px";
+                if(arrowSpan) arrowSpan.textContent = '▲';
+                triggerBtn.setAttribute('aria-expanded', 'true');
             } else {
-                content.style.maxHeight = "0px";
+                accordionItem.classList.remove('active');
+                contentDiv.style.maxHeight = "0px";
+                if(arrowSpan) arrowSpan.textContent = '▼';
+                triggerBtn.setAttribute('aria-expanded', 'false');
             }
         }
-
-        document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        
+        if(triggerBtn) {
+            triggerBtn.addEventListener('click', toggleAccordion);
+        }
+        
+        // Sanftes Scrollen für interne Links im Nav
+        document.querySelectorAll('.sidebar-nav a[href^="#"], .nav-btn[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                if(targetId && targetId !== '#') {
+                    const targetElem = document.querySelector(targetId);
+                    if(targetElem) {
+                        targetElem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
                 }
             });
         });
-    </script>
-
+        
+        // Aktive Navigation hervorheben (passend zum lila Farbschema)
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.sidebar-nav a.nav-btn');
+        
+        function highlightNav() {
+            let current = '';
+            const scrollPos = window.scrollY + 120;
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+                if(scrollPos >= sectionTop && scrollPos < sectionBottom) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLinks.forEach(link => {
+                link.style.backgroundColor = '#ffffff';
+                link.style.color = 'var(--text-dark)';
+                if(link.getAttribute('href') === '#' + current) {
+                    link.style.backgroundColor = 'var(--primary-purple)';
+                    link.style.color = '#ffffff';
+                    link.style.borderColor = 'var(--gold-accent)';
+                } else {
+                    link.style.borderColor = 'var(--gold-accent)';
+                }
+            });
+        }
+        window.addEventListener('scroll', highlightNav);
+        window.addEventListener('load', highlightNav);
+        
+        // Stelle sicher, dass das Infinite-Scroll-Track ausreichend viele Elemente hat (Seamless Loop)
+        // Das HTML enthält bereits 4 items -> 2 komplette Paare (Links-Rechts seamless)
+        // bei extrem schmalen bildschirmen bleibt animation smooth
+    })();
+</script>
 </body>
 </html>
