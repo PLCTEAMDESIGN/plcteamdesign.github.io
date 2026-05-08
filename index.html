@@ -40,7 +40,7 @@
         /* SHOP-KASTEN GANZ OBEN MIT TRANSPARENT-FILTER */
         .sidebar-shop {
             margin-bottom: 2.5rem; 
-            background-color: transparent; /* Standardmäßig transparent */
+            background-color: transparent; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -52,7 +52,6 @@
             transition: all 0.3s ease;
         }
         
-        /* Schaltet den weißen Hintergrund des Bildes per Software aus */
         .sidebar-shop img { 
             width: 100%; 
             max-width: 180px; 
@@ -63,24 +62,24 @@
             mix-blend-mode: multiply; /* Blendet das Weiß des Bildes aus */
         }
         
+        /* Text-Aufteilung: Nur noch das + und das Wort Shop */
         .shop-text-container {
             display: flex;
             flex-direction: column;
             align-items: center;
             color: var(--gold-accent);
             font-weight: 800;
-            font-size: 0.9rem;
-            line-height: 1.4;
+            font-size: 1.1rem;
+            line-height: 1.2;
             text-align: center;
             transition: color 0.3s ease;
         }
         .shop-plus {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             line-height: 1;
-            margin: 0.2rem 0;
+            margin: 0.1rem 0;
         }
         
-        /* HOVER: Bei Berührung färbt sich die Fläche lila */
         .sidebar-shop:hover { 
             background-color: var(--dark-purple);
         }
@@ -215,7 +214,6 @@
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
-                <span>PLC Team Design</span>
                 <span class="shop-plus">+</span>
                 <span>Shop</span>
             </div>
