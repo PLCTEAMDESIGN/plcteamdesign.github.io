@@ -9,7 +9,7 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" /> 
     
     <style> 
-        /* 1. GLOBALE ABSICHERUNG (WASSERDICHT) */
+        /* 1. GLOBALE ABSICHERUNG GEGEN VERSCHIEBUNGEN */
         * {
             box-sizing: border-box !important;
         }
@@ -72,10 +72,12 @@
             transition: background-color 0.3s ease !important; 
         }
 
+        /* LILA HOVER-EFFEKT FÜR DEN SHOP-KASTEN */
         .logo-box:hover {
             background-color: var(--primary-purple) !important;
         }
 
+        /* LOGO-FLEXIBILITÄT */
         .sidebar-logo {
             width: 100% !important;
             max-width: 100% !important; 
@@ -85,6 +87,7 @@
             object-fit: contain !important; 
         }
 
+        /* Container für + und Shop */
         .shop-text-wrapper {
             display: flex !important;
             flex-direction: column !important;
@@ -115,6 +118,7 @@
             transition: color 0.3s ease !important;
         }
 
+        /* SCHRIFT WIRD BEIM BERÜHREN WEISS */
         .logo-box:hover .shop-plus,
         .logo-box:hover .shop-text {
             color: #ffffff !important;
@@ -344,7 +348,6 @@
             .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
         } 
         
-        /* FOOTER-BEREICH KORRIGIERT */
         footer { 
             background: var(--deep-background) !important; 
             color: #c2b4d6; 
@@ -400,13 +403,15 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <div class="logo-box" onclick="window.open('myspreadshop.de', '_blank')">
+        <!-- ERFOLGREICHE WEITERLEITUNG ZU .NET IM NEUEN TAB BEI KLICK -->
+        <div class="logo-box" onclick="window.open('myspreadshop.net', '_blank')">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
                 <div class="shop-plus">+</div>
                 <div class="shop-text">Shop</div>
             </div>
         </div>
+        <!-- Menü-Buttons -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
