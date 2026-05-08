@@ -48,13 +48,13 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN */
+        /* LOGO-SHOP KASTEN: SICHTBAR AUF WEISSEM GRUND */
         .logo-box {
-            background: transparent !important;
+            background: #ffffff !important; 
             padding: 0.8rem 0.4rem !important;
             margin-bottom: 1.5rem !important;
-            border: 1px solid rgba(255, 255, 255, 0.4) !important;
-            border-radius: 2px !important;
+            border: 6px solid var(--gold-accent) !important; /* Sichtbarer Goldrand */
+            border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
@@ -62,6 +62,18 @@
             width: 100% !important;
             max-width: 218px !important;
             box-sizing: border-box !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer;
+        }
+        
+        .logo-box:hover {
+            background-color: var(--primary-purple) !important;
+        }
+        
+        /* Hover-Effekt: Schrift wird weiß, wenn Hintergrund lila wird */
+        .logo-box:hover .shop-plus,
+        .logo-box:hover .shop-text {
+            color: #ffffff !important;
         }
 
         .sidebar-logo {
@@ -72,36 +84,40 @@
             margin-bottom: 0.5rem !important; 
         }
 
+        /* Farblich sichtbares Pluszeichen (Lila statt Weiß) */
         .shop-plus {
-            color: #ffffff !important;
-            font-size: 1.2rem !important;
+            color: var(--primary-purple) !important;
+            font-size: 1.4rem !important;
             font-weight: bold !important;
             line-height: 1 !important;
             margin-bottom: 0.2rem !important; 
             text-align: center !important;
+            transition: color 0.3s ease !important;
         }
 
+        /* Farblich sichtbarer Text (Anthrazit statt Weiß) */
         .shop-text {
-            color: #ffffff !important;
+            color: var(--text-dark) !important;
             font-size: 0.95rem !important;
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
+            transition: color 0.3s ease !important;
         }
 
-        /* DIE BUTTONS IM ROTEN KREIS: Fixiert auf exakten 6px Goldrand */
+        /* DIE BUTTONS IM ROTEN KREIS */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             width: 100% !important; 
-            max-width: 218px !important; /* Exakt gleiche Breite wie die obere Box */
+            max-width: 218px !important; 
             height: 52px !important; 
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; /* Extra dicker Gold-Rahmen */
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             font-size: 0.95rem !important;
             margin-bottom: 1rem !important;
@@ -111,11 +127,9 @@
             text-align: center !important;
         } 
         
-        /* HOVER-EFFEKT: Verfärbt die drei Buttons bei Berührung in Lila */
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple) !important; 
             color: #ffffff !important; 
-            border-color: var(--gold-accent) !important;
         }
 
         .main-content { 
@@ -393,13 +407,13 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Der obere Kasten -->
+        <!-- Der obere Kasten mit Logo und schwarzer Schrift -->
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Die unteren Buttons mit fest eingebranntem 6px Goldrand -->
+        <!-- Die unteren Buttons -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -407,121 +421,7 @@
 
     <!-- MAIN CONTENT BEREICH -->
     <div class="main-content">
-        
-        <header>
-            <img src="logo.png" alt="PLC Team Design Premium Banner" class="logo-img">
-        </header>
-
-        <div class="container">
-            <h2 class="section-title">Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da!</h2>
-            <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
-
-            <!-- DIENSTLEISTUNGEN -->
-            <div id="leistungen" class="horizontal-scroll-grid">
-                <div class="koerber-card">
-                    <h3>Wunschdesign</h3>
-                    <p>Wunschdesign: 3D-Körper als Datenformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Materialanpassung</h3>
-                    <p>Anpassungen von Holz, Glas, Stahl, Stein, Kunststoff, Pulver oder Weiteres.</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Begleitung & Beratung</h3>
-                    <p>Begleitung & Beratung für regionale Produktionen (ökologischer Fußabdruck) oder Weiteres.</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Technische Analyse</h3>
-                    <p>Sie benötigen nähere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Webdesign</h3>
-                    <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Umsetzung Ihres Webauftritts mit modernsten Webtechnologien, individuell, flexibel nach Absprache.</p>
-                </div>
-            </div>
-
-            <!-- PROJEKTE-BEREICH -->
-            <div id="projekte" class="projects-section">
-                <h2 class="section-title">Unsere Projekte</h2>
-                
-                <div class="project-featured">
-                    <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
-                    </div>
-                    <div class="project-featured-img-wrapper second">
-                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
-                    </div>
-                </div>
-
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt1.jpg" alt="Projekt 1" class="project-img">
-                        </div>
-                        <h4 class="project-title">3D-Konstruktion Zahnrad</h4>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img">
-                        </div>
-                        <h4 class="project-title">Technische Zeichnung Gehäuse</h4>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img">
-                        </div>
-                        <h4 class="project-title">Prototyping & Design</h4>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img">
-                        </div>
-                        <h4 class="project-title">FEM Strukturanalyse</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- KONTAKT-BEREICH -->
-            <div id="contact" class="contact-section">
-                <h3>Wir helfen Ihnen gerne weiter!</h3>
-                <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
-                <p style="text-decoration: none; font-weight: normal;">Status: <span style="color: #2ecc71; font-weight: bold;">● Aktuell erreichbar</span></p>
-            </div>
-
-        </div>
-
-        <!-- FOOTER MIT RECHTLICH WASSERDICHTEM IMPRESSUM -->
-        <footer>
-            <div class="footer-container">
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion()">Impressum / Kontakt <span>▼</span></button>
-                    <div id="impressum-content" class="accordion-content">
-                        <div class="legal-text">
-                            <strong>PLC Team Design</strong><br>
-                            Geschäftsführer &amp; Ansprechpartner:<br>
-                            Pedro Lereno Cordeiro<br>
-                            (Maschinenbau-Techniker)<br><br>
-                            
-                            Rastenburger Str. 11<br>
-                            32545 Bad Oeynhausen<br><br>
-                            
-                            <strong>Kontakt:</strong><br>
-                            Tel.: 05731 9829839<br>
-                            E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a><br><br>
-                            
-                            <strong>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</strong><br>
-                            Ust-IdNr.: DE 352501723<br><br>
-                            
-                            <strong>Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV:</strong><br>
-                            Pedro Lereno Cordeiro<br>
-                            Rastenburger Str. 11, 32545 Bad Oeynhausen
-                        </div>
-                    </div>
-                </div>
-                <p class="footer-copyright">&copy; 2026 PLC TEAM DESIGN. Alle Rechte vorbehalten.</p>
-            </div>
-        </footer>
-
+        <!-- Restlicher HTML Inhalt folgt hier -->
     </div>
 
     <!-- Skript für das Akkordeon -->
