@@ -48,15 +48,15 @@
             z-index: 1000; 
         } 
         
-        /* FEST DEFINIERTER LOGO-SHOP KASTEN MIT ERZWUNGENEM 6PX GOLD-RAND */
+        /* LOGO-SHOP KASTEN: BREITE & ELEMENTE OPTIMIERT */
         .logo-box {
             width: 100% !important;
             max-width: 218px !important;
-            height: 130px !important;
+            height: auto !important; /* Höhe passt sich dynamisch an das größere Logo an */
             background: #ffffff !important; 
-            padding: 0.5rem !important;
+            padding: 1rem 0.8rem !important; /* Mehr Innenabstand für wuchtigeres Aussehen */
             margin-bottom: 1.5rem !important;
-            border: 6px solid var(--gold-accent) !important; /* Starr fixierter 6px Goldrand */
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
@@ -66,38 +66,39 @@
             transition: all 0.3s ease !important;
             cursor: pointer;
         }
-        
+
         .logo-box:hover {
             background-color: var(--primary-purple) !important;
-            border-color: var(--gold-accent) !important;
         }
         .logo-box:hover .shop-plus,
         .logo-box:hover .shop-text {
             color: #ffffff !important;
         }
 
+        /* LOGO-KALKULATION: Füllt nun die volle Breite der Box aus */
         .sidebar-logo {
             width: 100% !important;
-            max-width: 130px !important;
+            max-width: 100% !important; /* Greift sich den maximalen Platz im Kasten */
             height: auto !important;
             display: block !important;
-            margin: 0 auto 0.2rem auto !important; 
+            margin: 0 auto 0.5rem auto !important; 
         }
 
-        /* Sichtbare lila/weiße Schriftzeichen unter dem Logo */
+        /* Größeres Pluszeichen */
         .shop-plus {
             color: var(--primary-purple) !important;
-            font-size: 1.3rem !important;
-            font-weight: 800 !important;
+            font-size: 1.6rem !important; /* Vergrößert */
+            font-weight: 900 !important;
             line-height: 1 !important;
-            margin-bottom: 0.1rem !important; 
+            margin-bottom: 0.2rem !important; 
             text-align: center !important;
             transition: color 0.3s ease !important;
         }
 
+        /* Größere Shop-Schrift */
         .shop-text {
             color: var(--text-dark) !important;
-            font-size: 0.9rem !important;
+            font-size: 1.1rem !important; /* Vergrößert für bessere Lesbarkeit */
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
@@ -105,7 +106,7 @@
             transition: color 0.3s ease !important;
         }
 
-        /* MENÜ-BUTTONS EXAKT STRUKTURIERT MIT FIXIERTEM 6PX GOLD-RAND */
+        /* BUTTONS BLEIBEN UNVERÄNDERT SYMMETRISCH */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
@@ -117,7 +118,7 @@
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; /* Starr fixierter 6px Goldrand */
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             font-size: 0.9rem !important;
             margin-bottom: 1rem !important;
@@ -406,15 +407,15 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE --> 
+    <!-- SEITENLEISTE (OPTIMIERTE LOGO-KALKULATION) --> 
     <div class="sidebar-nav">
-        <!-- Logo-Shop Kasten (Erwungene Sichtbarkeit & 6px Gold-Rand) -->
+        <!-- Logo skaliert jetzt wuchtig auf die volle Breite der Box -->
         <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Garantiert parallele Buttons mit 6px Goldrand und lila Hover -->
+        <!-- Menü-Buttons bündig dazu -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
