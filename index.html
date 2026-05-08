@@ -48,12 +48,12 @@
             z-index: 1000; 
         } 
         
-        /* ORIGINALER LOGO-SHOP KASTEN (REPRÄSENTIERT DEN ORIGINALZUSTAND) */
+        /* DEFIERTER LOGO-SHOP KASTEN AUS CODE 1 (Farblich sichtbar auf weißem Grund) */
         .logo-box {
             background: transparent;
             padding: 0.8rem 0.4rem;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            border: 1px solid #eeeeee; /* Sichtbarer Rahmen auf weißem Grund */
             border-radius: 2px;
             display: flex;
             flex-direction: column; 
@@ -71,19 +71,19 @@
             margin-bottom: 0.5rem; 
         }
 
-        /* Zentriertes Pluszeichen unter dem Logo */
+        /* Sichtbares Pluszeichen unter dem Logo (Dunkelviolett) */
         .shop-plus {
-            color: #ffffff;
-            font-size: 1.2rem;
+            color: var(--primary-purple);
+            font-size: 1.3rem;
             font-weight: bold;
             line-height: 1;
             margin-bottom: 0.2rem; 
             text-align: center;
         }
 
-        /* Zentrierter Text Shop unter dem Pluszeichen */
+        /* Sichtbarer Text Shop unter dem Pluszeichen (Dunkel-Anthrazit) */
         .shop-text {
-            color: #ffffff;
+            color: var(--text-dark);
             font-size: 0.95rem;
             font-weight: bold;
             text-align: center;
@@ -393,7 +393,7 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Originaler Logo-Shop Kasten (Logo oben, + und Shop zentriert darunter) -->
+        <!-- Reparierter Logo-Shop Kasten (Texte sichtbar formatiert) -->
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
