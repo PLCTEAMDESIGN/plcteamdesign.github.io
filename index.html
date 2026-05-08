@@ -9,7 +9,7 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" /> 
     
     <style> 
-        /* 1. GLOBALE ABSICHERUNG (WASSERDICHT) */
+        /* 1. GLOBALE ABSICHERUNG GEGEN PIXEL-VERSCHIEBUNGEN */
         * {
             box-sizing: border-box !important;
         }
@@ -25,7 +25,6 @@
             --hover-soft: #f5f0fa; 
         } 
         
-        /* 2. GRUNDLAYOUT ABGESICHERT */ 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; 
@@ -39,8 +38,8 @@
         
         /* FESTE SEITENLEISTE */
         .sidebar-nav { 
-            width: 250px; 
-            height: 100vh; 
+            width: 250px !important; 
+            height: 100vh !important; 
             background-color: #ffffff !important; 
             border-right: 6px solid var(--gold-accent) !important; 
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
@@ -54,35 +53,44 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: Starr fixiert auf 218px Breite und 130px Höhe */
+        /* LOGO-SHOP KASTEN: ABSOLUT STARR AUF DIE PIXEL FIXIERT */
         .logo-box {
             background: #ffffff !important;
-            padding: 0.8rem 0.5rem !important;
+            padding: 0.5rem !important;
             margin-bottom: 1.5rem !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
-            justify-content: center !important;
-            width: 100% !important;
-            max-width: 218px !important; /* Exakte Pixelgröße */
-            height: 130px !important; /* Exakte Pixelgröße */
+            justify-content: space-between !important; 
+            width: 218px !important; /* Starr auf 218 Pixel fixiert */
+            height: 130px !important; /* Starr auf 130 Pixel fixiert */
             box-sizing: border-box !important;
+            cursor: pointer;
         }
 
-        /* LOGO-OPTIMIERUNG: Nutzt jetzt den optimalen Platz im Kasten aus */
         .sidebar-logo {
             width: 100% !important;
-            max-width: 100% !important; /* Füllt die Box voll aus */
+            max-width: 150px !important; 
             height: auto !important;
             display: block !important;
-            margin-bottom: 0.3rem !important; 
+            margin: 0 auto !important; 
+        }
+
+        /* Container für + und Shop erzwingt feste Pixelhöhen */
+        .shop-text-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            height: 45px !important; 
+            width: 100% !important;
         }
 
         .shop-plus {
             color: var(--text-dark) !important;
-            font-size: 1.2rem !important;
+            font-size: 1.3rem !important;
             font-weight: bold !important;
             line-height: 1 !important;
             margin-bottom: 0.1rem !important; 
@@ -95,16 +103,16 @@
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
         }
 
-        /* BUTTONS IM LINKEN RAND: Starr fixiert auf 218px Breite und 52px Höhe */
+        /* BUTTONS IM LINKEN RAND: ABSOLUT STARR AUF DIE PIXEL FIXIERT */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
-            width: 100% !important; 
-            max-width: 218px !important; /* Exakte Pixelgröße wie Shop-Kasten */
-            height: 52px !important; /* Exakte Pixelgröße */
+            width: 218px !important; /* Starr auf 218 Pixel fixiert */
+            height: 52px !important; /* Starr auf 52 Pixel fixiert */
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
@@ -140,14 +148,13 @@
         @media (max-width: 768px) { 
             body { flex-direction: column; } 
             .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 6px solid var(--gold-accent); padding: 1rem; align-items: center; } 
-            .logo-box { max-width: 280px !important; }
-            .sidebar-nav a.nav-btn { max-width: 280px !important; }
+            .logo-box { max-width: 218px !important; }
+            .sidebar-nav a.nav-btn { max-width: 218px !important; }
             .main-content { margin-left: 0; } 
             .container { margin: 2rem auto; padding: 0 1.5rem; }
             .section-title { font-size: 2rem; } 
         } 
         
-        /* 3. HEADER & BANNER */ 
         header { 
             background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)) !important; 
             color: white; 
@@ -166,7 +173,6 @@
             filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff); 
         } 
         
-        /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN */ 
         .section-title { 
             font-size: 2.3rem; 
             font-weight: 800; 
@@ -186,7 +192,6 @@
             line-height: 1.6; 
         } 
         
-        /* DIENSTLEISTUNGS-KARTEN */ 
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
@@ -231,7 +236,6 @@
             transition: color 0.3s ease;
         } 
         
-        /* PROJEKTE & EINZELNE ROTIERENDE ANIMATION */ 
         .projects-section { 
             margin-top: 5rem; 
             text-align: left; 
@@ -272,7 +276,6 @@
             to { transform: rotate(-360deg); } 
         } 
         
-        /* Startet außerhalb links und fährt bis außerhalb rechts durch */
         @keyframes single-pass { 
             0% { left: -250px; } 
             100% { left: 100%; } 
@@ -327,7 +330,6 @@
             .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
         } 
         
-        /* 4. KONTAKT & RECHTLICHES IMPRESSUM */ 
         .contact-section { 
             background: var(--dark-purple); 
             color: white; 
@@ -398,15 +400,17 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE --> 
+    <!-- SEITENLEISTE (PIXELGENAU GESPERRT) --> 
     <div class="sidebar-nav">
-        <!-- Logo-Shop Kasten (Breite: 218px, Höhe: 130px) -->
-        <div class="logo-box">
+        <!-- Logo-Shop Kasten (Exakt 218px x 130px) -->
+        <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
-            <div class="shop-plus">+</div>
-            <div class="shop-text">Shop</div>
+            <div class="shop-text-wrapper">
+                <div class="shop-plus">+</div>
+                <div class="shop-text">Shop</div>
+            </div>
         </div>
-        <!-- Menü-Buttons (Breite: 218px, Höhe: 52px) -->
+        <!-- Menü-Buttons (Exakt 218px x 52px) -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
