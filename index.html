@@ -18,7 +18,7 @@
             --hover-soft: #f5f0fa; 
         } 
         
-        /* 1. SEITEN-STRUKTUR (WASSERDICHT GEGEN VERSCHIEBUNGEN) */ 
+        /* 1. SEITEN-STRUKTUR */ 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; 
@@ -30,13 +30,13 @@
             overflow-x: hidden; 
         } 
         
+        /* LINKER RANDBEREICH: Auf reines Weiß geformt wie im Screenshot gewünscht */
         .sidebar-nav { 
             width: 250px; 
             height: 100vh; 
-            background-color: var(--deep-background); 
-            /* GOLDENER RAND LINKS: Sichtbarkeit erhöht auf 6px */
+            background-color: #ffffff; /* Gesamte Fläche des roten Kringels auf Weiß geändert */
             border-right: 6px solid var(--gold-accent); 
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15); 
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
             position: fixed; 
             top: 0; 
             left: 0; 
@@ -47,18 +47,29 @@
             z-index: 1000; 
         } 
         
-        /* REIN WEISSER KASTEN FÜR LOGO + TEXT UNTEREINANDER */
+        /* WEISSER KASTEN FÜR LOGO + TEXT MIT GOLDENEM RAND */
         .logo-box {
-            background: #ffffff; /* Auf reines Weiß geändert */
+            background: #ffffff; 
             padding: 0.8rem 0.4rem;
             margin-bottom: 1.5rem;
-            border: 1px solid #eeeeee;
+            border: 2px solid var(--gold-accent); /* Edler Goldrand */
             border-radius: 4px;
             display: flex;
             flex-direction: column; 
             align-items: center; 
             justify-content: center;
-            box-shadow: var(--card-shadow);
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hover-Effekt für den Shop-Kasten */
+        .logo-box:hover {
+            background-color: var(--primary-purple);
+            border-color: var(--gold-accent);
+        }
+        .logo-box:hover .shop-plus,
+        .logo-box:hover .shop-text {
+            color: #ffffff;
         }
 
         .sidebar-logo {
@@ -69,7 +80,6 @@
             margin-bottom: 0.3rem; 
         }
 
-        /* Plus und Shop-Schriftzug im weißen Kasten lesbar dunkel einfärben */
         .shop-plus {
             color: var(--primary-purple);
             font-size: 1.4rem;
@@ -77,6 +87,7 @@
             line-height: 1;
             margin-bottom: 0.1rem; 
             text-align: center;
+            transition: color 0.3s ease;
         }
 
         .shop-text {
@@ -86,27 +97,31 @@
             text-align: center;
             letter-spacing: 0.5px;
             text-transform: uppercase;
+            transition: color 0.3s ease;
         }
 
-        /* WEISSE, ZENTRIERTE NAVIGATIONSMENÜ-BUTTONS (Leistungen, etc.) */
+        /* WEISSE SCHALTFLÄCHEN MIT GOLDENEM RAND & LILA HOVER-EFFEKT */
         .sidebar-nav a.nav-btn {
             display: block;
-            background: #ffffff; /* Auf reines Weiß geändert */
+            background: #ffffff; 
             color: var(--text-dark);
             text-align: center; 
             padding: 0.7rem;
             margin-bottom: 1rem;
             text-decoration: none;
             font-weight: bold;
-            border: 1px solid #eeeeee;
+            border: 2px solid var(--gold-accent); /* Auf edlen Goldrand geändert */
             border-radius: 4px;
             font-size: 0.9rem;
-            transition: background-color 0.2s;
-            box-shadow: var(--card-shadow);
+            box-sizing: border-box;
+            transition: all 0.3s ease; /* Ermöglicht weichen Farbübergang */
         }
         
+        /* Verfärbung in das originale Lila bei Berührung */
         .sidebar-nav a.nav-btn:hover {
-            background-color: var(--hover-soft);
+            background-color: var(--primary-purple);
+            color: #ffffff; /* Text wechselt zu Weiß für beste Lesbarkeit */
+            border-color: var(--gold-accent);
         }
 
         .main-content { 
@@ -136,7 +151,7 @@
             color: white; 
             padding: 4rem 1rem; 
             text-align: center; 
-            border-bottom: 6px solid var(--gold-accent); /* Auf 6px erhöht */
+            border-bottom: 6px solid var(--gold-accent); 
         } 
         
         .logo-img { 
@@ -169,7 +184,7 @@
             line-height: 1.6; 
         } 
         
-        /* DIENSTLEISTUNGS-KARTEN */ 
+        /* DIENSTLEISTUNGS-KARTEN MIT LILA HOVER-EFFEKT */ 
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
@@ -179,26 +194,32 @@
         } 
         
         .koerber-card { 
-            background: #ffffff; /* Kartenfläche weiß */
+            background: #ffffff; 
             border-radius: 4px; 
             min-height: 280px; 
-            border-top: 6px solid var(--primary-purple); /* Aufteilungslinie oben auf 6px erhöht */
+            border-top: 6px solid var(--primary-purple); 
             padding: 1.2rem; 
             box-shadow: var(--card-shadow); 
             transition: all 0.3s ease; 
         } 
         
+        /* Bei Berührung verfärbt sich auch die Karte harmonisch in lila */
         .koerber-card:hover { 
             transform: translateY(-5px); 
-            background-color: var(--hover-soft); 
+            background-color: var(--primary-purple); 
             border-top-color: var(--gold-accent); 
         } 
+        .koerber-card:hover h3, 
+        .koerber-card:hover p {
+            color: #ffffff; /* Textinhalte wechseln zu weiß im lila Zustand */
+        }
         
         .koerber-card h3 { 
             font-size: 1.1rem; 
             font-weight: 700; 
             color: var(--dark-purple); 
             margin-top: 0; 
+            transition: color 0.3s ease;
         } 
         
         .koerber-card p { 
@@ -206,6 +227,7 @@
             color: #444444; 
             margin: 0; 
             line-height: 1.5; 
+            transition: color 0.3s ease;
         } 
         
         /* PROJEKTE & LAUFBAND-ANIMATION */ 
@@ -332,7 +354,7 @@
             background: var(--deep-background); 
             color: #c2b4d6; 
             padding: 4rem 1.5rem; 
-            border-top: 6px solid var(--gold-accent); /* Auf 6px erhöht */
+            border-top: 6px solid var(--gold-accent); 
             text-align: left; 
         } 
         
@@ -380,15 +402,15 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (ABGESICHERTE REIN WEISSE ELEMENTE) --> 
+    <!-- SEITENLEISTE (REIN WEISS MIT GOLD-RAND BUTTONS) --> 
     <div class="sidebar-nav">
-        <!-- Weißer Kasten für Logo und Shop-Text -->
+        <!-- Weißer Kasten für Logo und Shop-Text mit Goldrand -->
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Weiße zentrierte Buttons -->
+        <!-- Schaltflächen mit Goldrand und Lila Hover-Effekt -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
