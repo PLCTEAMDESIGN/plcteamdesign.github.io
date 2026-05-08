@@ -48,79 +48,62 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: BREITE & ELEMENTE OPTIMIERT */
+        /* LOGO-SHOP KASTEN */
         .logo-box {
-            width: 100% !important;
-            max-width: 218px !important;
-            height: auto !important; /* Höhe passt sich dynamisch an das größere Logo an */
-            background: #ffffff !important; 
-            padding: 1rem 0.8rem !important; /* Mehr Innenabstand für wuchtigeres Aussehen */
+            background: transparent !important;
+            padding: 0.8rem 0.4rem !important;
             margin-bottom: 1.5rem !important;
-            border: 6px solid var(--gold-accent) !important; 
-            border-radius: 4px !important;
+            border: 1px solid rgba(255, 255, 255, 0.4) !important;
+            border-radius: 2px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
             justify-content: center !important;
+            width: 100% !important;
+            max-width: 218px !important;
             box-sizing: border-box !important;
-            transition: all 0.3s ease !important;
-            cursor: pointer;
         }
 
-        .logo-box:hover {
-            background-color: var(--primary-purple) !important;
-        }
-        .logo-box:hover .shop-plus,
-        .logo-box:hover .shop-text {
-            color: #ffffff !important;
-        }
-
-        /* LOGO-KALKULATION: Füllt nun die volle Breite der Box aus */
         .sidebar-logo {
             width: 100% !important;
-            max-width: 100% !important; /* Greift sich den maximalen Platz im Kasten */
+            max-width: 180px !important;
             height: auto !important;
             display: block !important;
-            margin: 0 auto 0.5rem auto !important; 
+            margin-bottom: 0.5rem !important; 
         }
 
-        /* Größeres Pluszeichen */
         .shop-plus {
-            color: var(--primary-purple) !important;
-            font-size: 1.6rem !important; /* Vergrößert */
-            font-weight: 900 !important;
+            color: #ffffff !important;
+            font-size: 1.2rem !important;
+            font-weight: bold !important;
             line-height: 1 !important;
             margin-bottom: 0.2rem !important; 
             text-align: center !important;
-            transition: color 0.3s ease !important;
         }
 
-        /* Größere Shop-Schrift */
         .shop-text {
-            color: var(--text-dark) !important;
-            font-size: 1.1rem !important; /* Vergrößert für bessere Lesbarkeit */
+            color: #ffffff !important;
+            font-size: 0.95rem !important;
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
-            text-transform: uppercase !important;
-            transition: color 0.3s ease !important;
         }
 
-        /* BUTTONS BLEIBEN UNVERÄNDERT SYMMETRISCH */
+        /* DIE BUTTONS IM ROTEN KREIS: Fixiert auf exakten 6px Goldrand */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             width: 100% !important; 
-            max-width: 218px !important; 
+            max-width: 218px !important; /* Exakt gleiche Breite wie die obere Box */
             height: 52px !important; 
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; 
+            border: 6px solid var(--gold-accent) !important; /* Extra dicker Gold-Rahmen */
             border-radius: 4px !important;
-            font-size: 0.9rem !important;
+            font-size: 0.95rem !important;
             margin-bottom: 1rem !important;
             padding: 0 !important; 
             box-sizing: border-box !important; 
@@ -128,6 +111,7 @@
             text-align: center !important;
         } 
         
+        /* HOVER-EFFEKT: Verfärbt die drei Buttons bei Berührung in Lila */
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple) !important; 
             color: #ffffff !important; 
@@ -196,7 +180,7 @@
             line-height: 1.6; 
         } 
         
-        /* DIENSTLEISTUNGS-KARTEN MIT LILA HOVER-EFFEKT */ 
+        /* DIENSTLEISTUNGS-KARTEN */ 
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
@@ -407,15 +391,15 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (OPTIMIERTE LOGO-KALKULATION) --> 
+    <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Logo skaliert jetzt wuchtig auf die volle Breite der Box -->
-        <div class="logo-box" onclick="location.href='#shop'">
+        <!-- Der obere Kasten -->
+        <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Menü-Buttons bündig dazu -->
+        <!-- Die unteren Buttons mit fest eingebranntem 6px Goldrand -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
