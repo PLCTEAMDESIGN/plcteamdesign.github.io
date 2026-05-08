@@ -3,10 +3,11 @@
 <head> 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>PLC TEAM DESIGN | Bad Oeynhausen</title> 
+    <title>PLC TEAM DESIGN | Bad Oeynhausen - 3D-Design & Konstruktion</title> 
     
     <!-- GOOGLE-VERIFIZIERUNGSCODE --> 
-    <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" /> 
+    <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" />
+    <meta name="description" content="PLC Team Design - Professionelles 3D-Design, technische Konstruktion und Grafikdesign in Bad Oeynhausen. Spezialisiert auf 3D-Modellierung, FEM-Analyse und Prototyping.">
     
     <style> 
         /* 1. GLOBALE ABSICHERUNG GEGEN VERSCHIEBUNGEN */
@@ -54,7 +55,7 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: Starr auf 218px x 130px mit 6px Goldrand */
+        /* LOGO-SHOP KASTEN */
         .logo-box {
             background: #ffffff !important;
             padding: 0.5px !important; 
@@ -69,15 +70,14 @@
             height: 130px !important; 
             box-sizing: border-box !important;
             cursor: pointer;
-            transition: background-color 0.3s ease !important; 
+            transition: all 0.3s ease !important; 
         }
 
-        /* LILA HOVER-EFFEKT FÜR DEN SHOP-KASTEN */
         .logo-box:hover {
             background-color: var(--primary-purple) !important;
+            transform: scale(1.02);
         }
 
-        /* LOGO-FLEXIBILITÄT */
         .sidebar-logo {
             width: 100% !important;
             max-width: 100% !important; 
@@ -87,7 +87,6 @@
             object-fit: contain !important; 
         }
 
-        /* Container für + und Shop */
         .shop-text-wrapper {
             display: flex !important;
             flex-direction: column !important;
@@ -118,7 +117,6 @@
             transition: color 0.3s ease !important;
         }
 
-        /* SCHRIFT WIRD BEIM BERÜHREN WEISS */
         .logo-box:hover .shop-plus,
         .logo-box:hover .shop-text {
             color: #ffffff !important;
@@ -148,6 +146,7 @@
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple) !important; 
             color: #ffffff !important; 
+            transform: translateX(5px);
         }
 
         /* INHALTSBEREICH */
@@ -165,9 +164,29 @@
         
         @media (max-width: 768px) { 
             body { flex-direction: column; } 
-            .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 6px solid var(--gold-accent); padding: 1rem; align-items: center; } 
-            .logo-box { max-width: 218px !important; }
-            .sidebar-nav a.nav-btn { max-width: 218px !important; }
+            .sidebar-nav { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                border-right: none; 
+                border-bottom: 6px solid var(--gold-accent); 
+                padding: 1rem; 
+                align-items: center; 
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            } 
+            .logo-box { 
+                max-width: 218px !important; 
+                margin-bottom: 0.5rem !important;
+            }
+            .sidebar-nav a.nav-btn { 
+                max-width: 150px !important;
+                height: 45px !important;
+                font-size: 0.9rem !important;
+                margin-bottom: 0.5rem !important;
+            }
             .main-content { margin-left: 0; } 
             .container { margin: 2rem auto; padding: 0.5rem; }
             .section-title { font-size: 1.6rem; } 
@@ -226,12 +245,14 @@
             padding: 1.2rem; 
             box-shadow: var(--card-shadow); 
             transition: all 0.3s ease; 
+            cursor: default;
         } 
         
         .koerber-card:hover { 
             transform: translateY(-5px); 
             background-color: var(--primary-purple); 
             border-top-color: var(--gold-accent); 
+            box-shadow: 0 8px 25px rgba(116, 31, 162, 0.3);
         } 
         .koerber-card:hover h3, 
         .koerber-card:hover p {
@@ -269,6 +290,7 @@
             overflow: hidden; 
             height: 350px; 
             display: flex;
+            background: linear-gradient(to right, transparent 0%, rgba(116, 31, 162, 0.05) 50%, transparent 100%);
         } 
         
         .project-featured-img-wrapper { 
@@ -299,6 +321,7 @@
             100% { left: 100%; } 
         } 
         
+        /* ERWEITERTES PROJEKT-GRID FÜR 8 PROJEKTE */
         .project-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
@@ -309,21 +332,25 @@
         .project-card { 
             background: #ffffff; 
             border: 1px solid #eeeeee; 
-            border-radius: 4px; 
+            border-radius: 8px; 
             overflow: hidden; 
             box-shadow: var(--card-shadow); 
             transition: all 0.3s ease; 
+            cursor: pointer;
         } 
         
         .project-card:hover { 
-            transform: scale(1.02); 
+            transform: scale(1.03); 
             background-color: var(--hover-soft); 
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            border-color: var(--primary-purple);
         } 
         
         .project-img-wrapper { 
             width: 100%; 
             height: 250px; 
             overflow: hidden; 
+            background: #f9f9f9;
         } 
         
         .project-img { 
@@ -331,7 +358,12 @@
             height: 100%; 
             object-fit: contain; 
             padding: 0.5rem; 
-        } 
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
         
         .project-title { 
             padding: 1rem; 
@@ -341,12 +373,86 @@
             color: var(--text-dark); 
             border-top: 1px solid #f0f0f0; 
             background: #fafafa; 
+            text-align: center;
         } 
         
+        .project-card:hover .project-title {
+            color: var(--primary-purple);
+            background: #f5f0fa;
+        }
+        
         @media (max-width: 768px) { 
-            .project-featured { height: auto; overflow: visible; display: block; }
-            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
+            .project-featured { 
+                height: auto; 
+                overflow: visible; 
+                display: block; 
+                padding: 1rem 0;
+            }
+            .project-featured-img-wrapper { 
+                animation: none; 
+                position: relative; 
+                margin: 0 auto; 
+                top: 0; 
+                left: auto; 
+            }
+            .project-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .project-img-wrapper {
+                height: 200px;
+            }
         } 
+        
+        /* KONTAKT-BEREICH */
+        #contact {
+            text-align: left;
+            padding: 3rem 0;
+            border-top: 2px solid #f0f0f0;
+            margin-top: 4rem;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #f8f6fb, #ffffff);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 6px solid var(--primary-purple);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-box h3 {
+            margin-top: 0;
+            color: var(--dark-purple);
+            font-size: 1.5rem;
+        }
+        
+        .contact-box a {
+            color: var(--primary-purple);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-box a:hover {
+            color: var(--dark-purple);
+            text-decoration: underline;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: #2ecc71;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
         
         /* FOOTER-BEREICH */
         footer { 
@@ -362,7 +468,9 @@
             margin: 0 auto; 
         } 
         
-        .accordion-item { border-bottom: 1px solid #3c1963; } 
+        .accordion-item { 
+            border-bottom: 1px solid #3c1963; 
+        } 
         
         .accordion-trigger { 
             width: 100%; 
@@ -376,15 +484,32 @@
             cursor: pointer; 
             display: flex; 
             justify-content: space-between; 
+            transition: color 0.3s ease;
         } 
+        
+        .accordion-trigger:hover {
+            color: var(--gold-accent);
+        }
         
         .accordion-content a, .legal-text, .legal-text a { 
             color: #ffffff !important; 
             text-decoration: none; 
         } 
-        .accordion-content a { text-decoration: underline; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; } 
-        .accordion-item.active .accordion-content { max-height: 600px; }
+        .accordion-content a { 
+            text-decoration: underline; 
+        }
+        .accordion-content a:hover {
+            color: var(--gold-accent) !important;
+        }
+        
+        .accordion-content { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.3s ease-out; 
+        } 
+        .accordion-item.active .accordion-content { 
+            max-height: 600px; 
+        }
         
         .legal-text { 
             padding: 0.5rem 0 1.5rem 0; 
@@ -403,9 +528,9 @@
 <body> 
 
     <!-- SEITENLEISTE --> 
-    <div class="sidebar-nav">
-        <!-- KORRIGIERTE WEITERLEITUNG ZUM SPREADSHOP BEI KLICK -->
-        <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank')">
+    <nav class="sidebar-nav" aria-label="Hauptnavigation">
+        <!-- SHOP-LINK -->
+        <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank')" title="Zum PLC Team Design Shop">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
                 <div class="shop-plus">+</div>
@@ -415,95 +540,143 @@
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
-    </div>
+    </nav>
 
     <!-- MAIN CONTENT -->
-    <div class="main-content">
+    <main class="main-content">
         
         <header>
-            <img src="logo.png" alt="PLC Team Design Premium Banner" class="logo-img">
+            <img src="logo.png" alt="PLC Team Design Premium Banner - 3D-Design und Konstruktion" class="logo-img">
         </header>
 
         <div class="container">
-            <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
-            <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
+            <!-- EINLEITUNG -->
+            <section id="intro">
+                <h2 class="section-title">✨ „Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da!“ 💫</h2>
+                <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
+            </section>
 
             <!-- DIENSTLEISTUNGEN -->
-            <div id="leistungen" class="horizontal-scroll-grid">
-                <div class="koerber-card">
-                    <h3>Wunschdesign</h3>
-                    <p>Wunschdesign: 3D-K&ouml;rper als Datenformat zur Weiterverarbeitung wie Fr&auml;sen, Drehen, Lasern, 3D-Druck oder f&uuml;r Werbezwecke.</p>
+            <section id="leistungen">
+                <h2 class="section-title">Unsere Leistungen</h2>
+                <div class="horizontal-scroll-grid">
+                    <div class="koerber-card">
+                        <h3>🎨 Wunschdesign</h3>
+                        <p>3D-Körper als Datenformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>🔧 Materialanpassung</h3>
+                        <p>Anpassungen von Holz, Glas, Stahl, Stein, Kunststoff, Pulver oder weiteren Materialien nach Ihren Anforderungen.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>🤝 Begleitung & Beratung</h3>
+                        <p>Unterstützung für regionale Produktionen mit Fokus auf ökologischen Fußabdruck und nachhaltige Lösungen.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>📊 Technische Analyse</h3>
+                        <p>Detaillierte FEM-Analyse mit Simulationsberechnungen für Bauteile, Baugruppen und Wiederherstellungen.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>💻 Webdesign</h3>
+                        <p>Professionelle Umsetzung Ihres Webauftritts mit modernsten Technologien – individuell und flexibel nach Absprache.</p>
+                    </div>
                 </div>
-                <div class="koerber-card">
-                    <h3>Materialanpassung</h3>
-                    <p>Anpassungen von Holz, Glas, Stahl, Stein, Kunststoff, Pulver oder Weiteres.</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Begleitung &amp; Beratung</h3>
-                    <p>Begleitung &amp; Beratung f&uuml;r regionale Produktionen (&ouml;kologischer Fu&szlig;abdruck) oder Weiteres.</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Technische Analyse</h3>
-                    <p>Sie ben&ouml;tigen n&auml;here L&ouml;sungen f&uuml;r Wiederherstellungen, Reparaturen der 3D-K&ouml;rper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
-                </div>
-                <div class="koerber-card">
-                    <h3>Webdesign</h3>
-                    <p>Unterst&uuml;tzung von Unternehmen und Start-ups bei der professionellen Umsetzung Ihres Webauftritts mit modernsten Webtechnologien, individuell, flexibel nach Absprache.</p>
-                </div>
-            </div>
+            </section>
 
             <!-- PROJEKTE -->
-            <div id="projekte" class="projects-section">
+            <section id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
+                <!-- Animiertes Featured-Projekt -->
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
+                        <img src="projekt1.jpg" alt="3D-Konstruktion Zahnrad - Animiertes Projekt" class="project-featured-img">
                     </div>
                 </div>
 
+                <!-- Projekt-Grid mit 8 Projekten -->
                 <div class="project-grid">
                     <div class="project-card">
                         <div class="project-img-wrapper">
-                            <img src="projekt1.jpg" alt="Projekt 1" class="project-img">
+                            <img src="projekt1.jpg" alt="Projekt 1 - 3D-Konstruktion" class="project-img" loading="lazy">
                         </div>
                         <h4 class="project-title">3D-Konstruktion Zahnrad</h4>
                     </div>
                     <div class="project-card">
                         <div class="project-img-wrapper">
-                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img">
+                            <img src="projekt2.jpg" alt="Projekt 2 - Technische Zeichnung" class="project-img" loading="lazy">
                         </div>
-                        <h4 class="project-title">Technische Zeichnung Geh&auml;use</h4>
+                        <h4 class="project-title">Technische Zeichnung Gehäuse</h4>
                     </div>
                     <div class="project-card">
                         <div class="project-img-wrapper">
-                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img">
+                            <img src="projekt3.jpg" alt="Projekt 3 - Prototyping" class="project-img" loading="lazy">
                         </div>
-                        <h4 class="project-title">Prototyping &amp; Design</h4>
+                        <h4 class="project-title">Prototyping & Design</h4>
                     </div>
                     <div class="project-card">
                         <div class="project-img-wrapper">
-                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img">
+                            <img src="projekt4.jpg" alt="Projekt 4 - FEM Analyse" class="project-img" loading="lazy">
                         </div>
                         <h4 class="project-title">FEM Strukturanalyse</h4>
                     </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt5.jpg" alt="Projekt 5 - 3D-Modellierung" class="project-img" loading="lazy">
+                        </div>
+                        <h4 class="project-title">3D-Modellierung Baugruppe</h4>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt6.jpg" alt="Projekt 6 - Oberflächendesign" class="project-img" loading="lazy">
+                        </div>
+                        <h4 class="project-title">Oberflächendesign</h4>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt7.jpg" alt="Projekt 7 - Technische Illustration" class="project-img" loading="lazy">
+                        </div>
+                        <h4 class="project-title">Technische Illustration</h4>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt8.jpg" alt="Projekt 8 - Rapid Prototyping" class="project-img" loading="lazy">
+                        </div>
+                        <h4 class="project-title">Rapid Prototyping</h4>
+                    </div>
                 </div>
-            </div>
+            </section>
 
             <!-- KONTAKT -->
-            <div id="contact" class="contact-section">
-                <h3>Wir helfen Ihnen gerne weiter!</h3>
-                <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
-                <p style="text-decoration: none; font-weight: normal;">Status: <span style="color: #2ecc71; font-weight: bold;">&#9679; Aktuell erreichbar</span></p>
-            </div>
-
+            <section id="contact">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="contact-box">
+                    <h3>Wir helfen Ihnen gerne weiter!</h3>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        <strong>📧 E-Mail:</strong> 
+                        <a href="mailto:plctede@gmail.com">plctede@gmail.com</a>
+                    </p>
+                    <p style="font-size: 1.1rem; margin: 1rem 0;">
+                        <strong>📱 Telefon:</strong> 
+                        <a href="tel:+4957319829839">05731 9829839</a>
+                    </p>
+                    <p style="font-size: 1.1rem;">
+                        <span class="status-indicator"></span>
+                        <strong>Status:</strong> 
+                        <span style="color: #2ecc71; font-weight: bold;">Aktuell erreichbar</span>
+                    </p>
+                </div>
+            </section>
         </div>
 
-        <!-- FOOTER MIT RECHTLICH KORREKTEM IMPRESSUM FÜR KLEINUNTERNEHMER -->
+        <!-- FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion()">Impressum / Kontakt <span>&#9660;</span></button>
+                    <button class="accordion-trigger" onclick="toggleAccordion()" aria-expanded="false">
+                        Impressum / Kontakt 
+                        <span aria-hidden="true">▼</span>
+                    </button>
                     <div id="impressum-content" class="accordion-content">
                         <div class="legal-text">
                             <strong>PLC Team Design</strong><br>
@@ -515,15 +688,20 @@
                             32545 Bad Oeynhausen<br><br>
                             
                             <strong>Kontakt:</strong><br>
-                            Tel.: 05731 9829839<br>
+                            Tel.: <a href="tel:+4957319829839">05731 9829839</a><br>
                             E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a><br><br>
                             
-                            <strong>Inhaltlich Verantwortlicher gem&auml;&szlig; &sect; 18 Abs. 2 MStV:</strong><br>
+                            <strong>Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV:</strong><br>
                             Pedro Lereno Cordeiro<br>
                             Rastenburger Str. 11, 32545 Bad Oeynhausen<br><br>
 
                             <strong>Hinweis zur Umsatzsteuer:</strong><br>
-                            Gem&auml;&szlig; &sect; 19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.
+                            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen.
+                            
+                            <br><br>
+                            <strong>Haftungsausschluss:</strong><br>
+                            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. 
+                            Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
                         </div>
                     </div>
                 </div>
@@ -531,25 +709,31 @@
             </div>
         </footer>
 
-    </div>
+    </main>
 
-    <!-- SKRIPTE FÜR AKKORDEON UND SMOOTH SCROLLING -->
+    <!-- SKRIPTE -->
     <script>
         // Akkordeon im Footer
         function toggleAccordion() {
-            var item = document.querySelector('.accordion-item');
-            var content = document.getElementById('impressum-content');
+            const item = document.querySelector('.accordion-item');
+            const content = document.getElementById('impressum-content');
+            const trigger = document.querySelector('.accordion-trigger');
+            const arrow = trigger.querySelector('span');
+            
+            item.classList.toggle('active');
             
             if (item.classList.contains('active')) {
-                item.classList.remove('active');
-                content.style.maxHeight = "0px";
-            } else {
-                item.classList.add('active');
                 content.style.maxHeight = content.scrollHeight + "px";
+                arrow.textContent = '▲';
+                trigger.setAttribute('aria-expanded', 'true');
+            } else {
+                content.style.maxHeight = "0px";
+                arrow.textContent = '▼';
+                trigger.setAttribute('aria-expanded', 'false');
             }
         }
 
-        // JS Fallback für absolut flüssiges Scrollen auf allen Browsern
+        // Smooth Scrolling für Navigation
         document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -559,8 +743,33 @@
 
                 if (targetElement) {
                     targetElement.scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
+                }
+            });
+        });
+
+        // Aktive Navigation hervorheben
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.sidebar-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.pageYOffset >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.style.background = '#ffffff';
+                link.style.color = 'var(--text-dark)';
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.style.background = 'var(--primary-purple)';
+                    link.style.color = '#ffffff';
                 }
             });
         });
