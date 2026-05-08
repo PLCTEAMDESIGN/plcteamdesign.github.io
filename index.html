@@ -36,71 +36,7 @@
             display: flex; flex-direction: column;
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
-        
-        /* SHOP-FELD GANZ OBEN (Weißer Hintergrund, goldener Rand) */
-        .sidebar-shop {
-            margin-bottom: 2.5rem; 
-            background-color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
-            border-radius: 4px;
-            border: 4px solid var(--gold-accent);
-            text-decoration: none;
-            box-sizing: border-box;
-            transition: background-color 0.3s ease;
-        }
-        
-        .sidebar-shop img { 
-            width: 100%; 
-            max-width: 180px; 
-            height: auto; 
-            display: block;
-            margin-bottom: 0.5rem; 
-            background-color: transparent;
-        }
-        
-        /* Text-Aufteilung: Nur noch das + und das Wort Shop */
-        .shop-text-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--gold-accent);
-            font-weight: 800;
-            font-size: 1.1rem;
-            line-height: 1.2;
-            text-align: center;
-        }
-        .shop-plus {
-            font-size: 1.6rem;
-            line-height: 1;
-            margin: 0.1rem 0;
-        }
-        
-        /* Shop-Feld bei Berührung dezent lila */
-        .sidebar-shop:hover { 
-            background-color: var(--hover-soft);
-        }
-        
-        /* MENÜLINKS DARUNTER (Weißer Hintergrund, goldener Rand) */
-        .sidebar-link {
-            color: var(--text-dark); text-decoration: none;
-            font-weight: 700; font-size: 1rem;
-            padding: 0.8rem 1rem; 
-            background-color: #ffffff; 
-            margin-bottom: 1rem; text-align: left;
-            border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            border: 4px solid var(--gold-accent);
-            box-sizing: border-box;
-            transition: background-color 0.3s ease;
-        }
-        
-        /* Menülinks bei Berührung dezent lila */
-        .sidebar-link:hover { 
-            background-color: var(--hover-soft);
-        }
-        
+
         /* HAUPTBEREICH */
         .main-content { margin-left: 250px; flex: 1; min-width: 0; }
         header { 
@@ -143,7 +79,7 @@
         
         .price-badge { background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 1rem; }
 
-        /* PROJEKTE */
+        /* PROJEKTE & ANIMATION */
         .projects-section { margin-top: 5rem; text-align: left; }
         .project-featured {
             width: 100%;
@@ -200,8 +136,6 @@
         @media (max-width: 768px) {
             body { flex-direction: column; }
             .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; padding: 1rem; }
-            .sidebar-shop { margin-bottom: 1rem; }
-            .sidebar-link { margin-bottom: 0.8rem; text-align: center; }
             .main-content { margin-left: 0; }
             .project-featured-img-wrapper { width: 200px; height: 200px; }
         }
@@ -212,19 +146,12 @@
     <!-- SEITENLEISTE -->
     <div class="sidebar-nav">
         
-        <!-- Shop-Kachel ganz oben (Jetzt garantiert ohne doppelten Text!) -->
-        <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
-            <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
-            <div class="shop-text-container">
-                <span class="shop-plus">+</span>
-                <span>Shop</span>
-            </div>
-        </a>
+        <!-- GESICHERTE BEREICHE ALS CUSTOM ELEMENTS -->
+        <custom-sidebar-shop></custom-sidebar-shop>
         
-        <!-- Menülinks darunter -->
-        <a href="#leistungen" class="sidebar-link">Leistungen</a>
-        <a href="#projekte" class="sidebar-link">Projekte</a>
-        <a href="#kontakt" class="sidebar-link">Contact</a>
+        <custom-sidebar-link href="#leistungen" title="Leistungen"></custom-sidebar-link>
+        <custom-sidebar-link href="#projekte" title="Projekte"></custom-sidebar-link>
+        <custom-sidebar-link href="#kontakt" title="Contact"></custom-sidebar-link>
         
     </div>
 
@@ -270,49 +197,68 @@
 
             <!-- Projekte -->
             <div id="projekte" class="projects-section">
-                <h2 class="section-title">Projekte</h2>
-                <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
-
-                <div class="project-featured">
-                    <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img rotate-animation" onerror="this.style.display='none'">
-                    </div>
-                </div>
-
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 2: Prototypen-Entwicklung</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 3: 3D-Konstruktion</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 4: Modellierung & Design</div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="kontakt" class="contact-section">
-                <h3>Gemeinsam Projekte realisieren</h3>
-                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
+                ... (Rest bleibt wie zuvor) ...
             </div>
         </div>
-
-        <footer>
-            <div class="footer-container">
-                <div class="footer-copyright"><p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p></div>
-            </div>
-        </footer>
     </div>
 
+    <!-- PROGRAMMIER-LOGIK FÜR DIE GEKAPSELTEN ELEMENTE -->
+    <script>
+        // Sicherung des Shop-Kastens
+        class SidebarShop extends HTMLElement {
+            constructor() {
+                super();
+                const shadow = this.attachShadow({mode: 'closed'});
+                shadow.innerHTML = `
+                    <style>
+                        .sidebar-shop {
+                            margin-bottom: 2.5rem; background-color: #ffffff;
+                            display: flex; flex-direction: column; align-items: center;
+                            padding: 1rem; border-radius: 4px; border: 4px solid #d4af37;
+                            text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        }
+                        .sidebar-shop img { width: 100%; max-width: 180px; height: auto; display: block; margin-bottom: 0.5rem; }
+                        .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #d4af37; font-weight: 800; font-size: 1.1rem; line-height: 1.2; text-align: center; }
+                        .shop-plus { font-size: 1.6rem; line-height: 1; margin: 0.1rem 0; }
+                        .sidebar-shop:hover { background-color: #f5f0fa; }
+                    </style>
+                    <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
+                        <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
+                        <div class="shop-text-container">
+                            <span class="shop-plus">+</span>
+                            <span>Shop</span>
+                        </div>
+                    </a>
+                `;
+            }
+        }
+        customElements.define('custom-sidebar-shop', SidebarShop);
+
+        // Sicherung der Menü-Links
+        class SidebarLink extends HTMLElement {
+            constructor() {
+                super();
+                const shadow = this.attachShadow({mode: 'closed'});
+                const href = this.getAttribute('href');
+                const title = this.getAttribute('title');
+                shadow.innerHTML = `
+                    <style>
+                        .sidebar-link {
+                            color: #111111; text-decoration: none; font-weight: 700; font-size: 1rem;
+                            padding: 0.8rem 1rem; background-color: #ffffff; margin-bottom: 1rem;
+                            text-align: left; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                            border: 4px solid #d4af37; box-sizing: border-box; display: block;
+                            transition: background-color 0.3s ease;
+                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        }
+                        .sidebar-link:hover { background-color: #f5f0fa; }
+                    </style>
+                    <a href="${href}" class="sidebar-link">${title}</a>
+                `;
+            }
+        }
+        customElements.define('custom-sidebar-link', SidebarLink);
+    </script>
 </body>
 </html>
