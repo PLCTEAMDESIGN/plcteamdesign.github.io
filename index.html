@@ -1,395 +1,216 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLC TEAM DESIGN | Bad Oeynhausen</title>
-    
-    <!-- GOOGLE-VERIFIZIERUNGSCODE -->
-    <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" />
-    
-    <style>
-        :root {
-            --primary-purple: #741fa2;
-            --dark-purple: #4a0072;
-            --deep-background: #1e0034;
-            --gold-accent: #d4af37;
-            --light-bg: #fdfbfe;
-            --text-dark: #111111;
-            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --hover-soft: #f5f0fa;
-        }
+:root {
+    --primary-purple: #6200ea; /* Moderneres, kräftiges Edel-Lila */
+    --dark-purple: #3700b3;    /* Tiefer Lila-Ton für Verläufe */
+    --deep-background: #120024; /* Fast schwarzes, edles Dunkellila */
+    --gold-accent: #e5c158;     /* Edles, mattes Premium-Gold */
+    --light-bg: #f8f5fa;        /* Softes Pastell-Lila für den Hintergrund */
+    --text-dark: #231b29;       /* Sanftes Dunkel-Anthrazit statt reinem Schwarz */
+    --card-shadow: 0 10px 30px rgba(98, 0, 234, 0.06); /* Moderner, weicher Schatten */
+    --hover-soft: #f1ebf8;      /* Sanfter Hover-Effekt */
+}
 
-        /* 1. GESPERRTER BEREICH: GRUNDLAYOUT PC & HANDY */
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; margin: 0; padding: 0; 
-            color: var(--text-dark); background-color: var(--light-bg); 
-            display: flex; overflow-x: hidden;
-        }
-        .sidebar-nav {
-            width: 250px; height: 100vh;
-            background-color: var(--deep-background);
-            border-right: 3px solid var(--gold-accent);
-            position: fixed; top: 0; left: 0;
-            display: flex; flex-direction: column;
-            padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
-        }
-        .main-content { margin-left: 250px; flex: 1; min-width: 0; }
-        .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; }
-        
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; padding: 1rem; }
-            .main-content { margin-left: 0; }
-            .section-title { font-size: 2rem; }
-        }
-        /* GESPERRTER BEREICH ENDE */
+/* 1. LAYOUT PC & HANDY */
+body { 
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+    line-height: 1.7; margin: 0; padding: 0; 
+    color: var(--text-dark); background-color: var(--light-bg); 
+    display: flex; overflow-x: hidden;
+}
+.sidebar-nav {
+    width: 250px; height: 100vh;
+    background-color: var(--deep-background);
+    border-right: 3px solid var(--gold-accent);
+    position: fixed; top: 0; left: 0;
+    display: flex; flex-direction: column;
+    padding: 2rem 1.5rem; box-sizing: border-box; z-index: 1000;
+}
+.main-content { margin-left: 250px; flex: 1; min-width: 0; }
+.container { max-width: 1100px; margin: 5rem auto; padding: 0 2.5rem; box-sizing: border-box; }
 
-        /* 2. GESPERRTER BEREICH: HEADER & BANNER */
-        header { 
-            background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); 
-            color: white; padding: 4rem 1rem; text-align: center; 
-            border-bottom: 5px solid var(--gold-accent); 
-        }
-        .logo-img { 
-            width: 100%; max-width: 800px; height: auto; 
-            display: block; margin: 0 auto 2rem auto; background: transparent;
-            filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff);
-        }
-        /* GESPERRTER BEREICH ENDE */
+@media (max-width: 768px) {
+    body { flex-direction: column; }
+    .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; padding: 1.5rem; }
+    .main-content { margin-left: 0; }
+    .container { margin: 2rem auto; padding: 0 1.5rem; }
+}
 
-        /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN */
-        .section-title { 
-            font-size: 2.3rem;
-            font-weight: 800; 
-            color: var(--primary-purple);
-            margin-bottom: 0.5rem; 
-            text-align: left; 
-            line-height: 1.2;
-        }
-        .section-subtitle { 
-            font-size: 1.1rem; 
-            color: #444444; 
-            margin-bottom: 3.5rem; 
-            text-align: left; 
-            font-weight: 500;
-            max-width: 900px;
-            line-height: 1.6;
-        }
-        
-        /* DIENSTLEISTUNGS-KARTEN */
-        .horizontal-scroll-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
-            gap: 1.2rem; 
-            margin-bottom: 4rem; 
-            text-align: left; 
-        }
-        
-        .koerber-card { 
-            background: #f9f9f9; 
-            border-radius: 4px; 
-            min-height: 280px; 
-            border-top: 4px solid var(--primary-purple); 
-            padding: 1.2rem; 
-            box-shadow: var(--card-shadow); 
-            transition: all 0.3s ease; 
-        }
-        .koerber-card:hover { 
-            transform: translateY(-5px); 
-            background-color: var(--hover-soft);
-            border-top-color: var(--gold-accent);
-        }
-        .koerber-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; }
-        .koerber-card p { font-size: 0.85rem; color: #444444; margin: 0; line-height: 1.5; }
+/* 2. HEADER & BANNER */
+header { 
+    background: linear-gradient(135deg, var(--deep-background), var(--primary-purple)); 
+    color: white; padding: 5rem 1.5rem; text-align: center; 
+    border-bottom: 5px solid var(--gold-accent); 
+}
+.logo-img { 
+    width: 100%; max-width: 800px; height: auto; 
+    display: block; margin: 0 auto 2rem auto; background: transparent;
+    filter: drop-shadow(0px 4px 20px rgba(0,0,0,0.15));
+}
 
-        /* PROJEKTE & KETTEN-ANIMATION NR. 1 */
-        .projects-section { margin-top: 5rem; text-align: left; }
-        
-        .project-featured {
-            width: 100%;
-            text-align: center;
-            margin-bottom: 3rem;
-            padding: 2rem 0;
-            background: transparent;
-            box-sizing: border-box;
-            position: relative;
-            overflow: hidden; 
-            height: 350px;
-        }
-        .project-featured-img-wrapper {
-            width: 250px;
-            height: 250px;
-            position: absolute;
-            top: 50px;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: infinite-pass-through 12s linear infinite;
-        }
-        .project-featured-img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            animation: rotate-ccw 10s linear infinite;
-        }
-        
-        @keyframes rotate-ccw {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(-360deg); }
-        }
-        @keyframes infinite-pass-through {
-            0% { left: -250px; }
-            100% { left: 100%; }
-        }
+/* TEXTE & ÜBERSCHRIFTEN */
+.section-title { 
+    font-size: 2.6rem;
+    font-weight: 800; 
+    color: var(--primary-purple);
+    margin-bottom: 0.75rem; 
+    text-align: left; 
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+.section-subtitle { 
+    font-size: 1.15rem; 
+    color: #554d5c; 
+    margin-bottom: 4rem; 
+    text-align: left; 
+    font-weight: 400;
+    max-width: 850px;
+    line-height: 1.7;
+}
 
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
-        
-        .project-card { 
-            background: #ffffff; 
-            border: 1px solid #eeeeee; 
-            border-radius: 4px; 
-            overflow: hidden; 
-            box-shadow: var(--card-shadow); 
-            transition: all 0.3s ease; 
-        }
-        .project-card:hover { 
-            transform: scale(1.02); 
-            background-color: var(--hover-soft);
-        }
-        .project-img-wrapper { width: 100%; height: 250px; overflow: hidden; }
-        .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
-        .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
-        
-        @media (max-width: 768px) {
-            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; }
-            .project-featured { height: auto; overflow: visible; }
-            .project-featured-img-wrapper { width: 200px; height: 200px; }
-        }
+/* DIENSTLEISTUNGS-KARTEN */
+.horizontal-scroll-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); 
+    gap: 1.5rem; 
+    margin-bottom: 5rem; 
+    text-align: left; 
+}
 
-        /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER MIT IMPRESSUM */
-        .contact-section { 
-            background: var(--dark-purple); 
-            color: white; 
-            padding: 3rem 2.5rem; 
-            border-radius: 4px; 
-            margin-top: 6rem; 
-            text-align: left; 
-            border-left: 6px solid var(--gold-accent); 
-        }
-        .contact-section a { color: var(--gold-accent); text-decoration: underline; font-weight: bold; }
-        
-        footer { 
-            background: var(--deep-background); 
-            color: #c2b4d6; 
-            padding: 4rem 1.5rem; 
-            border-top: 4px solid var(--gold-accent); 
-            text-align: left; 
-        }
-        .footer-container { max-width: 900px; margin: 0 auto; }
-        
-        /* Klappmenü für Rechtstexte */
-        .accordion-item { border-bottom: 1px solid #3c1963; }
-        .accordion-trigger { 
-            width: 100%; background: none; border: none; text-align: left; 
-            color: #ffffff; font-size: 1.1rem; font-weight: 600; 
-            padding: 1.2rem 0; cursor: pointer; display: flex; 
-            justify-content: space-between; 
-        }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
-        .accordion-item.active .accordion-content { max-height: 500px; }
-        .legal-text { padding: 0.5rem 0 1.5rem 0; color: #c2b4d6; font-size: 0.95rem; }
-        
-        .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; }
-        /* GESPERRTER BEREICH ENDE */
-    </style>
-</head>
-<body>
+.koerber-card { 
+    background: #ffffff; 
+    border-radius: 12px; /* Moderne, weiche Ecken */
+    min-height: 280px; 
+    border-top: 4px solid var(--primary-purple); 
+    padding: 1.8rem; /* Mehr Freiraum für den Text */
+    box-shadow: var(--card-shadow); 
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+.koerber-card:hover { 
+    transform: translateY(-6px); 
+    background-color: #ffffff;
+    border-top-color: var(--gold-accent);
+    box-shadow: 0 20px 40px rgba(98, 0, 234, 0.12);
+}
+.koerber-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--deep-background); margin-top: 0; margin-bottom: 0.75rem; }
+.koerber-card p { font-size: 0.9rem; color: #554d5c; margin: 0; line-height: 1.6; }
 
-    <!-- SEITENLEISTE -->
-    <div class="sidebar-nav">
-        
-        <!-- GESICHERTE BEREICHE ALS CUSTOM ELEMENTS -->
-        <custom-sidebar-shop></custom-sidebar-shop>
-        
-        <custom-sidebar-link href="#leistungen" title="Leistungen"></custom-sidebar-link>
-        <custom-sidebar-link href="#projekte" title="Projekte"></custom-sidebar-link>
-        <custom-sidebar-link href="#kontakt" title="Contact"></custom-sidebar-link>
-        
-    </div>
+/* PROJEKTE & ANIMATION */
+.projects-section { margin-top: 6rem; text-align: left; }
 
-    <!-- HAUPTBEREICH -->
-    <div class="main-content">
-        <header>
-            <div class="logo-container">
-                <img src="logo.png" alt="Logo" class="logo-img">
-            </div>
-        </header>
+.project-featured {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem 0;
+    background: transparent;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; 
+    height: 350px;
+}
+.project-featured-img-wrapper {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: infinite-pass-through 12s linear infinite;
+}
+.project-featured-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: rotate-ccw 10s linear infinite;
+}
 
-        <div class="container">
-            
-            <!-- Leistungen -->
-            <div id="leistungen">
-                <h2 class="section-title">✨ Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da! 💫</h2>
-                <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
-                
-                <div class="horizontal-scroll-grid">
-                    <div class="koerber-card">
-                        <h3>Wunschdesign</h3>
-                        <p>Wunschdesign, 3D-Körper als Dateiformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>Materialanpassung</h3>
-                        <p>Anpassungen von Holz, Glas, Stahl, Blech, Kunststoff, Pulver oder Weiteres.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>Begleitung & Beratung</h3>
-                        <p>Begleitung & Beratung für regionale Produktion (Ökologischer Fußabdruck) oder weltweit.</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>Technische Analyse</h3>
-                        <p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p>
-                    </div>
-                    <div class="koerber-card">
-                        <h3>Webdesign</h3>
-                        <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Erstellung und Umsetzung ihrer Webpräsenz mit vorhandenen Dokumenten. Individuelle Konditionen nach Absprache.</p>
-                    </div>
-                </div>
-            </div>
+@keyframes rotate-ccw {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+@keyframes infinite-pass-through {
+    0% { left: -250px; }
+    100% { left: 100%; }
+}
 
-            <!-- Projekte -->
-            <div id="projekte" class="projects-section">
-                <h2 class="section-title">Projekte</h2>
-                <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 2.5rem; }
 
-                <!-- PROJEKT 1: DER "EYECATCHER" MIT PORTAL-EFFEKT -->
-                <div class="project-featured">
-                    <div class="project-featured-img-wrapper">
-                        <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img" onerror="this.style.display='none'">
-                    </div>
-                    <div style="margin-top: 1.5rem; font-weight: 700; color: var(--text-dark); text-align: center;">Nr. 1: Technisches 3D-Bauteil</div>
-                </div>
+.project-card { 
+    background: #ffffff; 
+    border: 1px solid rgba(98, 0, 234, 0.08); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: var(--card-shadow); 
+    transition: all 0.3s ease; 
+}
+.project-card:hover { 
+    transform: scale(1.02); 
+    box-shadow: 0 15px 35px rgba(98, 0, 234, 0.1);
+}
+.project-img-wrapper { width: 100%; height: 250px; overflow: hidden; background: #faf8fc; }
+.project-img { width: 100%; height: 100%; object-fit: contain; padding: 1rem; box-sizing: border-box; }
+.project-title { padding: 1.2rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--deep-background); border-top: 1px solid #f0ebf5; background: #ffffff; }
 
-                <div class="project-grid">
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 2: Prototypen-Entwicklung</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 3: 3D-Konstruktion</div>
-                    </div>
-                    <div class="project-card">
-                        <div class="project-img-wrapper">
-                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img" onerror="this.style.display='none'">
-                        </div>
-                        <div class="project-title">Projekt 4: Modellierung & Design</div>
-                    </div>
-                </div>
-            </div>
+@media (max-width: 768px) {
+    .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; }
+    .project-featured { height: auto; overflow: visible; padding: 0; }
+    .project-featured-img-wrapper { width: 200px; height: 200px; }
+    .section-title { font-size: 2rem; }
+}
 
-            <!-- Kontakt -->
-            <div id="kontakt" class="contact-section">
-                <h3>Gemeinsam Projekte realisieren</h3>
-                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
-            </div>
-        </div>
+/* 3. KONTAKT & FOOTER */
+.contact-section { 
+    background: linear-gradient(135deg, var(--deep-background), var(--dark-purple)); 
+    color: white; 
+    padding: 3.5rem 3rem; 
+    border-radius: 12px; 
+    margin-top: 7rem; 
+    text-align: left; 
+    border-left: 6px solid var(--gold-accent); 
+    box-shadow: 0 15px 40px rgba(18, 0, 36, 0.15);
+}
 
-        <!-- REPARIERTER FOOTER MIT KLAPPMENÜ FÜR RECHTSTEXTE -->
-        <footer>
-            <div class="footer-container">
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">Impressum <span>➔</span></button>
-                    <div class="accordion-content">
-                        <div class="legal-text">
-                            <strong>PLC Team Design</strong><br>
-                            Pedro Lereno Cordeiro (Maschinenbau-Techniker)<br>
-                            Rastenburger Str. 11<br>
-                            32545 Bad Oeynhausen
-                        </div>
-                    </div>
-                </div>
-                <div class="accordion-item">
-                    <button class="accordion-trigger" onclick="toggleAccordion(this)">Datenschutzerklärung <span>➔</span></button>
-                    <div class="accordion-content">
-                        <div class="legal-text">
-                            Der Schutz Ihrer Daten ist uns wichtig. Die Datenverarbeitung auf dieser Webseite erfolgt technisch über den Infrastruktur-Anbieter GitHub Inc. (USA). Es werden von uns keine aktiven Tracking-Cookies verwendet.
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright"><p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p></div>
-            </div>
-        </footer>
-    </div>
+/* Links im Kontaktbereich komplett in Weiß */
+.contact-section a { 
+    color: #ffffff !important; 
+    text-decoration: underline; 
+    font-weight: 700; 
+    transition: opacity 0.2s ease;
+}
+.contact-section a:hover {
+    opacity: 0.8;
+}
 
-    <!-- PROGRAMMIER-LOGIK FÜR DIE GEKAPSELTEN ELEMENTE -->
-    <script>
-        // Klappmenü-Funktion für das Impressum
-        function toggleAccordion(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
+footer { 
+    background: var(--deep-background); 
+    color: #d5cee0; 
+    padding: 5rem 1.5rem 2rem 1.5rem; 
+    border-top: 4px solid var(--gold-accent); 
+    text-align: left; 
+}
+.footer-container { max-width: 900px; margin: 0 auto; }
 
-        class SidebarShop extends HTMLElement {
-            constructor() {
-                super();
-                const shadow = this.attachShadow({mode: 'closed'});
-                shadow.innerHTML = `
-                    <style>
-                        .sidebar-shop {
-                            margin-bottom: 2.5rem; background-color: #ffffff;
-                            display: flex; flex-direction: column; align-items: center;
-                            padding: 10px 0.5px; border-radius: 4px; border: 4px solid #d4af37;
-                            text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                            overflow: hidden;
-                        }
-                        .sidebar-shop img { width: 100%; height: auto; display: block; margin-bottom: 8px; mix-blend-mode: multiply; }
-                        .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #111111; font-weight: 700; font-size: 1rem; line-height: 1.2; text-align: center; }
-                        .shop-plus { font-size: 1rem; line-height: 1; margin: 0.1rem 0; }
-                        .sidebar-shop:hover { background-color: #f5f0fa; }
-                    </style>
-                    <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
-                        <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
-                        <div class="shop-text-container">
-                            <span class="shop-plus">+</span>
-                            <span>Shop</span>
-                        </div>
-                    </a>
-                `;
-            }
-        }
-        customElements.define('custom-sidebar-shop', SidebarShop);
+/* Klappmenü für Rechtstexte */
+.accordion-item { border-bottom: 1px solid #2d1645; }
+.accordion-trigger { 
+    width: 100%; background: none; border: none; text-align: left; 
+    color: #ffffff; font-size: 1.1rem; font-weight: 600; 
+    padding: 1.2rem 0; cursor: pointer; display: flex; 
+    justify-content: space-between; 
+}
 
-        class SidebarLink extends HTMLElement {
-            constructor() {
-                super();
-                const shadow = this.attachShadow({mode: 'closed'});
-                const href = this.getAttribute('href');
-                const title = this.getAttribute('title');
-                shadow.innerHTML = `
-                    <style>
-                        .sidebar-link {
-                            color: #111111; text-decoration: none; font-weight: 700; font-size: 1rem;
-                            padding: 0.8rem 1rem; background-color: #ffffff; margin-bottom: 1rem;
-                            text-align: left; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                            border: 4px solid #d4af37; box-sizing: border-box; display: block;
-                            transition: background-color 0.3s ease;
-                            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                        }
-                        .sidebar-link:hover { background-color: #f5f0fa; }
-                    </style>
-                    <a href="${href}" class="sidebar-link">${title}</a>
-                `;
-            }
-        }
-        customElements.define('custom-sidebar-link', SidebarLink);
-    </script>
-</body>
-</html>
+/* Links im Footer / Impressum komplett in Weiß */
+.accordion-content a, .legal-text a {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+.accordion-content a:hover, .legal-text a:hover {
+    text-decoration: none;
+}
+
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+.accordion-item.active .accordion-content { max-height: 600px; }
+.legal-text { padding: 0.5rem 0 1.5rem 0; color: #c2b4d6; font-size: 0.95rem; line-height: 1.6; }
+
+.footer-copyright { text-align: center; font-size: 0.85rem; color: #6d5b80; margin-top: 4rem; border-top: 1px solid #2d1645; padding-top: 2rem; }
