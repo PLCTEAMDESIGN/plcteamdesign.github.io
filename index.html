@@ -53,24 +53,26 @@
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: Automatisch an den goldenen Rand angepasst (0.5px) */
+        /* LOGO-SHOP KASTEN: Starr auf 218px x 130px fixiert mit 6px Goldrand */
         .logo-box {
             background: #ffffff !important;
             padding: 1rem 0.5rem !important; 
             margin-bottom: 1.5rem !important;
-            border: 0.5px solid var(--gold-accent) !important; /* Auf 0.5 Pixel angepasst */
+            border: 6px solid var(--gold-accent) !important; /* Dicker Goldrand bleibt erhalten */
+            outline: 0.5px solid #ffffff !important; /* Erzeugt den geforderten 0.5px Abstand zum Rand */
+            outline-offset: -6px !important;
             border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
             justify-content: center !important; 
             width: 218px !important; 
-            height: auto !important; 
+            height: 130px !important; 
             box-sizing: border-box !important;
             cursor: pointer;
         }
 
-        /* LOGO-KALKULATION */
+        /* LOGO-KALKULATION: Passt sich an die Box an */
         .sidebar-logo {
             width: 100% !important;
             max-width: 160px !important; 
@@ -108,7 +110,7 @@
             text-transform: uppercase !important;
         }
 
-        /* BUTTONS IM LINKEN RAND: Ebenfalls an den feinen goldenen Rand angepasst (0.5px) */
+        /* BUTTONS IM LINKEN RAND: Starr auf 218px x 52px fixiert mit 6px Goldrand */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
@@ -119,7 +121,7 @@
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 0.5px solid var(--gold-accent) !important; /* Auf 0.5 Pixel angepasst */
+            border: 6px solid var(--gold-accent) !important; /* Dicker Goldrand bleibt erhalten */
             border-radius: 4px !important;
             font-size: 1.1rem !important; 
             margin-bottom: 1rem !important;
@@ -404,6 +406,7 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
+        <!-- Logo-Shop Kasten (Starr auf 218px x 130px) mit integriertem 0.5px Abstand -->
         <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
@@ -411,6 +414,7 @@
                 <div class="shop-text">Shop</div>
             </div>
         </div>
+        <!-- Menü-Buttons -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -427,6 +431,7 @@
             <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
+            <!-- DIENSTLEISTUNGEN -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -450,6 +455,7 @@
                 </div>
             </div>
 
+            <!-- PROJEKTE -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -487,6 +493,7 @@
                 </div>
             </div>
 
+            <!-- KONTAKT -->
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
@@ -495,6 +502,7 @@
 
         </div>
 
+        <!-- FOOTER -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
