@@ -37,7 +37,7 @@
             overflow-x: hidden; 
         } 
         
-        /* FESTE SEITENLEISTE (Weißer Hintergrund und erzwungener Goldrand) */
+        /* FESTE SEITENLEISTE */
         .sidebar-nav { 
             width: 250px; 
             height: 100vh; 
@@ -51,14 +51,13 @@
             flex-direction: column !important; 
             align-items: center !important; 
             padding: 1.5rem 1rem !important; 
-            box-sizing: border-box !important; 
             z-index: 1000; 
         } 
         
-        /* LOGO-SHOP KASTEN: Starr fixiert auf Ihre Pixelgröße mit erzwungenem Goldrand */
+        /* LOGO-SHOP KASTEN: Starr fixiert auf 218px Breite und 130px Höhe */
         .logo-box {
             background: #ffffff !important;
-            padding: 0.5rem !important;
+            padding: 0.8rem 0.5rem !important;
             margin-bottom: 1.5rem !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
@@ -67,24 +66,24 @@
             align-items: center !important; 
             justify-content: center !important;
             width: 100% !important;
-            max-width: 218px !important; /* Starr fixiert */
-            height: 130px !important; /* Starr fixiert */
+            max-width: 218px !important; /* Exakte Pixelgröße */
+            height: 130px !important; /* Exakte Pixelgröße */
             box-sizing: border-box !important;
-            transition: all 0.3s ease !important;
         }
 
+        /* LOGO-OPTIMIERUNG: Nutzt jetzt den optimalen Platz im Kasten aus */
         .sidebar-logo {
             width: 100% !important;
-            max-width: 130px !important;
+            max-width: 100% !important; /* Füllt die Box voll aus */
             height: auto !important;
             display: block !important;
-            margin: 0 auto 0.2rem auto !important; 
+            margin-bottom: 0.3rem !important; 
         }
 
         .shop-plus {
-            color: var(--primary-purple) !important;
-            font-size: 1.3rem !important;
-            font-weight: 800 !important;
+            color: var(--text-dark) !important;
+            font-size: 1.2rem !important;
+            font-weight: bold !important;
             line-height: 1 !important;
             margin-bottom: 0.1rem !important; 
             text-align: center !important;
@@ -92,28 +91,27 @@
 
         .shop-text {
             color: var(--text-dark) !important;
-            font-size: 0.9rem !important;
+            font-size: 0.95rem !important;
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
-            text-transform: uppercase !important;
         }
 
-        /* BUTTONS IM LINKEN RAND: Starr fixiert auf Ihre Pixelgröße mit erzwungenem Goldrand */
+        /* BUTTONS IM LINKEN RAND: Starr fixiert auf 218px Breite und 52px Höhe */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             width: 100% !important; 
-            max-width: 218px !important; /* Starr fixiert */
-            height: 52px !important; /* Starr fixiert */
+            max-width: 218px !important; /* Exakte Pixelgröße wie Shop-Kasten */
+            height: 52px !important; /* Exakte Pixelgröße */
             background: #ffffff !important; 
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
-            font-size: 0.95rem !important; 
+            font-size: 1.1rem !important; 
             margin-bottom: 1rem !important;
             padding: 0 !important;
             box-sizing: border-box !important;
@@ -259,7 +257,7 @@
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            animation: single-pass 8s linear infinite; /* Korigiert auf Einzel-Lauf */
+            animation: single-pass 8s linear infinite; 
         } 
         
         .project-featured-img { 
@@ -402,13 +400,13 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Logo skaliert passend in den Kasten -->
+        <!-- Logo-Shop Kasten (Breite: 218px, Höhe: 130px) -->
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Menü-Buttons bündig dazu -->
+        <!-- Menü-Buttons (Breite: 218px, Höhe: 52px) -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -450,7 +448,7 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE (NUR EIN BILD FÜR DURCHLAUF) -->
+            <!-- PROJEKTE -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -531,7 +529,6 @@
 
     </div>
 
-    <!-- Skript für das Akkordeon -->
     <script>
         function toggleAccordion() {
             var item = document.querySelector('.accordion-item');
