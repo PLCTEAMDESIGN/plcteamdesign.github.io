@@ -30,40 +30,43 @@
             overflow-x: hidden; 
         } 
         
-        /* LINKER RANDBEREICH: Reines Weiß im Hintergrund */
+        /* LINKER RANDBEREICH: Fläche komplett Weiß */
         .sidebar-nav { 
             width: 250px; 
             height: 100vh; 
             background-color: #ffffff !important; 
-            border-right: 6px solid var(--gold-accent) !important; /* Haupt-Umrandung 6px */
+            border-right: 6px solid var(--gold-accent) !important; 
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.05); 
             position: fixed; 
             top: 0; 
             left: 0; 
-            display: flex; 
-            flex-direction: column; 
-            padding: 1.5rem 1rem; 
-            box-sizing: border-box; 
+            display: flex !important; 
+            flex-direction: column !important; 
+            align-items: center !important; 
+            padding: 1.5rem 1rem !important; 
+            box-sizing: border-box !important; 
             z-index: 1000; 
         } 
         
-        /* WEISSER KASTEN FÜR LOGO + TEXT MIT EXAKT 6PX GOLDENEM RAND */
+        /* WEISSER SHOP-KASTEN MIT PARALLELEN PIXEL-ABMESSUNGEN */
         .logo-box {
+            width: 100% !important; 
+            max-width: 218px !important; /* Exakte Breite inklusive 6px Rand */
+            height: 130px !important; /* Fest definierte, feste Höhe */
             background: #ffffff !important; 
-            padding: 0.8rem 0.4rem;
-            margin-bottom: 1.5rem;
-            border: 6px solid var(--gold-accent) !important; /* Exakt 6px wie die Haupt-Umrandung */
+            padding: 0.5rem !important;
+            margin-bottom: 1.5rem !important;
+            border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+            display: flex !important;
+            flex-direction: column !important; 
+            align-items: center !important; 
+            justify-content: center !important;
+            box-sizing: border-box !important; /* Verhindert, dass der Text die Box vergrößert */
+            transition: all 0.3s ease !important;
             cursor: pointer;
         }
         
-        /* Hover-Verfärbung in das originale Banner-Lila */
         .logo-box:hover {
             background-color: var(--primary-purple) !important;
         }
@@ -73,16 +76,16 @@
         }
 
         .sidebar-logo {
-            width: 100%;
-            max-width: 180px;
-            height: auto;
-            display: block;
-            margin-bottom: 0.3rem; 
+            width: 100% !important;
+            max-width: 130px !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto 0.2rem auto !important; 
         }
 
         .shop-plus {
             color: var(--primary-purple);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
             line-height: 1;
             margin-bottom: 0.1rem; 
@@ -92,7 +95,7 @@
 
         .shop-text {
             color: var(--text-dark);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: bold;
             text-align: center;
             letter-spacing: 0.5px;
@@ -100,27 +103,31 @@
             transition: color 0.3s ease;
         }
 
-        /* SCHALTFLÄCHEN MIT FIXIERTEM 6PX GOLDENEM RAND */
+        /* ALLE TEXT-BUTTONS ERZWUNGEN EXAKT GLEICH GROSS WIE DIE SHOP-BOX */
         .sidebar-nav a.nav-btn {
-            display: block !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            width: 100% !important; /* Gleiche maximale Breite (218px) */
+            max-width: 218px !important; 
+            height: 52px !important; /* Feste Höhe, damit Texte nichts verschieben */
             background: #ffffff !important; 
             color: var(--text-dark) !important;
-            text-align: center !important; 
-            padding: 0.7rem !important;
-            margin-bottom: 1rem !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; /* Exakt 6px wie die Haupt-Umrandung */
+            border: 6px solid var(--gold-accent) !important; /* Exakter 6px Goldrand */
             border-radius: 4px !important;
             font-size: 0.9rem !important;
-            box-sizing: border-box !important;
+            margin-bottom: 1rem !important;
+            padding: 0 !important; /* Innenabstand genullt, um Verzerrung zu stoppen */
+            box-sizing: border-box !important; /* Hält die Pixelgröße starr fixiert */
             transition: all 0.3s ease !important; 
+            text-align: center !important;
         }
         
-        /* HOVER-EFFEKT: Verfärbt die Buttons bei Berührung in Banner-Lila */
         .sidebar-nav a.nav-btn:hover {
-            background-color: var(--primary-purple) !important; /* Genau das Lila wie oben */
-            color: #ffffff !important; /* Text wechselt zu Weiß */
+            background-color: var(--primary-purple) !important; 
+            color: #ffffff !important; 
         }
 
         .main-content { 
@@ -138,7 +145,9 @@
         
         @media (max-width: 768px) { 
             body { flex-direction: column; } 
-            .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 6px solid var(--gold-accent); padding: 1rem; } 
+            .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; border-bottom: 6px solid var(--gold-accent); padding: 1rem; align-items: center; } 
+            .logo-box { max-width: 280px !important; }
+            .sidebar-nav a.nav-btn { max-width: 280px !important; }
             .main-content { margin-left: 0; } 
             .container { margin: 2rem auto; padding: 0 1.5rem; }
             .section-title { font-size: 2rem; } 
@@ -324,12 +333,6 @@
             background: #fafafa; 
         } 
         
-        @media (max-width: 768px) { 
-            .project-featured { height: auto; overflow: visible; display: block; }
-            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
-            .project-featured-img-wrapper.second { display: none; }
-        } 
-        
         /* 3. KONTAKT & RECHTLICHES IMPRESSUM */ 
         .contact-section { 
             background: var(--dark-purple); 
@@ -400,15 +403,15 @@
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (REIN WEISS MIT GARANTIERTEN 6PX GOLD-RÄNDERN) --> 
+    <!-- SEITENLEISTE (PIXELGENAU FIXIERT) --> 
     <div class="sidebar-nav">
-        <!-- Weißer Kasten für Logo und Shop-Text mit 6px Goldrand -->
+        <!-- Weißer Kasten für Logo und Shop-Text (Dauerhaft starr fixiert) -->
         <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Schaltflächen mit 6px Goldrand und Lila Hover-Effekt -->
+        <!-- Menü-Buttons haargenau bündig und gleich breit wie die obere Box -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -440,7 +443,7 @@
                     <p>Begleitung & Beratung für regionale Produktionen (ökologischer Fußabdruck) oder Weiteres.</p>
                 </div>
                 <div class="koerber-card">
-                    <h3>Technische Analyse</h3>
+                    <h3>Technical Analysis</h3>
                     <p>Sie benötigen nähere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die eine detaillierte FEM Analyse mit Simulationsberechnungen?</p>
                 </div>
                 <div class="koerber-card">
