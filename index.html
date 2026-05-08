@@ -48,49 +48,64 @@
             z-index: 1000; 
         } 
         
-        /* DEFIERTER LOGO-SHOP KASTEN AUS CODE 1 (Farblich sichtbar auf weißem Grund) */
+        /* FEST DEFINIERTER LOGO-SHOP KASTEN MIT ERZWUNGENEM 6PX GOLD-RAND */
         .logo-box {
-            background: transparent;
-            padding: 0.8rem 0.4rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid #eeeeee; /* Sichtbarer Rahmen auf weißem Grund */
-            border-radius: 2px;
-            display: flex;
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center;
-            width: 100%;
-            box-sizing: border-box;
+            width: 100% !important;
+            max-width: 218px !important;
+            height: 130px !important;
+            background: #ffffff !important; 
+            padding: 0.5rem !important;
+            margin-bottom: 1.5rem !important;
+            border: 6px solid var(--gold-accent) !important; /* Starr fixierter 6px Goldrand */
+            border-radius: 4px !important;
+            display: flex !important;
+            flex-direction: column !important; 
+            align-items: center !important; 
+            justify-content: center !important;
+            box-sizing: border-box !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer;
+        }
+        
+        .logo-box:hover {
+            background-color: var(--primary-purple) !important;
+            border-color: var(--gold-accent) !important;
+        }
+        .logo-box:hover .shop-plus,
+        .logo-box:hover .shop-text {
+            color: #ffffff !important;
         }
 
         .sidebar-logo {
-            width: 100%;
-            max-width: 180px;
-            height: auto;
-            display: block;
-            margin-bottom: 0.5rem; 
+            width: 100% !important;
+            max-width: 130px !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto 0.2rem auto !important; 
         }
 
-        /* Sichtbares Pluszeichen unter dem Logo (Dunkelviolett) */
+        /* Sichtbare lila/weiße Schriftzeichen unter dem Logo */
         .shop-plus {
-            color: var(--primary-purple);
-            font-size: 1.3rem;
-            font-weight: bold;
-            line-height: 1;
-            margin-bottom: 0.2rem; 
-            text-align: center;
+            color: var(--primary-purple) !important;
+            font-size: 1.3rem !important;
+            font-weight: 800 !important;
+            line-height: 1 !important;
+            margin-bottom: 0.1rem !important; 
+            text-align: center !important;
+            transition: color 0.3s ease !important;
         }
 
-        /* Sichtbarer Text Shop unter dem Pluszeichen (Dunkel-Anthrazit) */
         .shop-text {
-            color: var(--text-dark);
-            font-size: 0.95rem;
-            font-weight: bold;
-            text-align: center;
-            letter-spacing: 0.5px;
+            color: var(--text-dark) !important;
+            font-size: 0.9rem !important;
+            font-weight: bold !important;
+            text-align: center !important;
+            letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
+            transition: color 0.3s ease !important;
         }
 
-        /* TEXT-BUTTONS EXAKT SYMMETRISCH ANGEPASST */
+        /* MENÜ-BUTTONS EXAKT STRUKTURIERT MIT FIXIERTEM 6PX GOLD-RAND */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
@@ -102,7 +117,7 @@
             color: var(--text-dark) !important;
             text-decoration: none !important;
             font-weight: bold !important;
-            border: 6px solid var(--gold-accent) !important; 
+            border: 6px solid var(--gold-accent) !important; /* Starr fixierter 6px Goldrand */
             border-radius: 4px !important;
             font-size: 0.9rem !important;
             margin-bottom: 1rem !important;
@@ -112,10 +127,10 @@
             text-align: center !important;
         } 
         
-        /* HOVER-EFFEKT: Verfärbt die drei unteren Text-Buttons bei Berührung in Lila */
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--primary-purple) !important; 
             color: #ffffff !important; 
+            border-color: var(--gold-accent) !important;
         }
 
         .main-content { 
@@ -393,13 +408,13 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- Reparierter Logo-Shop Kasten (Texte sichtbar formatiert) -->
-        <div class="logo-box">
+        <!-- Logo-Shop Kasten (Erwungene Sichtbarkeit & 6px Gold-Rand) -->
+        <div class="logo-box" onclick="location.href='#shop'">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-plus">+</div>
             <div class="shop-text">Shop</div>
         </div>
-        <!-- Symmetrische Menü-Buttons mit 6px Goldrand und lila Hover -->
+        <!-- Garantiert parallele Buttons mit 6px Goldrand und lila Hover -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
