@@ -18,35 +18,77 @@
             --hover-soft: #f5f0fa; 
         } 
         
-        /* 1. GESPERRTER BEREICH: GRUNDLAYOUT PC & HANDY */ 
+        /* 1. GRUNDLAYOUT PC & HANDY */ 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; margin: 0; padding: 0; 
-            color: var(--text-dark); background-color: var(--light-bg); 
-            display: flex; overflow-x: hidden; 
-        } 
-        .sidebar-nav { 
-            width: 250px; height: 100vh; 
-            background-color: var(--deep-background); 
-            border-right: 3px solid var(--gold-accent); 
-            position: fixed; top: 0; left: 0; 
-            display: flex; flex-direction: column; 
-            padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000; 
+            line-height: 1.6; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-dark); 
+            background-color: var(--light-bg); 
+            display: flex; 
+            overflow-x: hidden; 
         } 
         
-        /* Styles für das kleine Logo und Buttons in der Sidebar */
+        .sidebar-nav { 
+            width: 250px; 
+            height: 100vh; 
+            background-color: var(--deep-background); 
+            border-right: 3px solid var(--gold-accent); 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 1.5rem 1rem; 
+            box-sizing: border-box; 
+            z-index: 1000; 
+        } 
+        
+        /* Kasten für Logo, Plus und Shop zentriert untereinander */
+        .logo-box {
+            background: transparent;
+            padding: 0.8rem 0.4rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 2px;
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+        }
+
         .sidebar-logo {
             width: 100%;
             max-width: 180px;
             height: auto;
             display: block;
-            margin: 0 auto 2rem auto;
+            margin-bottom: 0.5rem; 
         }
+
+        .shop-plus {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 0.2rem; 
+            text-align: center;
+        }
+
+        .shop-text {
+            color: #ffffff;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* Zentrierte Buttons für das Menü */
         .sidebar-nav a.nav-btn {
             display: block;
             background: #ffffff;
             color: var(--text-dark);
-            text-align: center;
+            text-align: center; 
             padding: 0.7rem;
             margin-bottom: 1rem;
             text-decoration: none;
@@ -56,145 +98,301 @@
             font-size: 0.9rem;
             transition: background-color 0.2s;
         }
+        
         .sidebar-nav a.nav-btn:hover {
             background-color: var(--hover-soft);
         }
 
-        .main-content { margin-left: 250px; flex: 1; min-width: 0; } 
-        .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; } 
+        .main-content { 
+            margin-left: 250px; 
+            flex: 1; 
+            min-width: 0; 
+        } 
+        
+        .container { 
+            max-width: 1100px; 
+            margin: 4rem auto; 
+            padding: 0 2rem; 
+            box-sizing: border-box; 
+        } 
         
         @media (max-width: 768px) { 
             body { flex-direction: column; } 
             .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; padding: 1rem; } 
             .main-content { margin-left: 0; } 
+            .container { margin: 2rem auto; padding: 0 1.5rem; }
             .section-title { font-size: 2rem; } 
         } 
-        /* GESPERRTER BEREICH ENDE */ 
         
-        /* 2. GESPERRTER BEREICH: HEADER & BANNER */ 
+        /* 2. HEADER & BANNER */ 
         header { 
             background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); 
-            color: white; padding: 4rem 1rem; text-align: center; 
+            color: white; 
+            padding: 4rem 1rem; 
+            text-align: center; 
             border-bottom: 5px solid var(--gold-accent); 
         } 
+        
         .logo-img { 
-            width: 100%; max-width: 800px; height: auto; 
-            display: block; margin: 0 auto 2rem auto; background: transparent; 
+            width: 100%; 
+            max-width: 800px; 
+            height: auto; 
+            display: block; 
+            margin: 0 auto 2rem auto; 
+            background: transparent; 
             filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff); 
         } 
-        /* GESPERRTER BEREICH ENDE */ 
         
         /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN */ 
         .section-title { 
-            font-size: 2.3rem; font-weight: 800; 
-            color: var(--primary-purple); margin-bottom: 0.5rem; 
-            text-align: left; line-height: 1.2; 
-        } 
-        .section-subtitle { 
-            font-size: 1.1rem; color: #444444; 
-            margin-bottom: 3.5rem; text-align: left; 
-            font-weight: 500; max-width: 900px; line-height: 1.6; 
+            font-size: 2.3rem; 
+            font-weight: 800; 
+            color: var(--primary-purple); 
+            margin-bottom: 0.5rem; 
+            text-align: left; 
+            line-height: 1.2; 
         } 
         
-        /* DIENSTLEISTUNGS-KARTEN (FLÄCHE WEISS) */ 
+        .section-subtitle { 
+            font-size: 1.1rem; 
+            color: #444444; 
+            margin-bottom: 3.5rem; 
+            text-align: left; 
+            font-weight: 500; 
+            max-width: 900px; 
+            line-height: 1.6; 
+        } 
+        
+        /* DIENSTLEISTUNGS-KARTEN (FLÄCHE REIN WEISS) */ 
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
-            gap: 1.2rem; margin-bottom: 4rem; text-align: left; 
+            gap: 1.2rem; 
+            margin-bottom: 4rem; 
+            text-align: left; 
         } 
+        
         .koerber-card { 
             background: #ffffff; 
-            border-radius: 4px; min-height: 280px; 
+            border-radius: 4px; 
+            min-height: 280px; 
             border-top: 4px solid var(--primary-purple); 
-            padding: 1.2rem; box-shadow: var(--card-shadow); 
+            padding: 1.2rem; 
+            box-shadow: var(--card-shadow); 
             transition: all 0.3s ease; 
         } 
+        
         .koerber-card:hover { 
             transform: translateY(-5px); 
             background-color: var(--hover-soft); 
             border-top-color: var(--gold-accent); 
         } 
-        .koerber-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; } 
-        .koerber-card p { font-size: 0.85rem; color: #444444; margin: 0; line-height: 1.5; } 
         
-        /* PROJEKTE & KETTEN-ANIMATION NR. 1 */ 
-        .projects-section { margin-top: 5rem; text-align: left; } 
-        .project-featured { 
-            width: 100%; text-align: center; margin-bottom: 3rem; 
-            padding: 2rem 0; background: transparent; box-sizing: border-box; 
-            position: relative; overflow: hidden; height: 350px; 
-        } 
-        .project-featured-img-wrapper { 
-            width: 250px; height: 250px; position: absolute; 
-            top: 50px; left: 0; display: flex; 
-            justify-content: center; align-items: center; 
-            animation: infinite-pass-through 12s linear infinite; 
-        } 
-        .project-featured-img { 
-            width: 100%; height: 100%; object-fit: contain; 
-            animation: rotate-ccw 10s linear infinite; 
-        } 
-        @keyframes rotate-ccw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } } 
-        @keyframes infinite-pass-through { 0% { left: -250px; } 100% { left: 100%; } } 
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 2rem; } 
-        .project-card { 
-            background: #ffffff; border: 1px solid #eeeeee; 
-            border-radius: 4px; overflow: hidden; 
-            box-shadow: var(--card-shadow); transition: all 0.3s ease; 
-        } 
-        .project-card:hover { transform: scale(1.02); background-color: var(--hover-soft); } 
-        .project-img-wrapper { width: 100%; height: 250px; overflow: hidden; } 
-        .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; } 
-        .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; } 
-        
-        @media (max-width: 768px) { 
-            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
-            .project-featured { height: auto; overflow: visible; } 
-            .project-featured-img-wrapper { width: 200px; height: 200px; } 
+        .koerber-card h3 { 
+            font-size: 1.1rem; 
+            font-weight: 700; 
+            color: var(--dark-purple); 
+            margin-top: 0; 
         } 
         
-        /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER MIT IMPRESSUM */ 
-        .contact-section { 
-            background: var(--dark-purple); color: white; 
-            padding: 3rem 2.5rem; border-radius: 4px; 
-            margin-top: 6rem; text-align: left; 
-            border-left: 6px solid var(--gold-accent); 
+        .koerber-card p { 
+            font-size: 0.85rem; 
+            color: #444444; 
+            margin: 0; 
+            line-height: 1.5; 
         } 
-        .contact-section a { 
-            color: #ffffff !important; 
-            text-decoration: underline; font-weight: bold; 
-        } 
-        footer { 
-            background: var(--deep-background); color: #c2b4d6; 
-            padding: 4rem 1.5rem; border-top: 4px solid var(--gold-accent); 
+        
+        /* PROJEKTE & UNENDLICHE LAUFBAND-ANIMATION */ 
+        .projects-section { 
+            margin-top: 5rem; 
             text-align: left; 
         } 
-        .footer-container { max-width: 900px; margin: 0 auto; } 
         
-        /* Klappmenü für Rechtstexte */ 
-        .accordion-item { border-bottom: 1px solid #3c1963; } 
-        .accordion-trigger { 
-            width: 100%; background: none; border: none; 
-            text-align: left; color: #ffffff; font-size: 1.1rem; 
-            font-weight: 600; padding: 1.2rem 0; cursor: pointer; 
-            display: flex; justify-content: space-between; 
+        .project-featured { 
+            width: 100%; 
+            text-align: center; 
+            margin-bottom: 3rem; 
+            padding: 2rem 0; 
+            background: transparent; 
+            box-sizing: border-box; 
+            position: relative; 
+            overflow: hidden; 
+            height: 350px; 
+            display: flex;
         } 
-        .accordion-content a, .legal-text a { 
+        
+        .project-featured-img-wrapper { 
+            width: 250px; 
+            height: 250px; 
+            position: absolute; 
+            top: 50px; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            animation: seamless-pass 12s linear infinite; 
+        } 
+        
+        .project-featured-img-wrapper.second {
+            animation-delay: -6s;
+        }
+
+        .project-featured-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            animation: rotate-ccw 10s linear infinite; 
+        } 
+        
+        @keyframes rotate-ccw { 
+            from { transform: rotate(0deg); } 
+            to { transform: rotate(-360deg); } 
+        } 
+        
+        @keyframes seamless-pass { 
+            0% { transform: translateX(-250px); } 
+            100% { transform: translateX(1100px); } 
+        } 
+        
+        .project-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 1.5rem; 
+            margin-top: 2rem; 
+        } 
+        
+        .project-card { 
+            background: #ffffff; 
+            border: 1px solid #eeeeee; 
+            border-radius: 4px; 
+            overflow: hidden; 
+            box-shadow: var(--card-shadow); 
+            transition: all 0.3s ease; 
+        } 
+        
+        .project-card:hover { 
+            transform: scale(1.02); 
+            background-color: var(--hover-soft); 
+        } 
+        
+        .project-img-wrapper { 
+            width: 100%; 
+            height: 250px; 
+            overflow: hidden; 
+        } 
+        
+        .project-img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: contain; 
+            padding: 0.5rem; 
+            box-sizing: border-box; 
+        } 
+        
+        .project-title { 
+            padding: 1rem; 
+            margin: 0; 
+            font-size: 1rem; 
+            font-weight: 600; 
+            color: var(--text-dark); 
+            border-top: 1px solid #f0f0f0; 
+            background: #fafafa; 
+        } 
+        
+        @media (max-width: 768px) { 
+            .project-featured { height: auto; overflow: visible; display: block; }
+            .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; } 
+            .project-featured-img-wrapper.second { display: none; }
+        } 
+        
+        /* 3. KONTAKT & FOOTER MIT WASSERDICHTEM IMPRESSUM */ 
+        .contact-section { 
+            background: var(--dark-purple); 
+            color: white; 
+            padding: 3rem 2.5rem; 
+            border-radius: 4px; 
+            margin-top: 6rem; 
+            text-align: left; 
+            border-left: 6px solid var(--gold-accent); 
+        } 
+        
+        /* Alle Texte und Links im Kontaktfeld in Weiß */
+        .contact-section, .contact-section a { 
             color: #ffffff !important; 
             text-decoration: underline; 
+            font-weight: bold; 
+        } 
+        .contact-section h3 {
+            margin-top: 0;
+            text-decoration: none;
         }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; } 
-        .accordion-item.active .accordion-content { max-height: 500px; } 
-        .legal-text { padding: 0.5rem 0 1.5rem 0; color: #c2b4d6; font-size: 0.95rem; } 
-        .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; } 
+        
+        footer { 
+            background: var(--deep-background); 
+            color: #c2b4d6; 
+            padding: 4rem 1.5rem; 
+            border-top: 4px solid var(--gold-accent); 
+            text-align: left; 
+        } 
+        
+        .footer-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+        } 
+        
+        .accordion-item { border-bottom: 1px solid #3c1963; } 
+        
+        .accordion-trigger { 
+            width: 100%; 
+            background: none; 
+            border: none; 
+            text-align: left; 
+            color: #ffffff; 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            padding: 1.2rem 0; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+        } 
+        
+        /* Alle Links und rechtlichen Texte im Footer in Weiß */
+        .accordion-content a, .legal-text, .legal-text a { 
+            color: #ffffff !important; 
+            text-decoration: none; 
+        } 
+        .accordion-content a {
+            text-decoration: underline;
+        }
+        
+        .accordion-content { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.3s ease-out; 
+        } 
+        
+        .legal-text { 
+            padding: 0.5rem 0 1.5rem 0; 
+            font-size: 0.95rem; 
+            line-height: 1.6;
+        } 
+        
+        .footer-copyright { 
+            text-align: center; 
+            font-size: 0.85rem; 
+            color: #7c6894; 
+            margin-top: 2rem; 
+        } 
     </style>
 </head>
 <body> 
 
-    <!-- SEITENLEISTE (Verknüpfung mit shop-logo.png) --> 
+    <!-- SEITENLEISTE (Kasten-Zentrierung & + Shop untereinander) --> 
     <div class="sidebar-nav">
-        <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
-        <a href="#shop" class="nav-btn">Shop</a>
+        <div class="logo-box">
+            <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
+            <div class="shop-plus">+</div>
+            <div class="shop-text">Shop</div>
+        </div>
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -203,16 +401,15 @@
     <!-- MAIN CONTENT BEREICH -->
     <div class="main-content">
         
-        <!-- HEADER (Verknüpfung mit logo.png) -->
         <header>
-            <img src="logo.png" alt="PLC Team Design Premium Logo" class="logo-img">
+            <img src="logo.png" alt="PLC Team Design Premium Banner" class="logo-img">
         </header>
 
         <div class="container">
             <h2 class="section-title">Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da!</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
 
-            <!-- DIENSTLEISTUNGEN -->
+            <!-- DIENSTLEISTUNGEN (WEISSE FLÄCHEN) -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -236,13 +433,16 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE-BEREICH (Verknüpfungen mit projekt1.jpg bis projekt4.jpg) -->
+            <!-- PROJEKTE-BEREICH -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
-                <!-- Animiertes, rotierendes Hauptprojekt -->
+                <!-- Animiertes Hauptprojekt (Nahtloser unendlicher Durchlauf) -->
                 <div class="project-featured">
                     <div class="project-featured-img-wrapper">
+                        <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
+                    </div>
+                    <div class="project-featured-img-wrapper second">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
                 </div>
@@ -278,23 +478,38 @@
 
             <!-- KONTAKT-BEREICH -->
             <div id="contact" class="contact-section">
-                <h3>Kontakt</h3>
-                <p>E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
-                <p>Telefon: <a href="tel:057319829839">05731 9829839</a></p>
+                <h3>Wir helfen Ihnen gerne weiter!</h3>
+                <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
+                <p style="text-decoration: none; font-weight: normal;">Status: <span style="color: #2ecc71; font-weight: bold;">● Aktuell erreichbar</span></p>
             </div>
 
         </div>
 
-        <!-- FOOTER -->
+        <!-- FOOTER MIT RECHTLICH WASSERDICHTEM IMPRESSUM -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
-                    <button class="accordion-trigger">Impressum & Rechtstexte</button>
-                    <div class="accordion-content">
+                    <button class="accordion-trigger" onclick="toggleAccordion()">Impressum / Kontakt <span>▼</span></button>
+                    <div id="impressum-content" class="accordion-content">
                         <div class="legal-text">
-                            Angaben gemäß § 5 TMG. PLC Team Design, Bad Oeynhausen. <br>
-                            E-Mail: plctede@gmail.com <br>
-                            <a href="#datenschutz">Datenschutzerklärung</a>
+                            <strong>PLC Team Design</strong><br>
+                            Geschäftsführer &amp; Ansprechpartner:<br>
+                            Pedro Lereno Cordeiro<br>
+                            (Maschinenbau-Techniker)<br><br>
+                            
+                            Rastenburger Str. 11<br>
+                            32545 Bad Oeynhausen<br><br>
+                            
+                            <strong>Kontakt:</strong><br>
+                            Tel.: 05731 9829839<br>
+                            E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a><br><br>
+                            
+                            <strong>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</strong><br>
+                            Ust-IdNr.: DE 352501723<br><br>
+                            
+                            <strong>Inhaltlich Verantwortlicher gemäß § 18 Abs. 2 MStV:</strong><br>
+                            Pedro Lereno Cordeiro<br>
+                            Rastenburger Str. 11, 32545 Bad Oeynhausen
                         </div>
                     </div>
                 </div>
@@ -303,6 +518,22 @@
         </footer>
 
     </div>
+
+    <!-- Skript für das geschmeidige Aufklappen des Impressums -->
+    <script>
+        function toggleAccordion() {
+            var item = document.querySelector('.accordion-item');
+            var content = document.getElementById('impressum-content');
+            
+            if (item.classList.contains('active')) {
+                item.classList.remove('active');
+                content.style.maxHeight = "0px";
+            } else {
+                item.classList.add('active');
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    </script>
 
 </body>
 </html>
