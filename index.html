@@ -20,13 +20,14 @@
             --hover-soft: #f5f0fa;
         }
 
-        /* 1. GESPERRTER BEREICH: GRUNDLAYOUT PC & HANDY */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; margin: 0; padding: 0; 
             color: var(--text-dark); background-color: var(--light-bg); 
             display: flex; overflow-x: hidden;
         }
+        
+        /* SEITENLEISTE LINKS */
         .sidebar-nav {
             width: 250px; height: 100vh;
             background-color: var(--deep-background);
@@ -35,18 +36,9 @@
             display: flex; flex-direction: column;
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
-        .main-content { margin-left: 250px; flex: 1; min-width: 0; }
-        .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; }
-        
-        @media (max-width: 768px) {
-            body { flex-direction: column; }
-            .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; padding: 1rem; }
-            .main-content { margin-left: 0; }
-            .section-title { font-size: 2rem; }
-        }
-        /* GESPERRTER BEREICH ENDE */
 
-        /* 2. GESPERRTER BEREICH: HEADER & BANNER */
+        /* HAUPTBEREICH */
+        .main-content { margin-left: 250px; flex: 1; min-width: 0; }
         header { 
             background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)); 
             color: white; padding: 4rem 1rem; text-align: center; 
@@ -57,19 +49,20 @@
             display: block; margin: 0 auto 2rem auto; background: transparent;
             filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff);
         }
-        /* GESPERRTER BEREICH ENDE */
-
-        /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN */
+        
+        .container { max-width: 1100px; margin: 4rem auto; padding: 0 2rem; box-sizing: border-box; }
+        
         .section-title { 
-            font-size: 2.5rem;
+            font-size: 2.3rem;
             font-weight: 800; 
             color: var(--primary-purple);
             margin-bottom: 0.5rem; 
             text-align: left; 
             line-height: 1.2;
         }
+        
         .section-subtitle { 
-            font-size: 1.15rem; 
+            font-size: 1.1rem; 
             color: #444444; 
             margin-bottom: 3.5rem; 
             text-align: left; 
@@ -78,26 +71,31 @@
             line-height: 1.6;
         }
         
-        /* DIENSTLEISTUNGS-KARTEN */
-        .horizontal-scroll-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; text-align: left; }
+        /* 5 KARTEN NEBENEINANDER (Gleichmäßige Größen) */
+        .horizontal-scroll-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
+            gap: 1.2rem; 
+            margin-bottom: 4rem; 
+            text-align: left; 
+        }
         
         .koerber-card { 
             background: #f9f9f9; 
             border-radius: 4px; 
-            min-height: 250px; 
+            min-height: 280px; 
             border-top: 4px solid var(--primary-purple); 
-            padding: 1.5rem; 
+            padding: 1.2rem; 
             box-shadow: var(--card-shadow); 
-            transition: all 0.3s ease;
+            transition: all 0.3s ease; 
         }
         .koerber-card:hover { 
             transform: translateY(-5px); 
             background-color: var(--hover-soft);
             border-top-color: var(--gold-accent);
         }
-        .koerber-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; }
-        .koerber-card p { font-size: 0.9rem; color: #444444; margin: 0; line-height: 1.5; }
-        .price-badge { background: #d93838; color: white; padding: 0.2rem 0.6rem; border-radius: 4px; font-weight: bold; font-size: 1rem; }
+        .koerber-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--dark-purple); margin-top: 0; }
+        .koerber-card p { font-size: 0.85rem; color: #444444; margin: 0; line-height: 1.5; }
 
         /* PROJEKTE & KETTEN-ANIMATION NR. 1 */
         .projects-section { margin-top: 5rem; text-align: left; }
@@ -158,18 +156,17 @@
         .project-img { width: 100%; height: 100%; object-fit: contain; padding: 0.5rem; box-sizing: border-box; }
         .project-title { padding: 1rem; margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-dark); border-top: 1px solid #f0f0f0; background: #fafafa; }
         
+        /* FOOTER */
+        footer { background: var(--deep-background); color: #c2b4d6; padding: 4rem 1.5rem; border-top: 4px solid var(--gold-accent); text-align: left; }
+        .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; }
+        
         @media (max-width: 768px) {
+            .sidebar-nav { width: 100%; height: auto; position: relative; border-right: none; padding: 1rem; }
+            .main-content { margin-left: 0; }
             .project-featured-img-wrapper { animation: none; position: relative; margin: 0 auto; top: 0; left: auto; }
             .project-featured { height: auto; overflow: visible; }
             .project-featured-img-wrapper { width: 200px; height: 200px; }
         }
-
-        /* 3. GESPERRTER BEREICH: KONTAKT & FOOTER */
-        .contact-section { background: var(--dark-purple); color: white; padding: 3rem 2.5rem; border-radius: 4px; margin-top: 6rem; text-align: left; border-left: 6px solid var(--gold-accent); }
-        .contact-section a { color: var(--gold-accent); text-decoration: underline; font-weight: bold; }
-        footer { background: var(--deep-background); color: #c2b4d6; padding: 4rem 1.5rem; border-top: 4px solid var(--gold-accent); text-align: left; }
-        .footer-copyright { text-align: center; font-size: 0.85rem; color: #7c6894; margin-top: 2rem; }
-        /* GESPERRTER BEREICH ENDE */
     </style>
 </head>
 <body>
@@ -200,7 +197,6 @@
             <div id="leistungen">
                 <h2 class="section-title">✨ Designen mit Leidenschaft und Herzblut für technische Produkte & 3D-Objekte sind wir da! 💫</h2>
                 
-                <!-- IHR NEUER FREIGEGEBENER PROFILTEXT -->
                 <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze über das kreative Grafikdesign bis hin zur präzisen 3D-Konstruktion. Als engagierter Partner für Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualitätsanspruch – zuverlässig, nah am Kunden und lösungsorientiert.</p>
                 
                 <div class="horizontal-scroll-grid">
@@ -220,9 +216,10 @@
                         <h3>Technische Analyse</h3>
                         <p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p>
                     </div>
+                    <!-- 5. KARTE HIER RECHTS OBEN EINGEFÜGT UND PREIS ENTFERNT -->
                     <div class="koerber-card">
-                        <h3>Webdesign <span class="price-badge">100 €</span></h3>
-                        <p>Unternehmen & Start-ups bei der kostengünstigen Erstellung ihrer Website mit vorhandenen Dokumenten für 100 €. Die Dauer der Implementierung & Betreuung beträgt ca. einen Monat. Wunsch-Logo wird zusätzlich berechnet.</p>
+                        <h3>Webdesign</h3>
+                        <p>Unterstützung von Unternehmen und Start-ups bei der professionellen Erstellung und Umsetzung ihrer Webpräsenz mit vorhandenen Dokumenten. Individuelle Konditionen nach Absprache.</p>
                     </div>
                 </div>
             </div>
@@ -262,7 +259,6 @@
                 </div>
             </div>
 
-            <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
                 <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
@@ -291,7 +287,8 @@
                             text-decoration: none; box-sizing: border-box; transition: background-color 0.3s ease;
                             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
                         }
-                        .sidebar-shop img { width: 100%; max-width: 180px; height: auto; display: block; margin-bottom: 0.5rem; mix-blend-mode: multiply; }
+                        /* OPTIMIERTE GRÖSSE DES SHOP-LOGOS */
+                        .sidebar-shop img { width: 100%; max-width: 140px; height: auto; display: block; margin-bottom: 0.5rem; mix-blend-mode: multiply; }
                         .shop-text-container { display: flex; flex-direction: column; align-items: center; color: #d4af37; font-weight: 800; font-size: 1.1rem; line-height: 1.2; text-align: center; }
                         .shop-plus { font-size: 1.6rem; line-height: 1; margin: 0.1rem 0; }
                         .sidebar-shop:hover { background-color: #f5f0fa; }
