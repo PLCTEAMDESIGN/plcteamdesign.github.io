@@ -34,7 +34,6 @@
             background-color: var(--light-bg); 
             display: flex; 
             overflow-x: hidden; 
-            /* Ermöglicht natives weiches Scrollen im Browser */
             scroll-behavior: smooth; 
         } 
         
@@ -77,7 +76,6 @@
             background-color: var(--primary-purple) !important;
         }
 
-        /* LOGO-FLEXIBILITÄT */
         .sidebar-logo {
             width: 100% !important;
             max-width: 100% !important; 
@@ -85,10 +83,8 @@
             display: block !important;
             margin: 0 auto !important; 
             object-fit: contain !important; 
-            transition: filter 0.3s ease !important;
         }
 
-        /* Container für + und Shop */
         .shop-text-wrapper {
             display: flex !important;
             flex-direction: column !important;
@@ -403,15 +399,15 @@
 
     <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
-        <!-- WEITERLEITUNG ZUM SPREADSHOP IM NEUEN TAB BEI KLICK -->
-        <div class="logo-box" onclick="window.open('myspreadshop.de', '_blank')">
+        <!-- WEITERLEITUNG ZUM SPREADSHOP BEI KLICK -->
+        <div class="logo-box" onclick="window.open('https://plc-team-design.myspreadshop.de/', '_blank')">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
             <div class="shop-text-wrapper">
                 <div class="shop-plus">+</div>
                 <div class="shop-text">Shop</div>
             </div>
         </div>
-        <!-- Menü-Buttons (Sprechen die IDs der Abschnitte an) -->
+        <!-- Menü-Buttons -->
         <a href="#leistungen" class="nav-btn">Leistungen</a>
         <a href="#projekte" class="nav-btn">Projekte</a>
         <a href="#contact" class="nav-btn">Contact</a>
@@ -429,7 +425,6 @@
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
             <!-- DIENSTLEISTUNGEN -->
-            <!-- ID für Verlinkung zugewiesen -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -454,7 +449,6 @@
             </div>
 
             <!-- PROJEKTE -->
-            <!-- ID für Verlinkung zugewiesen -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -493,7 +487,6 @@
             </div>
 
             <!-- KONTAKT -->
-            <!-- ID für Verlinkung zugewiesen -->
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
@@ -502,7 +495,7 @@
 
         </div>
 
-        <!-- FOOTER -->
+        <!-- FOOTER MIT RECHTLICH KORREKTEM IMPRESSUM FÜR KLEINUNTERNEHMER -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
