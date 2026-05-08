@@ -9,6 +9,7 @@
     <meta name="google-site-verification" content="hXvCe_t1mEstDom0kluGGE9olJTBmsdgksjMmIZRnKs" /> 
     
     <style> 
+        /* 1. GLOBALE ABSICHERUNG (WASSERDICHT) */
         * {
             box-sizing: border-box !important;
         }
@@ -24,6 +25,7 @@
             --hover-soft: #f5f0fa; 
         } 
         
+        /* 2. GRUNDLAYOUT ABGESICHERT */ 
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             line-height: 1.6; 
@@ -35,6 +37,7 @@
             overflow-x: hidden; 
         } 
         
+        /* FESTE SEITENLEISTE (Weißer Hintergrund und erzwungener Goldrand) */
         .sidebar-nav { 
             width: 250px; 
             height: 100vh; 
@@ -51,12 +54,13 @@
             z-index: 1000; 
         } 
         
+        /* LOGO-SHOP KASTEN: Starr fixiert gegen Textverzerrung mit erzwungenem Goldrand */
         .logo-box {
-            background: transparent !important;
+            background: #ffffff !important;
             padding: 0.8rem 0.4rem !important;
             margin-bottom: 1.5rem !important;
-            border: 1px solid #eeeeee !important; 
-            border-radius: 2px !important;
+            border: 6px solid var(--gold-accent) !important; 
+            border-radius: 4px !important;
             display: flex !important;
             flex-direction: column !important; 
             align-items: center !important; 
@@ -76,7 +80,7 @@
 
         .shop-plus {
             color: var(--primary-purple) !important;
-            font-size: 1.4rem !important; /* Etwas größer für mehr Wucht */
+            font-size: 1.4rem !important;
             font-weight: bold !important;
             line-height: 1 !important;
             margin-bottom: 0.2rem !important; 
@@ -85,13 +89,13 @@
 
         .shop-text {
             color: var(--text-dark) !important;
-            font-size: 1.1rem !important; /* Vergrößert für den lila Kringel */
+            font-size: 1.1rem !important;
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 0.5px !important;
         }
 
-        /* DIE BUTTONS AUS DEM LILA KRINGEL (TEXTE VERGRÖSSERT) */
+        /* BUTTONS IM LINKEN RAND: Erzwungener 6px Goldrand und vergrößerte Schrift */
         .sidebar-nav a.nav-btn {
             display: flex !important;
             align-items: center !important;
@@ -105,7 +109,7 @@
             font-weight: bold !important;
             border: 6px solid var(--gold-accent) !important; 
             border-radius: 4px !important;
-            font-size: 1.1rem !important; /* Schriftgröße spürbar vergrößert */
+            font-size: 1.1rem !important; /* Schriftgröße vergrößert wie gewünscht */
             margin-bottom: 1rem !important;
             transition: all 0.3s ease !important; 
             text-align: center !important;
@@ -116,6 +120,7 @@
             color: #ffffff !important; 
         }
 
+        /* INHALTSBEREICH */
         .main-content { 
             margin-left: 250px; 
             flex: 1; 
@@ -138,6 +143,7 @@
             .section-title { font-size: 2rem; } 
         } 
         
+        /* 3. HEADER & BANNER */ 
         header { 
             background: linear-gradient(135deg, var(--dark-purple), var(--primary-purple)) !important; 
             color: white; 
@@ -156,6 +162,7 @@
             filter: drop-shadow(3px 0px 0px #ffffff) drop-shadow(-3px 0px 0px #ffffff) drop-shadow(0px 3px 0px #ffffff) drop-shadow(0px -3px 0px #ffffff); 
         } 
         
+        /* INHALTSBEREICH: TEXTE & ÜBERSCHRIFTEN */ 
         .section-title { 
             font-size: 2.3rem; 
             font-weight: 800; 
@@ -175,6 +182,7 @@
             line-height: 1.6; 
         } 
         
+        /* DIENSTLEISTUNGS-KARTEN */ 
         .horizontal-scroll-grid { 
             display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); 
@@ -219,7 +227,7 @@
             transition: color 0.3s ease;
         } 
         
-        /* DIE GRÜNE & ROTE KREIS LÖSUNG (NAHTLOSE KETTE) */ 
+        /* PROJEKTE & LAUFBAND-ANIMATION (GRÜNE ZU ROTE KREIS LÖSUNG) */ 
         .projects-section { 
             margin-top: 5rem; 
             text-align: left; 
@@ -237,7 +245,6 @@
             display: flex;
         } 
         
-        /* Erstes Bild */
         .project-featured-img-wrapper { 
             width: 250px; 
             height: 250px; 
@@ -249,9 +256,8 @@
             animation: seamless-pass 12s linear infinite; 
         } 
         
-        /* Zweites Bild (Verfolgt das erste Bild exakt um die Hälfte versetzt) */
         .project-featured-img-wrapper.second {
-            animation-delay: -6s; /* Erschafft die lückenlose Kette */
+            animation-delay: -6s; /* Erschafft den lückenlosen Durchlauf */
         }
 
         .project-featured-img { 
@@ -266,7 +272,6 @@
             to { transform: rotate(-360deg); } 
         } 
         
-        /* Startet außerhalb links und fährt bis außerhalb rechts durch */
         @keyframes seamless-pass { 
             0% { transform: translateX(-250px); } 
             100% { transform: translateX(1100px); } 
@@ -316,6 +321,7 @@
             background: #fafafa; 
         } 
         
+        /* 4. KONTAKT & RECHTLICHES IMPRESSUM */ 
         .contact-section { 
             background: var(--dark-purple); 
             color: white; 
@@ -385,6 +391,7 @@
 </head>
 <body> 
 
+    <!-- SEITENLEISTE --> 
     <div class="sidebar-nav">
         <div class="logo-box">
             <img src="shop-logo.png" alt="PLC Team Design Logo" class="sidebar-logo">
@@ -396,6 +403,7 @@
         <a href="#contact" class="nav-btn">Contact</a>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content">
         
         <header>
@@ -403,9 +411,11 @@
         </header>
 
         <div class="container">
+            <!-- Abgesicherte Überschrift mit Web-Sonderzeichen -->
             <h2 class="section-title">&#x2728; &bdquo;Designen mit Leidenschaft und Herzblut f&uuml;r technische Produkte &amp; 3D-Objekte sind wir da!&ldquo; &#x1F4AB;</h2>
             <p class="section-subtitle">Wir begleiten Sie von der ersten Skizze &uuml;ber das kreative Grafikdesign bis hin zur pr&auml;zisen 3D-Konstruktion. Als engagierter Partner f&uuml;r Unternehmen und Start-ups entwickeln wir technische Produkte und 3D-Objekte mit hohem Qualit&auml;tsanspruch &ndash; zuverl&auml;ssig, nah am Kunden und l&ouml;sungsorientiert.</p>
 
+            <!-- DIENSTLEISTUNGEN -->
             <div id="leistungen" class="horizontal-scroll-grid">
                 <div class="koerber-card">
                     <h3>Wunschdesign</h3>
@@ -429,7 +439,7 @@
                 </div>
             </div>
 
-            <!-- PROJEKTE (MIT DER LÜCKENLOSEN SCHLEIFE) -->
+            <!-- PROJEKTE -->
             <div id="projekte" class="projects-section">
                 <h2 class="section-title">Unsere Projekte</h2>
                 
@@ -437,7 +447,6 @@
                     <div class="project-featured-img-wrapper">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
-                    <!-- Dieses zweite Bild löst das Problem des grünen und roten Kreises -->
                     <div class="project-featured-img-wrapper second">
                         <img src="projekt1.jpg" alt="Zahnrad Konstruktion" class="project-featured-img">
                     </div>
@@ -471,6 +480,7 @@
                 </div>
             </div>
 
+            <!-- KONTAKT -->
             <div id="contact" class="contact-section">
                 <h3>Wir helfen Ihnen gerne weiter!</h3>
                 <p style="text-decoration: none; font-weight: normal;">Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com">plctede@gmail.com</a></p>
@@ -479,6 +489,7 @@
 
         </div>
 
+        <!-- FOOTER MIT RECHTLICH WASSERDICHTEM IMPRESSUM -->
         <footer>
             <div class="footer-container">
                 <div class="accordion-item">
@@ -512,6 +523,7 @@
 
     </div>
 
+    <!-- Skript für das Akkordeon -->
     <script>
         function toggleAccordion() {
             var item = document.querySelector('.accordion-item');
