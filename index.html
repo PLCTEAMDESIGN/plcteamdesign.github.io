@@ -56,7 +56,7 @@
         /* KORRIGIERTER TRANSPARENTER SHOP-KASTEN */
         .sidebar-shop {
             margin-top: 2rem; 
-            background-color: transparent; /* Macht den weißen Hintergrund des Kastens unsichtbar */
+            background-color: transparent; 
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -74,7 +74,7 @@
             height: auto; 
             display: block;
             margin-bottom: 0.5rem; 
-            background-color: transparent; /* Schützt Transparenz von PNGs */
+            background-color: transparent;
         }
         
         /* Zentrierter Text unter dem Logo */
@@ -189,7 +189,7 @@
         <a href="#projekte" class="sidebar-link">Projekte</a>
         <a href="#kontakt" class="sidebar-link">Contact</a>
         
-        <!-- Shop-Kachel mit transparentem Hintergrund -->
+        <!-- Shop-Kachel mit Hover-Effekt (Mausberührung) -->
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
@@ -201,4 +201,90 @@
 
     <!-- HAUPTBEREICH -->
     <div class="main-content">
-        ... (Rest bleibt wie zuvor) ...
+        <header>
+            <div class="logo-container">
+                <img src="logo.png" alt="Logo" class="logo-img">
+                <p>✨ Design mit Leidenschaft und Herzblut – Wir sind Ihr Partner für technische Produkte & 3D-Objekte! 💫</p>
+            </div>
+        </header>
+
+        <div class="container">
+            
+            <!-- Leistungen -->
+            <div id="leistungen">
+                <h2 class="section-title">Wir designen mit Leidenschaft</h2>
+                <p class="section-subtitle">Unser Versprechen: Wir designen für Sie.</p>
+                
+                <div class="horizontal-scroll-grid">
+                    <div class="koerber-card">
+                        <h3>Wunschdesign</h3>
+                        <p>3D-Körper als Dateiformat zur Weiterverarbeitung wie Fräsen, Drehen, Lasern, 3D-Druck oder für Werbezwecke.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Materialanpassung</h3>
+                        <p>Anpassungen von Holz, Glas, Stahl, Blech, Kunststoff, Pulver oder Weiteres.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Begleitung & Beratung</h3>
+                        <p>Begleitung & Beratung für regionale Produktion (Ökologischer Fußabdruck) oder weltweit.</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Technische Analyse</h3>
+                        <p>Sie benötigen weitere Lösungen für Wiederherstellungen, Reparaturen der 3D-Körper von Bauteilen, Baugruppen und die anschließenden FEM-Analysen mit Simulationsberechnungen?</p>
+                    </div>
+                    <div class="koerber-card">
+                        <h3>Webdesign <span class="price-badge">100 €</span></h3>
+                        <p>Unternehmen & Start-ups bei der kostengünstigen Erstellung ihrer Website mit vorhandenen Dokumenten für 100 €. Die Dauer der Implementierung & Betreuung beträgt ca. einen Monat. Wunsch-Logo wird zusätzlich berechnet.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projekte -->
+            <div id="projekte" class="projects-section">
+                <h2 class="section-title">Projekte</h2>
+                <p class="section-subtitle">Ein Auszug unserer fortlaufenden Konstruktions- und Designarbeiten.</p>
+
+                <div class="project-featured">
+                    <div class="project-featured-img-wrapper">
+                        <img src="projekt1.jpg" alt="Projekt 1" class="project-featured-img rotate-animation" onerror="this.style.display='none'">
+                    </div>
+                </div>
+
+                <div class="project-grid">
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt2.jpg" alt="Projekt 2" class="project-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-title">Projekt 2: Prototypen-Entwicklung</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt3.jpg" alt="Projekt 3" class="project-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-title">Projekt 3: 3D-Konstruktion</div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img-wrapper">
+                            <img src="projekt4.jpg" alt="Projekt 4" class="project-img" onerror="this.style.display='none'">
+                        </div>
+                        <div class="project-title">Projekt 4: Modellierung & Design</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kontakt -->
+            <div id="kontakt" class="contact-section">
+                <h3>Gemeinsam Projekte realisieren</h3>
+                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-container">
+                <div class="footer-copyright"><p>&copy; 2026 PLC TEAM DESIGN - Bad Oeynhausen</p></div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
