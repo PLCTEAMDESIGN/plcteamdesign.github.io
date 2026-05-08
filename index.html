@@ -17,7 +17,7 @@
             --light-bg: #fdfbfe;
             --text-dark: #111111;
             --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --hover-soft: #f5f0fa; /* Dezenter, weicher Hintergrund für Berührungen */
+            --hover-soft: #f5f0fa;
         }
 
         body { 
@@ -37,30 +37,37 @@
             padding: 1.5rem 1rem; box-sizing: border-box; z-index: 1000;
         }
         
+        /* OBERSTES LOGO-FELD MIT GOLDRAND */
         .sidebar-logo {
             font-weight: 800; font-size: 1.1rem;
             color: var(--text-dark); text-decoration: none;
             background-color: #ffffff; padding: 0.8rem;
             text-align: center; margin-bottom: 2.5rem;
             border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            border: 4px solid var(--gold-accent);
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        .sidebar-logo:hover {
+            background-color: var(--hover-soft);
         }
         
+        /* MENÜLINKS MIT GOLDRAND */
         .sidebar-link {
             color: var(--text-dark); text-decoration: none;
             font-weight: 700; font-size: 1rem;
             padding: 0.8rem 1rem; background-color: #ffffff;
             margin-bottom: 1rem; text-align: left;
             border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            transition: all 0.2s ease;
+            border: 4px solid var(--gold-accent);
+            box-sizing: border-box;
+            transition: all 0.3s ease;
         }
-        
-        /* Dezent weicher Hover für Menüpunkte */
         .sidebar-link:hover { 
             background-color: var(--hover-soft);
-            color: var(--dark-purple);
         }
         
-        /* DEZENTER SHOP-KASTEN (Weißer Hintergrund, goldener Rand) */
+        /* SHOP-KASTEN (Weißer Hintergrund, goldener Rand) */
         .sidebar-shop {
             margin-top: 2rem; 
             background-color: #ffffff;
@@ -71,6 +78,7 @@
             border-radius: 4px;
             border: 4px solid var(--gold-accent);
             text-decoration: none;
+            box-sizing: border-box;
             transition: all 0.3s ease;
         }
         
@@ -100,7 +108,6 @@
             margin: 0.1rem 0;
         }
         
-        /* HOVER: Bei Berührung färbt sich die Fläche nur ganz dezent hellgrau-violett */
         .sidebar-shop:hover { 
             background-color: var(--hover-soft);
         }
@@ -136,7 +143,6 @@
             transition: all 0.3s ease;
         }
         
-        /* DEZENTER HOVER für die Leistungskarten */
         .koerber-card:hover { 
             transform: translateY(-5px); 
             background-color: var(--hover-soft);
@@ -189,7 +195,6 @@
             transition: all 0.3s ease; 
         }
         
-        /* DEZENTER HOVER für kleine Projekt-Karten */
         .project-card:hover { 
             transform: scale(1.02); 
             background-color: var(--hover-soft);
@@ -213,14 +218,14 @@
 </head>
 <body>
 
-    <!-- SEITENLEISTE -->
+    <!-- SEITENLEISTE MIT GOLDRAND AN ALLEN KÄSTEN -->
     <div class="sidebar-nav">
         <a href="#" class="sidebar-logo">PLC TEAM DESIGN</a>
         <a href="#leistungen" class="sidebar-link">Leistungen</a>
         <a href="#projekte" class="sidebar-link">Projekte</a>
         <a href="#kontakt" class="sidebar-link">Contact</a>
         
-        <!-- Shop-Kachel mit dezentem weichen Hover-Effekt -->
+        <!-- Shop-Kachel mit korrektem Link und Goldrand -->
         <a href="myspreadshop.de" target="_blank" rel="noopener noreferrer" class="sidebar-shop">
             <img src="shop-logo.png" alt="Shop" onerror="this.style.display='none'">
             <div class="shop-text-container">
@@ -306,7 +311,7 @@
             <!-- Kontakt -->
             <div id="kontakt" class="contact-section">
                 <h3>Gemeinsam Projekte realisieren</h3>
-                <p>Wir helfen Ihnen gerne weiter! Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
+                <p>Kontaktieren Sie uns bevorzugt per E-Mail: <a href="mailto:plctede@gmail.com" style="font-size: 1.4rem;">plctede@gmail.com</a></p>
             </div>
         </div>
 
@@ -317,11 +322,5 @@
         </footer>
     </div>
 
-    <script>
-        function toggleAccordion(element) {
-            const item = element.parentElement;
-            item.classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
